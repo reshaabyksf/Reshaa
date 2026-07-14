@@ -21,8 +21,15 @@ export default function Home() {
       {/* HERO SECTION */}
       <section className="relative h-[80vh] flex items-center justify-center bg-gray-100">
         <div className="absolute inset-0 bg-black/40 z-10" /> {/* Dark overlay for text readability */}
-        {/* Fallback color if image is missing */}
-        <div className="absolute inset-0 bg-teal-900" />
+        
+        {/* THIS IS THE NEW IMAGE TAG */}
+        <Image 
+          src="/images/hero-bg.jpg" 
+          alt="Reshaa manufacturing floor" 
+          fill 
+          className="object-cover"
+          priority 
+        />
         
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
@@ -49,9 +56,13 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Product 1 */}
           <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
-            <div className="h-64 bg-gray-200 relative">
-              {/* Replace with your image once uploaded */}
-              <div className="absolute inset-0 flex items-center justify-center text-gray-400">Image: D-Cut</div>
+            <div className="h-64 relative bg-gray-100 group">
+              <Image 
+                src="/images/d-cut.jpg" 
+                alt="D-Cut Non-Woven Bag" 
+                fill 
+                className="object-cover group-hover:scale-105 transition duration-300"
+              />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-2">D-Cut Bags</h3>
@@ -61,8 +72,8 @@ export default function Home() {
 
           {/* Product 2 */}
           <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
-            <div className="h-64 bg-gray-200 relative">
-               <div className="absolute inset-0 flex items-center justify-center text-gray-400">Image: W-Cut</div>
+            <div className="h-64 relative bg-gray-100">
+              <Image src="/images/w-cut.jpg" alt="W-Cut Bag" fill className="object-cover" />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-2">W-Cut (U-Cut) Bags</h3>
@@ -72,8 +83,8 @@ export default function Home() {
 
           {/* Product 3 */}
           <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
-            <div className="h-64 bg-gray-200 relative">
-               <div className="absolute inset-0 flex items-center justify-center text-gray-400">Image: Box Bag</div>
+            <div className="h-64 relative bg-gray-100">
+              <Image src="/images/box.jpg" alt="Box and Leader Bag" fill className="object-cover" />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-2">Box & Leader Bags</h3>
@@ -83,16 +94,55 @@ export default function Home() {
 
           {/* Product 4 */}
           <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
-            <div className="h-64 bg-gray-200 relative">
-               <div className="absolute inset-0 flex items-center justify-center text-gray-400">Image: BOPP Bag</div>
+            <div className="h-64 relative bg-gray-100 group">
+              <Image 
+                src="/images/BOPP.jpg" 
+                alt="Laminated BOPP Bag" 
+                fill 
+                className="object-cover group-hover:scale-105 transition duration-300" 
+              />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-2">Laminated BOPP Bags</h3>
               <p className="text-gray-600 text-sm">High-fidelity printed laminated finishes for maximum brand impact and waterproofing.</p>
             </div>
           </div>
-        </div>
-      </section>
+
+          {/* Product 5 (Loop Handle) */}
+          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+            <div className="h-64 relative bg-gray-100 group">
+              <Image 
+                src="/images/loop.jpg" 
+                alt="Loop Handle Bag" 
+                fill 
+                className="object-cover group-hover:scale-105 transition duration-300"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Loop Handle Bags</h3>
+              <p className="text-gray-600 text-sm">Features comfortable external soft loop handles, delivering a premium look for high-end retail apparel.</p>
+            </div>
+          </div>
+
+          {/* Product 6 (Stitched) */}
+          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+            <div className="h-64 relative bg-gray-100 group">
+              <Image 
+                src="/images/Stitched.jpg" 
+                alt="Stitched Bag" 
+                fill 
+                className="object-cover group-hover:scale-105 transition duration-300"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Stitched Bags</h3>
+              <p className="text-gray-600 text-sm">Heavy-duty tailored construction with reinforced stitching, maximizing durability for bulky or heavy loads.</p>
+            </div>
+          </div>
+
+        </div> {/* <-- This closes the grid */}
+      </section> {/* <-- This closes the whole products section */}
+
 
       {/* MANUFACTURING QUALITY */}
       <section id="manufacturing" className="bg-teal-50 py-20 px-6">
