@@ -10,17 +10,14 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       {/* NAVIGATION */}
       <nav className="flex items-center justify-between p-6 bg-white shadow-md sticky top-0 z-50">
-        {/* Logo Section */}
         <div className="flex items-center">
           <a href="/" className="text-2xl font-bold text-teal-800">RESHAA</a>
         </div>
 
-        {/* Navigation Tabs - Right Side */}
         <div className="flex items-center space-x-8 text-gray-700 font-medium">
           <a href="#about" className="hover:text-teal-600 transition">About</a>
           <a href="#products" className="hover:text-teal-600 transition">Our products</a>
           
-          {/* Dropdown Services */}
           <div className="relative">
             <button 
               onClick={() => setIsServicesOpen(!isServicesOpen)}
@@ -43,14 +40,6 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* ABOUT SECTION */}
-      <section id="about" className="py-20 px-6 text-center bg-gray-50">
-        <h2 className="text-4xl font-bold mb-4 text-teal-800">About Reshaa</h2>
-        <p className="max-w-2xl mx-auto text-gray-600 text-lg">
-          Welcome to Reshaa. We specialize in high-quality non-woven manufacturing and premium printing solutions for your business needs.
-        </p>
-      </section>
-
       {/* HERO SECTION */}
       <section className="relative h-[80vh] flex items-center justify-center bg-gray-100 overflow-hidden">
         <div className="absolute inset-0 bg-black/40 z-10" /> 
@@ -68,22 +57,24 @@ export default function Home() {
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
             Premium Non-Woven Fabric & Carry Bags
           </h1>
-          <p className="text-lg md:text-xl text-gray-200 mb-8">
-            Direct from the manufacturer. From standard D-Cut to premium double-layered and BOPP laminated bags, engineered for durability and retail excellence.
-          </p>
           <a href="#products" className="bg-white text-teal-800 px-8 py-3 rounded-md font-bold text-lg hover:bg-gray-100 transition shadow-lg">
             Explore Our Catalog
           </a>
         </div>
       </section>
 
+      {/* ABOUT SECTION (Now below Hero) */}
+      <section id="about" className="py-20 px-6 text-center bg-gray-50">
+        <h2 className="text-4xl font-bold mb-4 text-teal-800">About Reshaa</h2>
+        <p className="max-w-2xl mx-auto text-gray-600 text-lg">
+          Welcome to Reshaa. We specialize in high-quality non-woven manufacturing and premium printing solutions for your business needs.
+        </p>
+      </section>
+
       {/* PRODUCTS SECTION */}
       <section id="products" className="py-20 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Packaging Solutions</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            We manufacture a versatile range of non-woven bags customized to your brand's specifications.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
