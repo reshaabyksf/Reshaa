@@ -9,14 +9,16 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       {/* NAVIGATION */}
-      <nav className="flex justify-between items-center p-6 bg-white shadow-sm sticky top-0 z-50">
-        <a href="/" className="text-2xl font-bold text-teal-800 tracking-tight">
-          RESHAA
-        </a>
-        
-        <div className="hidden md:flex items-center space-x-8 text-gray-600 font-medium">
+      <nav className="flex items-center justify-between p-6 bg-white shadow-md sticky top-0 z-50">
+        {/* Logo Section */}
+        <div className="flex items-center">
+          <a href="/" className="text-2xl font-bold text-teal-800">RESHAA</a>
+        </div>
+
+        {/* Navigation Tabs - Right Side */}
+        <div className="flex items-center space-x-8 text-gray-700 font-medium">
           <a href="#about" className="hover:text-teal-600 transition">About</a>
-          <a href="#products" className="hover:text-teal-600 transition">Our Products</a>
+          <a href="#products" className="hover:text-teal-600 transition">Our products</a>
           
           {/* Dropdown Services */}
           <div className="relative">
@@ -24,7 +26,7 @@ export default function Home() {
               onClick={() => setIsServicesOpen(!isServicesOpen)}
               className="flex items-center hover:text-teal-600 transition"
             >
-              Services <ChevronDown className="ml-1 h-4 w-4" />
+              Our services <ChevronDown className="ml-1 h-4 w-4" />
             </button>
             
             {isServicesOpen && (
@@ -35,11 +37,10 @@ export default function Home() {
               </div>
             )}
           </div>
-        </div>
 
-        <a href="#contact" className="bg-teal-700 text-white px-6 py-2 rounded-md font-semibold hover:bg-teal-800 transition">
-          Get a Quote
-        </a>
+          <a href="#contact" className="hover:text-teal-600 transition">Contact us</a>
+          <a href="#gallery" className="hover:text-teal-600 transition">Gallery</a>
+        </div>
       </nav>
 
       {/* ABOUT SECTION */}
@@ -81,46 +82,34 @@ export default function Home() {
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Packaging Solutions</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            We manufacture a versatile range of non-woven bags customized to your brand's specifications, using high-grade spunbond fabric.
+            We manufacture a versatile range of non-woven bags customized to your brand's specifications.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Product 1 */}
           <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
-            <div className="bg-gray-100 group flex justify-center">
-              <Image src="/images/d-cut.jpg" alt="D-Cut Non-Woven Bag" width={400} height={300} className="w-full h-64 object-cover group-hover:scale-105 transition duration-300" />
+            <div className="bg-gray-100 flex justify-center">
+              <Image src="/images/d-cut.jpg" alt="D-Cut Bag" width={400} height={300} className="w-full h-64 object-cover" />
             </div>
-            <div className="p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">D-Cut Bags</h3>
-            </div>
+            <div className="p-6"><h3 className="text-xl font-bold">D-Cut Bags</h3></div>
           </div>
-          {/* Product 2 */}
           <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
             <div className="bg-gray-100 flex justify-center">
               <Image src="/images/w-cut.jpg" alt="W-Cut Bag" width={400} height={300} className="w-full h-64 object-cover" />
             </div>
-            <div className="p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">W-Cut (U-Cut) Bags</h3>
-            </div>
+            <div className="p-6"><h3 className="text-xl font-bold">W-Cut Bags</h3></div>
           </div>
-          {/* Product 3 */}
           <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
             <div className="bg-gray-100 flex justify-center">
-              <Image src="/images/box.jpg" alt="Box and Leader Bag" width={400} height={300} className="w-full h-64 object-cover" />
+              <Image src="/images/box.jpg" alt="Box Bag" width={400} height={300} className="w-full h-64 object-cover" />
             </div>
-            <div className="p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Box & Leader Bags</h3>
-            </div>
+            <div className="p-6"><h3 className="text-xl font-bold">Box & Leader Bags</h3></div>
           </div>
-          {/* Product 4 */}
           <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
-            <div className="bg-gray-100 group flex justify-center">
-              <Image src="/images/bopp.jpg" alt="Laminated BOPP Bag" width={400} height={300} className="w-full h-64 object-cover group-hover:scale-105 transition duration-300" />
+            <div className="bg-gray-100 flex justify-center">
+              <Image src="/images/bopp.jpg" alt="BOPP Bag" width={400} height={300} className="w-full h-64 object-cover" />
             </div>
-            <div className="p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Laminated BOPP Bags</h3>
-            </div>
+            <div className="p-6"><h3 className="text-xl font-bold">Laminated BOPP Bags</h3></div>
           </div>
         </div> 
       </section> 
