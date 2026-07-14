@@ -96,7 +96,7 @@ export default function Home() {
           <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
             <div className="h-64 relative bg-gray-100 group">
               <Image 
-                src="/images/BOPP.jpg" 
+                src="/images/bopp.jpg" 
                 alt="Laminated BOPP Bag" 
                 fill 
                 className="object-cover group-hover:scale-105 transition duration-300" 
@@ -128,7 +128,7 @@ export default function Home() {
           <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
             <div className="h-64 relative bg-gray-100 group">
               <Image 
-                src="/images/Stitched.jpg" 
+                src="/images/stitched.jpg" 
                 alt="Stitched Bag" 
                 fill 
                 className="object-cover group-hover:scale-105 transition duration-300"
