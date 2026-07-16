@@ -1,4 +1,5 @@
-import { Mail, Phone, MapPin, Facebook, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Instagram } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -25,10 +26,10 @@ export default function Footer() {
         <div>
           <h4 className="text-xl font-bold mb-4">Follow Us</h4>
           <div className="flex space-x-4">
-            <a href="https://www.facebook.com/profile.php?id=61588265550977" target="_blank" className="hover:text-teal-400 transition">
+            <a href="https://facebook.com/your-profile" target="_blank" className="hover:text-teal-400 transition">
               <Facebook className="h-8 w-8" />
             </a>
-            <a href="https://www.instagram.com/reshaabyksf/" target="_blank" className="hover:text-teal-400 transition">
+            <a href="https://instagram.com/your-profile" target="_blank" className="hover:text-teal-400 transition">
               <Instagram className="h-8 w-8" />
             </a>
           </div>
