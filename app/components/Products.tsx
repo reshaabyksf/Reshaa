@@ -74,6 +74,7 @@ export default function Products() {
         <div className="space-y-20">
           {products.map((item) => (
             <div key={item.title} className="flex flex-col md:flex-row items-start gap-12 border-b border-gray-100 pb-12">
+              {/* Text content */}
               <div className="flex-1 text-left">
                 <h3 className="text-4xl font-bold mb-6 text-teal-800">{item.title}</h3>
                 {typeof item.desc === 'string' ? (
@@ -83,15 +84,14 @@ export default function Products() {
                 )}
               </div>
               
-              {/* Image Container: Using a fixed width and height */}
-              <div className="w-full md:w-[400px] flex-shrink-0">
-                <div className="w-[400px] h-[300px] relative rounded-2xl overflow-hidden shadow-xl bg-gray-100">
+              {/* Fixed Image Container */}
+              <div className="w-full md:w-[300px] flex-shrink-0">
+                <div className="w-[300px] h-[300px] relative rounded-2xl overflow-hidden shadow-xl bg-gray-100">
                   <Image 
                     src={item.img} 
                     alt={item.title} 
-                    width={400}
-                    height={300}
-                    className="object-cover w-full h-full"
+                    fill 
+                    className="object-cover"
                   />
                 </div>
               </div>
