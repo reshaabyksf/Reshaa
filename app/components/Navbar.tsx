@@ -10,13 +10,13 @@ export default function Navbar() {
           RESHAA
         </Link>
 
-        {/* Navigation Menu with increased gap */}
-        <div className="flex items-center gap-10">
-          <Link href="#about" className="text-gray-700 hover:text-teal-600 font-medium transition whitespace-nowrap">About</Link>
-          <Link href="#products" className="text-gray-700 hover:text-teal-600 font-medium transition whitespace-nowrap">Our Products</Link>
-          <Link href="#services" className="text-gray-700 hover:text-teal-600 font-medium transition whitespace-nowrap">Our Services</Link>
-          <Link href="#gallery" className="text-gray-700 hover:text-teal-600 font-medium transition whitespace-nowrap">Gallery</Link>
-          <Link href="#contact" className="text-gray-700 hover:text-teal-600 font-medium transition whitespace-nowrap">Contact Us</Link>
+        {/* Navigation Menu with individual padding */}
+        <div className="flex items-center">
+          <Link href="#about" className="px-5 text-gray-700 hover:text-teal-600 font-medium transition">About</Link>
+          <Link href="#products" className="px-5 text-gray-700 hover:text-teal-600 font-medium transition">Our Products</Link>
+          <Link href="#services" className="px-5 text-gray-700 hover:text-teal-600 font-medium transition">Our Services</Link>
+          <Link href="#gallery" className="px-5 text-gray-700 hover:text-teal-600 font-medium transition">Gallery</Link>
+          <Link href="#contact" className="px-5 text-gray-700 hover:text-teal-600 font-medium transition">Contact Us</Link>
         </div>
       </nav>
     </header>
