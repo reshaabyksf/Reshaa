@@ -85,19 +85,18 @@ export default function Products() {
                   item.desc
                 )}
               </div>
-              
               {/* Image Container */}
               <div className="w-1/3 flex-shrink-0">
                 <div className="w-full h-72 relative rounded-2xl overflow-hidden shadow-xl bg-gray-100">
-                  <Image 
+                  <img 
                     src={item.img} 
                     alt={item.title} 
-                    fill 
-                    className="object-cover"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </div>
             </div>
+              
           ))}
         </div>
       </div>
