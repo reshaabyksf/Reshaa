@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Navbar() {
@@ -13,9 +14,16 @@ export default function Navbar() {
     <header className="w-full bg-white shadow-sm sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         
-        {/* Brand Name */}
-        <Link href="/" className="text-3xl font-extrabold text-teal-900 tracking-tight">
-          RESHAA
+        {/* Replace text with Logo Image */}
+        <Link href="/">
+          <div className="relative w-[150px] h-[50px]">
+            <Image 
+              src="/images/logo.png" 
+              alt="Reshaa Logo" 
+              fill 
+              className="object-contain"
+            />
+          </div>
         </Link>
 
         {/* Navigation Tabs */}
