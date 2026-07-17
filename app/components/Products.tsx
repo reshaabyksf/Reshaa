@@ -83,14 +83,15 @@ export default function Products() {
                 )}
               </div>
               
+              {/* Image Container: Using a fixed width and height */}
               <div className="w-full md:w-[400px] flex-shrink-0">
-                <div className="h-72 relative rounded-2xl overflow-hidden shadow-xl">
+                <div className="w-[400px] h-[300px] relative rounded-2xl overflow-hidden shadow-xl bg-gray-100">
                   <Image 
                     src={item.img} 
                     alt={item.title} 
-                    fill 
-                    className="object-cover" 
-                    sizes="400px"
+                    width={400}
+                    height={300}
+                    className="object-cover w-full h-full"
                   />
                 </div>
               </div>
