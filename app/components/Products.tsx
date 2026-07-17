@@ -31,7 +31,35 @@ export default function Products() {
       ), 
       img: "/images/d-cut.jpg" 
     },
-    { title: "W-cut Bags", desc: "Content coming soon...", img: "/images/w-cut.jpg" },
+    { 
+      title: "W-cut Bags", 
+      desc: (
+        <div className="text-gray-700 text-lg leading-relaxed">
+          <p className="mb-4">Features a W-shaped handle cut, providing extra grip and stability for heavier items.</p>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 className="font-bold text-lg mb-2 text-teal-900">Uses:</h4>
+              <ul className="list-disc list-inside space-y-1">
+                <li>Sweet shops and confectionery stores.</li>
+                <li>Medical stores and pharmacies.</li>
+                <li>Stationery shops and bookstores.</li>
+                <li>Retail stores and supermarkets.</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold text-lg mb-2 text-teal-900">Specialities:</h4>
+              <ul className="list-disc list-inside space-y-1">
+                <li>W-shaped handle for comfortable grip.</li>
+                <li>Reusable and recyclable, eco-friendly.</li>
+                <li>Available in various sizes, GSMs, and colours.</li>
+                <li>Supports custom logo and brand printing.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      ), 
+      img: "/images/w-cut.jpg" 
+    },
     { title: "Loop Handle Bags", desc: "Content coming soon...", img: "/images/loop.jpg" },
     { title: "Bopp Laminated Bags", desc: "Content coming soon...", img: "/images/bopp.jpg" },
     { title: "Stitched Bags", desc: "Content coming soon...", img: "/images/stitched.jpg" },
@@ -48,7 +76,6 @@ export default function Products() {
             <div key={item.title} className="flex flex-col md:flex-row items-start gap-12 border-b border-gray-100 pb-12">
               <div className="flex-1 text-left">
                 <h3 className="text-4xl font-bold mb-6 text-teal-800">{item.title}</h3>
-                {/* Check if desc is a string or JSX/component */}
                 {typeof item.desc === 'string' ? (
                   <p className="text-xl text-gray-700 leading-relaxed">{item.desc}</p>
                 ) : (
