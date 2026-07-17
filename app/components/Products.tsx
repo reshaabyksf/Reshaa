@@ -73,9 +73,11 @@ export default function Products() {
         
         <div className="space-y-20">
           {products.map((item) => (
-            <div key={item.title} className="flex flex-col md:flex-row items-start gap-12 border-b border-gray-100 pb-12">
+            // Changed from flex-col to flex-row to force side-by-side
+            <div key={item.title} className="flex flex-row items-start gap-8 border-b border-gray-100 pb-12">
+              
               {/* Text content */}
-              <div className="flex-1 text-left">
+              <div className="w-2/3 text-left">
                 <h3 className="text-4xl font-bold mb-6 text-teal-800">{item.title}</h3>
                 {typeof item.desc === 'string' ? (
                   <p className="text-xl text-gray-700 leading-relaxed">{item.desc}</p>
@@ -84,9 +86,9 @@ export default function Products() {
                 )}
               </div>
               
-              {/* Fixed Image Container */}
-              <div className="w-full md:w-[300px] flex-shrink-0">
-                <div className="w-[300px] h-[300px] relative rounded-2xl overflow-hidden shadow-xl bg-gray-100">
+              {/* Image Container */}
+              <div className="w-1/3 flex-shrink-0">
+                <div className="w-full h-72 relative rounded-2xl overflow-hidden shadow-xl bg-gray-100">
                   <Image 
                     src={item.img} 
                     alt={item.title} 
