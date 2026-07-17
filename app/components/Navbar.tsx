@@ -14,9 +14,9 @@ export default function Navbar() {
     <header className="w-full bg-white shadow-sm sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         
-        {/* Replace text with Logo Image */}
-        <Link href="/">
-          <div className="relative w-[150px] h-[50px]">
+        {/* Updated: Logo now links to #about */}
+        <Link href="#about">
+          <div className="relative w-[150px] h-[50px] cursor-pointer">
             <Image 
               src="/images/logo.png" 
               alt="Reshaa Logo" 
