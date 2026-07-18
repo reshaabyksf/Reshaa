@@ -2,8 +2,9 @@ export default function About() {
   return (
     <section id="about" style={{ padding: '96px 32px', backgroundColor: '#f9fafb' }}>
       {/* Existing Content */}
-      <div style={{ maxWidth: '1000px', margin: '0 auto 80px auto', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '36px', fontWeight: 'bold', marginBottom: '32px', color: '#115e59' }}>About Reshaa</h2>
+      <div style={{ maxWidth: '1000px', margin: '0 auto', marginBottom: '80px', textAlign: 'center' }}>
+        {/* Updated heading color to navy blue */}
+        <h2 style={{ fontSize: '36px', fontWeight: 'bold', marginBottom: '32px', color: '#1e3a8a' }}>About Reshaa</h2>
         <div style={{ color: '#4b5563', fontSize: '18px', lineHeight: '1.8', textAlign: 'center' }}>
           <p style={{ marginBottom: '24px' }}>
             At Reshaa, we believe a bag is more than just packaging—it's an extension of your brand. 
@@ -24,7 +25,7 @@ export default function About() {
         </div>
       </div>
 
-      {/* New Mission & Vision Section - Side by Side */}
+      {/* Side-by-Side Mission & Vision Section */}
       <div style={{ 
         maxWidth: '1000px', 
         margin: '0 auto', 
