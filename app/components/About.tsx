@@ -1,7 +1,7 @@
 export default function About() {
   return (
     <section id="about" className="relative w-full h-[700px] flex items-center justify-center overflow-hidden">
-      {/* Background Video */}
+      {/* Background Video - Ensures it sits behind everything */}
       <video 
         autoPlay 
         loop 
@@ -9,18 +9,17 @@ export default function About() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover z-0"
       >
-        <source src="/videos/factory.mp4" type="video/mp4" />
+        <source src="/factory.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      {/* Dark Overlay for text readability */}
+      {/* Dark Overlay to keep your text readable */}
       <div className="absolute inset-0 bg-black/60 z-10" />
 
-      {/* Content */}
-      <div className="relative z-20 max-w-4xl mx-auto px-8 text-center text-white">
-        <h2 className="text-5xl font-bold mb-8">About Reshaa</h2>
-        
-        <div className="text-lg leading-relaxed space-y-6">
+      {/* Your Original Content */}
+      <div className="relative z-20 py-24 px-8 text-center text-white">
+        <h2 className="text-4xl font-bold mb-8">About Reshaa</h2>
+        <div className="max-w-4xl mx-auto text-lg leading-relaxed space-y-6">
           <p>
             At Reshaa, we believe a bag is more than just packaging—it's an extension of your brand. 
             With our tagline, <strong>"Bonded for Bags,"</strong> we are committed to manufacturing 
