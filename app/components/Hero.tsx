@@ -1,23 +1,25 @@
-import Image from "next/image";
-
 export default function Hero() {
   return (
-    <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <Image 
-        src="/images/hero-bg.jpg" 
-        alt="Manufacturing floor" 
-        fill 
-        className="object-cover" 
-        priority 
-      />
-      
-      {/* Dark Overlay for better text contrast (even though there's no text now, it keeps the look consistent) */}
-      <div className="absolute inset-0 bg-teal-900/50" />
-      
-      {/* Empty content area to keep the vertical centering structure */}
-      <div className="relative z-10 text-center text-white px-4">
-        {/* Text and button removed for a clean look */}
+    <section className="relative w-full h-[80vh] flex items-center justify-center overflow-hidden">
+      {/* Background Video */}
+      <video 
+        autoPlay 
+        loop 
+        muted 
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="/factory.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/50 z-10" />
+
+      {/* Hero Content */}
+      <div className="relative z-20 text-center text-white px-6">
+        <h1 className="text-6xl font-extrabold mb-4">Welcome to Reshaa</h1>
+        <p className="text-2xl">Bonded for Bags – Quality Packaging Solutions</p>
       </div>
     </section>
   );
