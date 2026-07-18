@@ -1,61 +1,47 @@
+'use client';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Navbar() {
-  const navLinks = [
-    { name: "About", href: "#about" },
-    { name: "Our Products", href: "#products" },
-    { name: "Our Services", href: "#services" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Contact Us", href: "#contact" },
-  ];
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   return (
-    <header style={{ 
-      width: '100%', 
-      backgroundColor: 'white', 
-      boxShadow: '0 2px 4px rgba(0,0,0,0.1)', 
-      position: 'sticky', 
-      top: 0, 
-      zIndex: 50 
-    }}>
-      <nav style={{ 
-        maxWidth: '1200px', 
-        margin: '0 auto', 
-        padding: '15px 30px', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'space-between' 
-      }}>
+    <header style={{ width: '100%', backgroundColor: 'white', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', position: 'sticky', top: 0, zIndex: 100 }}>
+      <nav style={{ maxWidth: '1200px', margin: '0 auto', padding: '15px 30px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         
-        {/* Logo Section */}
-        <Link href="#about" style={{ display: 'flex', alignItems: 'center' }}>
+        {/* Logo */}
+        <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
           <div style={{ position: 'relative', width: '100px', height: '50px' }}>
-            <Image 
-              src="/images/logo.png" 
-              alt="Reshaa Logo" 
-              fill 
-              style={{ objectFit: 'contain' }}
-            />
+            <Image src="/images/logo.png" alt="Reshaa Logo" fill style={{ objectFit: 'contain' }} />
           </div>
         </Link>
 
-        {/* Navigation Tabs - Navy Blue */}
+        {/* Navigation Links */}
         <div style={{ display: 'flex', gap: '25px', alignItems: 'center' }}>
-          {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              href={link.href}
-              style={{ 
-                color: '#1e3a8a', // Navy Blue
-                fontWeight: '600', 
-                textDecoration: 'none',
-                fontSize: '16px'
-              }}
+          <Link href="#about" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none' }}>About</Link>
+          <Link href="#products" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none' }}>Our Products</Link>
+          
+          {/* Services Dropdown in Navbar */}
+          <div style={{ position: 'relative' }}>
+            <button 
+              onClick={() => setIsServicesOpen(!isServicesOpen)}
+              style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: '16px' }}
             >
-              {link.name}
-            </Link>
-          ))}
+              Our Services {isServicesOpen ? '▲' : '▼'}
+            </button>
+            
+            {isServicesOpen && (
+              <div style={{ position: 'absolute', top: '100%', right: 0, backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '8px', padding: '10px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '200px' }}>
+                {["Offset Printing", "Screen Printing", "Flexo Printing", "Stitching"].map(item => (
+                  <div key={item} style={{ padding: '8px 0', color: '#374151', cursor: 'pointer' }}>{item}</div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <Link href="#gallery" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none' }}>Gallery</Link>
+          <Link href="#contact" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none' }}>Contact Us</Link>
         </div>
       </nav>
     </header>
