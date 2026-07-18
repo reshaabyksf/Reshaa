@@ -1,16 +1,16 @@
 export default function About() {
   return (
-    <section id="about" className="py-24 px-8 bg-gray-50">
-      {/* Existing About Content */}
-      <div className="max-w-6xl mx-auto mb-20 text-center">
-        <h2 className="text-4xl font-bold mb-8 text-teal-800">About Reshaa</h2>
-        <div className="text-gray-600 text-lg leading-relaxed space-y-6">
-          <p>
+    <section id="about" style={{ padding: '96px 32px', backgroundColor: '#f9fafb' }}>
+      {/* Existing Content */}
+      <div style={{ maxWidth: '1000px', margin: '0 auto 80px auto', textAlign: 'center' }}>
+        <h2 style={{ fontSize: '36px', fontWeight: 'bold', marginBottom: '32px', color: '#115e59' }}>About Reshaa</h2>
+        <div style={{ color: '#4b5563', fontSize: '18px', lineHeight: '1.8', textAlign: 'center' }}>
+          <p style={{ marginBottom: '24px' }}>
             At Reshaa, we believe a bag is more than just packaging—it's an extension of your brand. 
             With our tagline, <strong>"Bonded for Bags,"</strong> we are committed to manufacturing 
             high-quality non-woven bags that combine durability, functionality, and customization.
           </p>
-          <p>
+          <p style={{ marginBottom: '24px' }}>
             From retail shopping bags to promotional and industrial packaging solutions, we offer a 
             wide range of products designed to meet the unique needs of businesses across industries. 
             Every bag is crafted using premium non-woven fabric and can be customized with your 
@@ -24,30 +24,40 @@ export default function About() {
         </div>
       </div>
 
-      {/* Side-by-Side Mission & Vision Section */}
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+      {/* New Mission & Vision Section - Side by Side */}
+      <div style={{ 
+        maxWidth: '1000px', 
+        margin: '0 auto', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        gap: '60px' 
+      }}>
         
-        {/* Left Column: Visuals (Ensure this is a fixed width or flex-shrink) */}
-        <div className="flex-shrink-0">
-          <div className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-gray-200 rounded-full flex items-center justify-center border-4 border-gray-300">
-            <span className="text-gray-500 font-bold">Your Logo/Visual Here</span>
-          </div>
+        {/* Left: Visual */}
+        <div style={{ 
+          width: '350px', 
+          height: '350px', 
+          borderRadius: '50%', 
+          backgroundColor: '#e5e7eb', 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'center',
+          border: '4px solid #d1d5db',
+          flexShrink: 0
+        }}>
+          Visuals
         </div>
 
-        {/* Right Column: Mission & Vision Text */}
-        <div className="flex flex-col space-y-8">
+        {/* Right: Text */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
           <div>
-            <h3 className="text-3xl font-bold text-blue-900 mb-2">Our Mission</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Content coming soon...
-            </p>
+            <h3 style={{ fontSize: '32px', fontWeight: 'bold', color: '#1e3a8a', margin: '0 0 10px 0' }}>Our Mission</h3>
+            <p style={{ color: '#374151', fontSize: '18px', margin: '0' }}>Content coming soon...</p>
           </div>
-
           <div>
-            <h3 className="text-3xl font-bold text-blue-900 mb-2">Our Vision</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Content coming soon...
-            </p>
+            <h3 style={{ fontSize: '32px', fontWeight: 'bold', color: '#1e3a8a', margin: '0 0 10px 0' }}>Our Vision</h3>
+            <p style={{ color: '#374151', fontSize: '18px', margin: '0' }}>Content coming soon...</p>
           </div>
         </div>
         
