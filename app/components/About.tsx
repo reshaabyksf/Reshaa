@@ -25,26 +25,31 @@ export default function About() {
       </div>
 
       {/* New Mission & Vision Section */}
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-start">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         
-        {/* Left Column: Mission & Vision */}
-        <div className="flex-1 space-y-6">
-          {/* Mission */}
-          <div className="bg-blue-900 p-8 rounded-lg shadow-md text-white">
-            <h3 className="text-2xl font-bold mb-2">Our Mission</h3>
-            <p className="opacity-90">Content coming soon...</p>
-          </div>
-
-          {/* Vision */}
-          <div className="bg-blue-900 p-8 rounded-lg shadow-md text-white">
-            <h3 className="text-2xl font-bold mb-2">Our Vision</h3>
-            <p className="opacity-90">Content coming soon...</p>
+        {/* Left Column: Visuals/Logo */}
+        <div className="flex justify-center md:justify-start">
+          {/* Replace this div with your actual Logo Image component */}
+          <div className="w-[400px] h-[400px] bg-gray-200 rounded-full flex items-center justify-center border-4 border-gray-300">
+            <span className="text-gray-500 font-bold">Your Logo/Visual Here</span>
           </div>
         </div>
 
-        {/* Right Column: Space for Visuals */}
-        <div className="flex-1 h-[300px] w-full bg-gray-200 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-400">
-          <p className="text-gray-500">Visuals space</p>
+        {/* Right Column: Mission & Vision Text */}
+        <div className="space-y-10">
+          <div>
+            <h3 className="text-3xl font-bold text-teal-800 mb-4">Our Mission</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Content coming soon...
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-3xl font-bold text-teal-800 mb-4">Our Vision</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Content coming soon...
+            </p>
+          </div>
         </div>
         
       </div>
