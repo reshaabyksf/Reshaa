@@ -1,103 +1,54 @@
-import Image from "next/image";
-
 export default function Products() {
-  const products = [
-    { 
-      title: "D-cut Bags", 
-      desc: (
-        <div className="text-gray-700 text-lg leading-relaxed">
-          <p className="mb-4">A simple, strong, and budget-friendly bag with a handle cut directly into the fabric.</p>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <h4 className="font-bold text-lg mb-2 text-teal-900">Uses:</h4>
-              <ul className="list-disc list-inside space-y-1">
-                <li>Clothing and garment shops.</li>
-                <li>Pharmacies and medical stores.</li>
-                <li>Gift shops and retail outlets.</li>
-                <li>Promotional events and exhibitions.</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold text-lg mb-2 text-teal-900">Specialities:</h4>
-              <ul className="list-disc list-inside space-y-1">
-                <li>Lightweight yet durable construction.</li>
-                <li>Reusable and recyclable, sustainable option.</li>
-                <li>Available in multiple GSMs, sizes, and colours.</li>
-                <li>Customizable with logos and brand printing.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      ), 
-      img: "/images/d-cut.jpg" 
-    },
-    { 
-      title: "W-cut Bags", 
-      desc: (
-        <div className="text-gray-700 text-lg leading-relaxed">
-          <p className="mb-4">Features a W-shaped handle cut, providing extra grip and stability for heavier items.</p>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <h4 className="font-bold text-lg mb-2 text-teal-900">Uses:</h4>
-              <ul className="list-disc list-inside space-y-1">
-                <li>Sweet shops and confectionery stores.</li>
-                <li>Medical stores and pharmacies.</li>
-                <li>Stationery shops and bookstores.</li>
-                <li>Retail stores and supermarkets.</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold text-lg mb-2 text-teal-900">Specialities:</h4>
-              <ul className="list-disc list-inside space-y-1">
-                <li>W-shaped handle for comfortable grip.</li>
-                <li>Reusable and recyclable, eco-friendly.</li>
-                <li>Available in various sizes, GSMs, and colours.</li>
-                <li>Supports custom logo and brand printing.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      ), 
-      img: "/images/w-cut.jpg" 
-    },
-    { title: "Loop Handle Bags", desc: "Content coming soon...", img: "/images/loop.jpg" },
-    { title: "Bopp Laminated Bags", desc: "Content coming soon...", img: "/images/bopp.jpg" },
-    { title: "Stitched Bags", desc: "Content coming soon...", img: "/images/stitched.jpg" },
-    { title: "Box Bags", desc: "Content coming soon...", img: "/images/box.jpg" },
-  ];
-
   return (
-    <section id="products" className="py-20 px-8 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-5xl font-extrabold mb-16 text-left text-teal-900">Our Packaging Solutions</h2>
-        
-        <div className="space-y-20">
-          {products.map((item) => (
-            // Changed from flex-col to flex-row to force side-by-side
-            <div key={item.title} className="flex flex-row items-start gap-8 border-b border-gray-100 pb-12">
-              
-              {/* Text content */}
-              <div className="w-2/3 text-left">
-                <h3 className="text-4xl font-bold mb-6 text-teal-800">{item.title}</h3>
-                {typeof item.desc === 'string' ? (
-                  <p className="text-xl text-gray-700 leading-relaxed">{item.desc}</p>
-                ) : (
-                  item.desc
-                )}
-              </div>
-              {/* Image Container */}
-              <div className="w-1/3 flex-shrink-0">
-                <div className="w-full h-72 relative rounded-2xl overflow-hidden shadow-xl bg-gray-100">
-                  <img 
-                    src={item.img} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-              
-          ))}
+    <section id="products" style={{ padding: '96px 32px', backgroundColor: '#ffffff' }}>
+      <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+        <h2 style={{ fontSize: '36px', fontWeight: 'bold', color: '#115e59', marginBottom: '48px', textAlign: 'center' }}>
+          Our Packaging Solutions
+        </h2>
+
+        {/* D-Cut Bags Section */}
+        <div style={{ 
+          display: 'flex', 
+          flexDirection: 'row', 
+          alignItems: 'center', 
+          gap: '60px',
+          padding: '40px',
+          borderRadius: '16px',
+          backgroundColor: '#f9fafb'
+        }}>
+          
+          {/* Left: Content (Your original content preserved) */}
+          <div style={{ flex: 1 }}>
+            <h3 style={{ fontSize: '28px', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '16px' }}>D-cut Bags</h3>
+            <p style={{ color: '#4b5563', fontSize: '18px', marginBottom: '24px', lineHeight: '1.6' }}>
+              A simple, strong, and budget-friendly bag with a handle cut directly into the fabric.
+            </p>
+            
+            <h4 style={{ fontWeight: 'bold', color: '#115e59', marginBottom: '8px' }}>Uses:</h4>
+            <ul style={{ color: '#4b5563', listStyleType: 'disc', paddingLeft: '20px', marginBottom: '24px' }}>
+              <li>Clothing and garment shops.</li>
+              <li>Pharmacies and medical stores.</li>
+              <li>Gift shops and retail outlets.</li>
+              <li>Promotional events and exhibitions.</li>
+            </ul>
+
+            <h4 style={{ fontWeight: 'bold', color: '#115e59', marginBottom: '8px' }}>Specialties:</h4>
+            <p style={{ color: '#4b5563', fontSize: '16px' }}>Lightweight, durable construction.</p>
+          </div>
+
+          {/* Right: Visual Placeholder */}
+          <div style={{ 
+            flex: 1, 
+            height: '300px', 
+            backgroundColor: '#e5e7eb', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+            borderRadius: '12px',
+            border: '2px dashed #9ca3af'
+          }}>
+            <span style={{ color: '#6b7280' }}>Product Image</span>
+          </div>
         </div>
       </div>
     </section>
