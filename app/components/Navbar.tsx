@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 export default function Navbar() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
 
   return (
     <header style={{ width: '100%', backgroundColor: 'white', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', position: 'sticky', top: 0, zIndex: 100 }}>
@@ -20,8 +21,26 @@ export default function Navbar() {
         {/* Navigation Links */}
         <div style={{ display: 'flex', gap: '25px', alignItems: 'center' }}>
           <Link href="#about" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none' }}>About</Link>
-          <Link href="#products" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none' }}>Our Products</Link>
           
+          {/* Products Dropdown */}
+          <div style={{ position: 'relative' }}>
+            <button 
+              onClick={() => setIsProductsOpen(!isProductsOpen)}
+              style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: '16px', display: 'flex', alignItems: 'center', gap: '5px' }}
+            >
+              Our Products {isProductsOpen ? '▲' : '▼'}
+            </button>
+            {isProductsOpen && (
+              <div style={{ position: 'absolute', top: '100%', right: 0, backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '8px', padding: '15px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '220px' }}>
+                {["D-cut Bag", "W-cut Bag", "Loop Bag", "Stitched Bag", "BOPP Bag", "Box Bag"].map(item => (
+                  <div key={item} style={{ padding: '8px 0', color: '#374151', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ fontSize: '12px', color: '#1e3a8a' }}>➔</span> {item}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
           {/* Services Dropdown */}
           <div style={{ position: 'relative' }}>
             <button 
@@ -30,7 +49,6 @@ export default function Navbar() {
             >
               Our Services {isServicesOpen ? '▲' : '▼'}
             </button>
-            
             {isServicesOpen && (
               <div style={{ position: 'absolute', top: '100%', right: 0, backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '8px', padding: '15px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '220px' }}>
                 {["Offset Printing", "Screen Printing", "Flexo Printing", "Stitching"].map(item => (
