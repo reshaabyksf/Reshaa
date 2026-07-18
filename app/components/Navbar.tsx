@@ -11,28 +11,47 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="w-full bg-white shadow-sm sticky top-0 z-50">
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <header style={{ 
+      width: '100%', 
+      backgroundColor: 'white', 
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)', 
+      position: 'sticky', 
+      top: 0, 
+      zIndex: 50 
+    }}>
+      <nav style={{ 
+        maxWidth: '1200px', 
+        margin: '0 auto', 
+        padding: '15px 30px', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'space-between' 
+      }}>
         
-        {/* Updated: Logo now links to #about */}
-        <Link href="#about">
-          <div className="relative w-[150px] h-[50px] cursor-pointer">
+        {/* Logo Section */}
+        <Link href="#about" style={{ display: 'flex', alignItems: 'center' }}>
+          <div style={{ position: 'relative', width: '100px', height: '50px' }}>
             <Image 
               src="/images/logo.png" 
               alt="Reshaa Logo" 
               fill 
-              className="object-contain"
+              style={{ objectFit: 'contain' }}
             />
           </div>
         </Link>
 
-        {/* Navigation Tabs */}
-        <div className="flex items-center gap-2">
+        {/* Navigation Tabs - Navy Blue */}
+        <div style={{ display: 'flex', gap: '25px', alignItems: 'center' }}>
           {navLinks.map((link) => (
             <Link 
               key={link.name} 
               href={link.href}
-              className="px-5 py-2 rounded-full text-gray-700 font-medium hover:bg-teal-50 hover:text-teal-700 transition-all duration-200"
+              style={{ 
+                color: '#1e3a8a', // Navy Blue
+                fontWeight: '600', 
+                textDecoration: 'none',
+                fontSize: '16px'
+              }}
             >
               {link.name}
             </Link>
