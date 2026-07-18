@@ -22,19 +22,21 @@ export default function Navbar() {
           <Link href="#about" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none' }}>About</Link>
           <Link href="#products" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none' }}>Our Products</Link>
           
-          {/* Services Dropdown in Navbar */}
+          {/* Services Dropdown */}
           <div style={{ position: 'relative' }}>
             <button 
               onClick={() => setIsServicesOpen(!isServicesOpen)}
-              style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: '16px' }}
+              style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: '16px', display: 'flex', alignItems: 'center', gap: '5px' }}
             >
               Our Services {isServicesOpen ? '▲' : '▼'}
             </button>
             
             {isServicesOpen && (
-              <div style={{ position: 'absolute', top: '100%', right: 0, backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '8px', padding: '10px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '200px' }}>
+              <div style={{ position: 'absolute', top: '100%', right: 0, backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '8px', padding: '15px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '220px' }}>
                 {["Offset Printing", "Screen Printing", "Flexo Printing", "Stitching"].map(item => (
-                  <div key={item} style={{ padding: '8px 0', color: '#374151', cursor: 'pointer' }}>{item}</div>
+                  <div key={item} style={{ padding: '8px 0', color: '#374151', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ fontSize: '12px', color: '#1e3a8a' }}>➔</span> {item}
+                  </div>
                 ))}
               </div>
             )}
