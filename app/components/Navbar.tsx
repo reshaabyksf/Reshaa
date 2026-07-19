@@ -7,17 +7,8 @@ export default function Navbar() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
 
-  // Toggle Services and close Products
-  const toggleServices = () => {
-    setIsServicesOpen(!isServicesOpen);
-    setIsProductsOpen(false);
-  };
-
-  // Toggle Products and close Services
-  const toggleProducts = () => {
-    setIsProductsOpen(!isProductsOpen);
-    setIsServicesOpen(false);
-  };
+  // Consistent font size for all header elements
+  const headerFontSize = '16px';
 
   return (
     <header style={{ width: '100%', backgroundColor: 'white', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', position: 'sticky', top: 0, zIndex: 100 }}>
@@ -30,21 +21,22 @@ export default function Navbar() {
         </Link>
 
         <div style={{ display: 'flex', gap: '25px', alignItems: 'center' }}>
-          <Link href="#about" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none' }}>About</Link>
+          {/* About */}
+          <Link href="#about" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: headerFontSize }}>About</Link>
           
           {/* Products Dropdown */}
           <div style={{ position: 'relative' }}>
             <button 
-              onClick={toggleProducts}
-              style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: '16px', display: 'flex', alignItems: 'center', gap: '5px' }}
+              onClick={() => { setIsProductsOpen(!isProductsOpen); setIsServicesOpen(false); }}
+              style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: headerFontSize, display: 'flex', alignItems: 'center', gap: '5px' }}
             >
               Our Products {isProductsOpen ? '▲' : '▼'}
             </button>
             {isProductsOpen && (
-              <div style={{ position: 'absolute', top: '100%', left: 0, backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '8px', padding: '15px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '220px' }}>
+              <div style={{ position: 'absolute', top: '100%', left: 0, backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '4px', padding: '5px 0', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '200px' }}>
                 {["D-cut Bag", "W-cut Bag", "Loop Bag", "Stitched Bag", "BOPP Bag", "Box Bag"].map(item => (
-                  <div key={item} style={{ padding: '8px 0', color: '#374151', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ fontSize: '12px', color: '#1e3a8a' }}>➔</span> {item}
+                  <div key={item} style={{ padding: '6px 15px', color: '#374151', cursor: 'pointer', fontSize: headerFontSize, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ fontSize: '10px', color: '#1e3a8a' }}>➔</span> {item}
                   </div>
                 ))}
               </div>
@@ -54,24 +46,24 @@ export default function Navbar() {
           {/* Services Dropdown */}
           <div style={{ position: 'relative' }}>
             <button 
-              onClick={toggleServices}
-              style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: '16px', display: 'flex', alignItems: 'center', gap: '5px' }}
+              onClick={() => { setIsServicesOpen(!isServicesOpen); setIsProductsOpen(false); }}
+              style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: headerFontSize, display: 'flex', alignItems: 'center', gap: '5px' }}
             >
               Our Services {isServicesOpen ? '▲' : '▼'}
             </button>
             {isServicesOpen && (
-              <div style={{ position: 'absolute', top: '100%', left: 0, backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '8px', padding: '15px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '220px' }}>
+              <div style={{ position: 'absolute', top: '100%', left: 0, backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '4px', padding: '5px 0', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '200px' }}>
                 {["Offset Printing", "Screen Printing", "Flexo Printing", "Stitching"].map(item => (
-                  <div key={item} style={{ padding: '8px 0', color: '#374151', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ fontSize: '12px', color: '#1e3a8a' }}>➔</span> {item}
+                  <div key={item} style={{ padding: '6px 15px', color: '#374151', cursor: 'pointer', fontSize: headerFontSize, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ fontSize: '10px', color: '#1e3a8a' }}>➔</span> {item}
                   </div>
                 ))}
               </div>
             )}
           </div>
 
-          <Link href="#gallery" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none' }}>Gallery</Link>
-          <Link href="#contact" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none' }}>Contact Us</Link>
+          <Link href="#gallery" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: headerFontSize }}>Gallery</Link>
+          <Link href="#contact" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: headerFontSize }}>Contact Us</Link>
         </div>
       </nav>
     </header>
