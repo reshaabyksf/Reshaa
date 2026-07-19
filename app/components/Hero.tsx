@@ -7,6 +7,7 @@ export default function Hero() {
         loop 
         muted 
         playsInline
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover z-0"
       >
         <source src="/factory.mp4" type="video/mp4" />
