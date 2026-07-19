@@ -3,7 +3,6 @@ export default function About() {
     <section id="about" style={{ padding: '96px 32px', backgroundColor: '#f9fafb' }}>
       {/* Existing Content */}
       <div style={{ maxWidth: '1000px', margin: '0 auto', marginBottom: '80px', textAlign: 'center' }}>
-        {/* Updated heading color to navy blue */}
         <h2 style={{ fontSize: '36px', fontWeight: 'bold', marginBottom: '32px', color: '#1e3a8a' }}>About Reshaa</h2>
         <div style={{ color: '#4b5563', fontSize: '18px', lineHeight: '1.8', textAlign: 'center' }}>
           <p style={{ marginBottom: '24px' }}>
@@ -25,29 +24,49 @@ export default function About() {
         </div>
       </div>
 
-      {/* Side-by-Side Mission & Vision Section */}
+      {/* Side-by-Side Mission & Vision Section - Left Aligned Visuals */}
       <div style={{ 
         maxWidth: '1000px', 
         margin: '0 auto', 
         display: 'flex', 
         alignItems: 'center', 
-        justifyContent: 'center', 
+        justifyContent: 'flex-start', // Left Aligned
         gap: '60px' 
       }}>
         
-        {/* Left: Visual */}
+        {/* Left: Video Background + Bag Icon */}
         <div style={{ 
           width: '350px', 
           height: '350px', 
           borderRadius: '50%', 
-          backgroundColor: '#e5e7eb', 
-          display: 'flex', 
-          alignItems: 'center', 
-          justifyContent: 'center',
+          overflow: 'hidden',
+          position: 'relative',
           border: '4px solid #d1d5db',
           flexShrink: 0
         }}>
-          Visuals
+          {/* Background Video */}
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          >
+            <source src="/videos/visuals-bg.mp4" type="video/mp4" />
+          </video>
+          
+          {/* Logo Bag Icon */}
+          <img 
+            src="/images/bag-icon.png" 
+            alt="Bag Icon" 
+            style={{ 
+              position: 'absolute', 
+              top: '50%', 
+              left: '50%', 
+              transform: 'translate(-50%, -50%)', 
+              width: '120px' 
+            }} 
+          />
         </div>
 
         {/* Right: Text */}
@@ -61,7 +80,6 @@ export default function About() {
             <p style={{ color: '#374151', fontSize: '18px', margin: '0' }}>Content coming soon...</p>
           </div>
         </div>
-        
       </div>
     </section>
   );
