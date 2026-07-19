@@ -30,7 +30,7 @@ export default function About() {
         margin: '0 auto', 
         display: 'flex', 
         alignItems: 'center', 
-        justifyContent: 'flex-start', // Left Aligned
+        justifyContent: 'flex-start', 
         gap: '60px' 
       }}>
         
@@ -55,16 +55,18 @@ export default function About() {
             <source src="/videos/visuals-bg.mp4" type="video/mp4" />
           </video>
           
-          {/* Logo Bag Icon */}
+          {/* Corrected Bag Icon */}
           <img 
             src="/images/bag-icon.png" 
             alt="Bag Icon" 
             style={{ 
               position: 'absolute', 
-              top: '50%', 
-              left: '50%', 
-              transform: 'translate(-50%, -50%)', 
-              width: '120px' 
+              top: '0', 
+              left: '0', 
+              width: '100%', 
+              height: '100%', 
+              objectFit: 'contain',
+              padding: '70px' 
             }} 
           />
         </div>
