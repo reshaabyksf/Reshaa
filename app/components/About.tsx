@@ -34,7 +34,7 @@ export default function About() {
         gap: '60px' 
       }}>
         
-        {/* Left: Circular Frame (350px by 350px) */}
+        {/* Left: Circular Frame */}
         <div style={{ 
           width: '350px', 
           height: '350px', 
@@ -64,7 +64,7 @@ export default function About() {
             Your browser does not support the video tag.
           </video>
           
-          {/* Bag Graphic Overlay (Scaled up to 380px) */}
+          {/* Bag Graphic Overlay (Increased to 440px for a much larger fit) */}
           <div 
             style={{ 
               position: 'absolute', 
@@ -75,7 +75,7 @@ export default function About() {
               backgroundImage: 'url(/images/bag-icon.png)',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
-              backgroundSize: '380px auto', // Force exact size to align cleanly with circle
+              backgroundSize: '440px auto', 
               mixBlendMode: 'multiply',
               zIndex: 1
             }} 
