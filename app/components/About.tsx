@@ -64,7 +64,7 @@ export default function About() {
             Your browser does not support the video tag.
           </video>
           
-          {/* Bag Graphic Overlay */}
+          {/* Larger Bag Graphic Overlay (95% scale) */}
           <div 
             style={{ 
               position: 'absolute', 
@@ -75,7 +75,7 @@ export default function About() {
               backgroundImage: 'url(/images/bag-icon.png)',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
-              backgroundSize: '85%', 
+              backgroundSize: '95%', 
               mixBlendMode: 'multiply',
               zIndex: 1
             }} 
