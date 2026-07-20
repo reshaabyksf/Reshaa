@@ -44,7 +44,7 @@ export default function About() {
           border: '4px solid #d1d5db',
           flexShrink: 0
         }}>
-          {/* Background Video Layer - Testing with factory.mp4 */}
+          {/* Background Video Layer */}
           <video 
             autoPlay 
             loop 
@@ -60,11 +60,11 @@ export default function About() {
               zIndex: 0 
             }}
           >
-            <source src="/factory.mp4" type="video/mp4" />
+            <source src="/Videos/visuals-bg.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           
-          {/* Bag Graphic Overlay */}
+          {/* Bag Graphic Overlay reverted to previous scale (70%) */}
           <div 
             style={{ 
               position: 'absolute', 
@@ -75,7 +75,7 @@ export default function About() {
               backgroundImage: 'url(/images/bag-icon.png)',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
-              backgroundSize: '100%',
+              backgroundSize: '70%', 
               mixBlendMode: 'multiply',
               zIndex: 1
             }} 
