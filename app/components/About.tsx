@@ -34,7 +34,7 @@ export default function About() {
         gap: '60px' 
       }}>
         
-        {/* Left: Circular Frame containing the Full Video + Blended Bag Overlay */}
+        {/* Left: Circular Frame containing the Full Video + Larger Bag Overlay */}
         <div style={{ 
           width: '350px', 
           height: '350px', 
@@ -56,9 +56,9 @@ export default function About() {
           </video>
           
           {/* 
-            Bag Logo Overlay: 
-            mixBlendMode 'multiply' makes the white background of the image transparent 
-            so the video plays everywhere, including right behind/through the bag image area.
+            Enlarged Bag Logo Overlay:
+            backgroundSize increased to 100% so it aligns cleanly to the dimensions of the circle,
+            while mixBlendMode 'multiply' ensures the white space is transparent and video shows through.
           */}
           <div 
             style={{ 
@@ -70,7 +70,7 @@ export default function About() {
               backgroundImage: 'url(/images/bag-icon.png)',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
-              backgroundSize: '70%',
+              backgroundSize: '100%', 
               mixBlendMode: 'multiply'
             }} 
           />
