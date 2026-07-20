@@ -44,7 +44,7 @@ export default function About() {
           border: '4px solid #d1d5db',
           flexShrink: 0
         }}>
-          {/* Background Video Layer pointing to capital V 'Videos' */}
+          {/* Background Video Layer - Testing with factory.mp4 */}
           <video 
             autoPlay 
             loop 
@@ -60,7 +60,7 @@ export default function About() {
               zIndex: 0 
             }}
           >
-            <source src="/Videos/visuals-bg.mp4" type="video/mp4" />
+            <source src="/factory.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           
