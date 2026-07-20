@@ -64,12 +64,12 @@ export default function About() {
             Your browser does not support the video tag.
           </video>
           
-          {/* Larger Bag Graphic Overlay (85% scale) with Video Background Shining Through */}
+          {/* Bag Graphic Overlay */}
           <div 
             style={{ 
               position: 'absolute', 
               top: 0, 
-5              left: 0, 
+              left: 0, 
               width: '100%', 
               height: '100%', 
               backgroundImage: 'url(/images/bag-icon.png)',
