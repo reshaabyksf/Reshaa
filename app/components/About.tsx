@@ -55,7 +55,7 @@ export default function About() {
             <source src="/videos/visuals-bg.mp4" type="video/mp4" />
           </video>
           
-          {/* Darker Overlay to make the bag pop over the video */}
+          {/* Overlay to help the logo pop over the video */}
           <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(255, 255, 255, 0.2)' }} />
 
           {/* Centered Bag Logo using CSS Background Properties */}
@@ -69,7 +69,7 @@ export default function About() {
               backgroundImage: 'url(/images/bag-icon.png)',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
-              backgroundSize: '55%' // Adjust this percentage to make the bag larger or smaller inside the circle
+              backgroundSize: '55%' 
             }} 
           />
         </div>
