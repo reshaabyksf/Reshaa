@@ -34,7 +34,7 @@ export default function About() {
         gap: '60px' 
       }}>
         
-        {/* Left: Video Background + Bag Icon */}
+        {/* Left: Video Background + Centered Bag Logo Overlay */}
         <div style={{ 
           width: '350px', 
           height: '350px', 
@@ -50,23 +50,26 @@ export default function About() {
             loop 
             muted 
             playsInline 
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0 }}
           >
             <source src="/videos/visuals-bg.mp4" type="video/mp4" />
           </video>
           
-          {/* Corrected Bag Icon */}
-          <img 
-            src="/images/bag-icon.png" 
-            alt="Bag Icon" 
+          {/* Darker Overlay to make the bag pop over the video */}
+          <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(255, 255, 255, 0.2)' }} />
+
+          {/* Centered Bag Logo using CSS Background Properties */}
+          <div 
             style={{ 
               position: 'absolute', 
-              top: '0', 
-              left: '0', 
+              top: 0, 
+              left: 0, 
               width: '100%', 
               height: '100%', 
-              objectFit: 'contain',
-              padding: '70px' 
+              backgroundImage: 'url(/images/bag-icon.png)',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: '55%' // Adjust this percentage to make the bag larger or smaller inside the circle
             }} 
           />
         </div>
