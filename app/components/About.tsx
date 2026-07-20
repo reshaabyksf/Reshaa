@@ -42,10 +42,9 @@ export default function About() {
           overflow: 'hidden',
           position: 'relative',
           border: '4px solid #d1d5db',
-          flexShrink: 0,
-          backgroundColor: '#00f' // Temporary bright blue background to test if layer is visible
+          flexShrink: 0
         }}>
-          {/* Background Video Layer */}
+          {/* Background Video Layer pointing to capital V 'Videos' */}
           <video 
             autoPlay 
             loop 
@@ -61,7 +60,7 @@ export default function About() {
               zIndex: 0 
             }}
           >
-            <source src="/videos/visuals-bg.mp4" type="video/mp4" />
+            <source src="/Videos/visuals-bg.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           
