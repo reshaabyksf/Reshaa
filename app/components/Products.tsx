@@ -56,7 +56,7 @@ export default function Products() {
               style={{ 
                 width: '100%', 
                 height: '100%', 
-                objectFit: 'contain' 
+                objectFit: 'cover' 
               }} 
             />
           </div>
