@@ -42,7 +42,8 @@ export default function About() {
           overflow: 'hidden',
           position: 'relative',
           border: '4px solid #d1d5db',
-          flexShrink: 0
+          flexShrink: 0,
+          backgroundColor: '#00f' // Temporary bright blue background to test if layer is visible
         }}>
           {/* Background Video Layer */}
           <video 
@@ -61,13 +62,10 @@ export default function About() {
             }}
           >
             <source src="/videos/visuals-bg.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
           </video>
           
-          {/* 
-            Bag Graphic Overlay with mixBlendMode: 'multiply' 
-            This forces the white areas of the image file to become transparent, 
-            allowing the video to stream underneath the entire circle while keeping your bag visible.
-          */}
+          {/* Bag Graphic Overlay */}
           <div 
             style={{ 
               position: 'absolute', 
