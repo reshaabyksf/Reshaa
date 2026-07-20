@@ -34,7 +34,7 @@ export default function About() {
         gap: '60px' 
       }}>
         
-        {/* Left: Video Background + Transparent Logo Filling the Circle */}
+        {/* Left: Circular Frame containing the Full Video + Blended Bag Overlay */}
         <div style={{ 
           width: '350px', 
           height: '350px', 
@@ -44,7 +44,7 @@ export default function About() {
           border: '4px solid #d1d5db',
           flexShrink: 0
         }}>
-          {/* Background Video running across the full circle */}
+          {/* Background Video running across the entire circle */}
           <video 
             autoPlay 
             loop 
@@ -55,7 +55,11 @@ export default function About() {
             <source src="/videos/visuals-bg.mp4" type="video/mp4" />
           </video>
           
-          {/* Logo overlay scaled to cover the entire circle frame */}
+          {/* 
+            Bag Logo Overlay: 
+            mixBlendMode 'multiply' makes the white background of the image transparent 
+            so the video plays everywhere, including right behind/through the bag image area.
+          */}
           <div 
             style={{ 
               position: 'absolute', 
@@ -66,7 +70,8 @@ export default function About() {
               backgroundImage: 'url(/images/bag-icon.png)',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
-              backgroundSize: '100%' // Scales the graphic to fill the full circular dimensions
+              backgroundSize: '70%',
+              mixBlendMode: 'multiply'
             }} 
           />
         </div>
