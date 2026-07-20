@@ -63,7 +63,11 @@ export default function About() {
             <source src="/videos/visuals-bg.mp4" type="video/mp4" />
           </video>
           
-          {/* Foreground Bag Graphic Layer aligned to the circle */}
+          {/* 
+            Bag Graphic Overlay with mixBlendMode: 'multiply' 
+            This forces the white areas of the image file to become transparent, 
+            allowing the video to stream underneath the entire circle while keeping your bag visible.
+          */}
           <div 
             style={{ 
               position: 'absolute', 
@@ -75,6 +79,7 @@ export default function About() {
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
               backgroundSize: '100%',
+              mixBlendMode: 'multiply',
               zIndex: 1
             }} 
           />
