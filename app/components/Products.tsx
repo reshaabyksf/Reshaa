@@ -37,18 +37,28 @@ export default function Products() {
             <p style={{ color: '#4b5563', fontSize: '16px' }}>Lightweight, durable construction.</p>
           </div>
 
-          {/* Right: Visual Placeholder */}
+          {/* Right: Actual D-Cut Bag Image Container */}
           <div style={{ 
             flex: 1, 
             height: '300px', 
-            backgroundColor: '#e5e7eb', 
+            backgroundColor: '#ffffff', 
             display: 'flex', 
             alignItems: 'center', 
             justifyContent: 'center',
             borderRadius: '12px',
-            border: '2px dashed #9ca3af'
+            border: '2px solid #e5e7eb',
+            overflow: 'hidden',
+            position: 'relative'
           }}>
-            <span style={{ color: '#6b7280' }}>Product Image</span>
+            <img 
+              src="/images/d-cut-bag.png" 
+              alt="D-Cut Bag" 
+              style={{ 
+                width: '100%', 
+                height: '100%', 
+                objectFit: 'contain' 
+              }} 
+            />
           </div>
         </div>
       </div>
