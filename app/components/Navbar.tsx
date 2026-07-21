@@ -7,25 +7,24 @@ export default function Navbar() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Locked font size for consistency across all nav headers
   const sharedFontSize = '16px';
 
   return (
-    <header style={{ width: '100%', backgroundColor: 'white', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', position: 'sticky', top: 0, zIndex: 100 }}>
-      <nav style={{ maxWidth: '1200px', margin: '0 auto', padding: '15px 30px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+    <header style={{ width: '100%', backgroundColor: 'white', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', position: 'sticky', top: 0, zIndex: 1000 }}>
+      <nav style={{ maxWidth: '1200px', margin: '0 auto', padding: '15px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         
-        {/* Left: Logo (Intact) */}
+        {/* Logo */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
-          <div style={{ position: 'relative', width: '100px', height: '50px' }}>
+          <div style={{ position: 'relative', width: '90px', height: '45px' }}>
             <Image src="/images/logo.png" alt="Reshaa Logo" fill style={{ objectFit: 'contain' }} />
           </div>
         </Link>
 
-        {/* Right: Nav Links */}
-        <div style={{ display: 'flex', gap: '25px', alignItems: 'center' }}>
+        {/* Desktop Nav Links (Hidden on small screens via CSS/media query if needed, or structured flexibly) */}
+        <div className="desktop-nav" style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
           
-          {/* About */}
           <Link href="#about" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
             About
           </Link>
@@ -34,14 +33,14 @@ export default function Navbar() {
           <div style={{ position: 'relative' }}>
             <button 
               onClick={() => { setIsProductsOpen(!isProductsOpen); setIsServicesOpen(false); setIsLangOpen(false); }}
-              style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: sharedFontSize, display: 'flex', alignItems: 'center', gap: '5px' }}
+              style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: sharedFontSize, display: 'flex', alignItems: 'center', gap: '4px' }}
             >
               Our Products {isProductsOpen ? '▲' : '▼'}
             </button>
             {isProductsOpen && (
-              <div style={{ position: 'absolute', top: '100%', left: 0, backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '4px', padding: '5px 0', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '200px' }}>
+              <div style={{ position: 'absolute', top: '100%', left: 0, backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '4px', padding: '5px 0', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '180px', zIndex: 100 }}>
                 {["D-cut Bag", "W-cut Bag", "Loop Bag", "Stitched Bag", "BOPP Bag", "Box Bag"].map(item => (
-                  <div key={item} style={{ padding: '8px 15px', color: '#374151', cursor: 'pointer', fontSize: sharedFontSize, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div key={item} style={{ padding: '8px 15px', color: '#374151', cursor: 'pointer', fontSize: '15px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <span style={{ fontSize: '12px', color: '#1e3a8a' }}>➔</span> {item}
                   </div>
                 ))}
@@ -53,14 +52,14 @@ export default function Navbar() {
           <div style={{ position: 'relative' }}>
             <button 
               onClick={() => { setIsServicesOpen(!isServicesOpen); setIsProductsOpen(false); setIsLangOpen(false); }}
-              style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: sharedFontSize, display: 'flex', alignItems: 'center', gap: '5px' }}
+              style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: sharedFontSize, display: 'flex', alignItems: 'center', gap: '4px' }}
             >
               Our Services {isServicesOpen ? '▲' : '▼'}
             </button>
             {isServicesOpen && (
-              <div style={{ position: 'absolute', top: '100%', left: 0, backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '4px', padding: '5px 0', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '200px' }}>
+              <div style={{ position: 'absolute', top: '100%', left: 0, backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '4px', padding: '5px 0', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '180px', zIndex: 100 }}>
                 {["Offset Printing", "Screen Printing", "Flexo Printing", "Stitching"].map(item => (
-                  <div key={item} style={{ padding: '8px 15px', color: '#374151', cursor: 'pointer', fontSize: sharedFontSize, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div key={item} style={{ padding: '8px 15px', color: '#374151', cursor: 'pointer', fontSize: '15px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <span style={{ fontSize: '12px', color: '#1e3a8a' }}>➔</span> {item}
                   </div>
                 ))}
@@ -68,12 +67,10 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Gallery */}
           <Link href="#gallery" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
             Gallery
           </Link>
-
-          {/* Contact Us */}
+          
           <Link href="#contact" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
             Contact Us
           </Link>
@@ -82,14 +79,14 @@ export default function Navbar() {
           <div style={{ position: 'relative' }}>
             <button 
               onClick={() => { setIsLangOpen(!isLangOpen); setIsProductsOpen(false); setIsServicesOpen(false); }}
-              style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: sharedFontSize, display: 'flex', alignItems: 'center', gap: '5px' }}
+              style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: sharedFontSize, display: 'flex', alignItems: 'center', gap: '4px' }}
             >
               Language {isLangOpen ? '▲' : '▼'}
             </button>
             {isLangOpen && (
-              <div style={{ position: 'absolute', top: '100%', right: 0, backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '4px', padding: '5px 0', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '180px' }}>
+              <div style={{ position: 'absolute', top: '100%', right: 0, backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '4px', padding: '5px 0', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '160px', zIndex: 100 }}>
                 {["English", "हिंदी (Hindi)", "Español", "Français"].map(lang => (
-                  <div key={lang} style={{ padding: '8px 15px', color: '#374151', cursor: 'pointer', fontSize: sharedFontSize, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div key={lang} style={{ padding: '8px 15px', color: '#374151', cursor: 'pointer', fontSize: '15px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <span style={{ fontSize: '12px', color: '#1e3a8a' }}>➔</span> {lang}
                   </div>
                 ))}
@@ -98,7 +95,28 @@ export default function Navbar() {
           </div>
 
         </div>
+
+        {/* Mobile Hamburger Button */}
+        <button 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="mobile-menu-btn"
+          style={{ display: 'none', background: 'none', border: 'none', fontSize: '24px', color: '#1e3a8a', cursor: 'pointer' }}
+        >
+          {isMobileMenuOpen ? '✕' : '☰'}
+        </button>
+
       </nav>
+
+      {/* Mobile Dropdown Menu Drawer */}
+      {isMobileMenuOpen && (
+        <div style={{ backgroundColor: '#ffffff', borderTop: '1px solid #e5e7eb', padding: '20px', display: 'flex', flexDirection: 'column', gap: '15px', boxShadow: '0 10px 15px rgba(0,0,0,0.05)' }}>
+          <Link href="#about" onClick={() => setIsMobileMenuOpen(false)} style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: '18px' }}>About</Link>
+          <Link href="#products" onClick={() => setIsMobileMenuOpen(false)} style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: '18px' }}>Our Products</Link>
+          <Link href="#services" onClick={() => setIsMobileMenuOpen(false)} style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: '18px' }}>Our Services</Link>
+          <Link href="#gallery" onClick={() => setIsMobileMenuOpen(false)} style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: '18px' }}>Gallery</Link>
+          <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)} style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: '18px' }}>Contact Us</Link>
+        </div>
+      )}
     </header>
   );
 }

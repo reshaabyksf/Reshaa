@@ -9,3 +9,54 @@
     color: inherit;
   }
 }
+
+/* ==================================================== */
+/* MOBILE RESPONSIVE MEDIA QUERIES                      */
+/* ==================================================== */
+
+@media (max-width: 900px) {
+  /* Hide desktop navbar links on smaller screens */
+  .desktop-nav {
+    display: none !important;
+  }
+  
+  /* Show mobile hamburger toggle button */
+  .mobile-menu-btn {
+    display: block !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Prevent horizontal overflow on mobile devices */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Scale down hero headers for mobile viewports */
+  h1 {
+    font-size: 32px !important;
+    line-height: 1.3 !important;
+  }
+
+  h2 {
+    font-size: 26px !important;
+  }
+
+  /* Stack side-by-side flexbox layouts vertically on mobile */
+  section > div {
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+
+  /* Make product portfolio tree grid items stack vertically on mobile */
+  div[style*="gridTemplateColumns: repeat(6"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+  }
+
+  /* Optimize section padding for small screens */
+  section {
+    padding: 48px 16px !important;
+  }
+}
