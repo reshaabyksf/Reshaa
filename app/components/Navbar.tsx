@@ -15,21 +15,22 @@ export default function Navbar() {
     <header style={{ width: '100%', backgroundColor: 'white', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', position: 'sticky', top: 0, zIndex: 1000 }}>
       <nav style={{ maxWidth: '1200px', margin: '0 auto', padding: '15px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         
-        {/* Logo */}
+        {/* Logo linked to Home Page */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
           <div style={{ position: 'relative', width: '90px', height: '45px' }}>
             <Image src="/images/logo.png" alt="Reshaa Logo" fill style={{ objectFit: 'contain' }} />
           </div>
         </Link>
 
-        {/* Desktop Nav Links (Hidden on small screens via CSS/media query if needed, or structured flexibly) */}
+        {/* Desktop Nav Links */}
         <div className="desktop-nav" style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
           
+          {/* About Section Link */}
           <Link href="#about" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
             About
           </Link>
           
-          {/* Products Dropdown */}
+          {/* Products Dropdown with Specific Category Anchor Links */}
           <div style={{ position: 'relative' }}>
             <button 
               onClick={() => { setIsProductsOpen(!isProductsOpen); setIsServicesOpen(false); setIsLangOpen(false); }}
@@ -39,10 +40,22 @@ export default function Navbar() {
             </button>
             {isProductsOpen && (
               <div style={{ position: 'absolute', top: '100%', left: 0, backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '4px', padding: '5px 0', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '180px', zIndex: 100 }}>
-                {["D-cut Bag", "W-cut Bag", "Loop Bag", "Stitched Bag", "BOPP Bag", "Box Bag"].map(item => (
-                  <div key={item} style={{ padding: '8px 15px', color: '#374151', cursor: 'pointer', fontSize: '15px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ fontSize: '12px', color: '#1e3a8a' }}>➔</span> {item}
-                  </div>
+                {[
+                  { name: "D-cut Bag", link: "#d-cut-bag" },
+                  { name: "W-cut Bag", link: "#w-cut-bag" },
+                  { name: "Loop Bag", link: "#loop-bag" },
+                  { name: "Stitched Bag", link: "#stitched-bag" },
+                  { name: "BOPP Bag", link: "#bopp-bag" },
+                  { name: "Box Bag", link: "#box-bag" }
+                ].map(item => (
+                  <Link 
+                    key={item.name} 
+                    href={item.link} 
+                    onClick={() => setIsProductsOpen(false)}
+                    style={{ padding: '8px 15px', color: '#374151', textDecoration: 'none', fontSize: '15px', display: 'flex', alignItems: 'center', gap: '8px', display: 'block' }}
+                  >
+                    <span style={{ fontSize: '12px', color: '#1e3a8a' }}>➔</span> {item.name}
+                  </Link>
                 ))}
               </div>
             )}
@@ -67,10 +80,12 @@ export default function Navbar() {
             )}
           </div>
 
+          {/* Gallery Link */}
           <Link href="#gallery" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
             Gallery
           </Link>
           
+          {/* Contact Us Link */}
           <Link href="#contact" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
             Contact Us
           </Link>
