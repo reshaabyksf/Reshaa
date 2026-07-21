@@ -52,9 +52,9 @@ export default function Navbar() {
                     key={item.name} 
                     href={item.link} 
                     onClick={() => setIsProductsOpen(false)}
-                    style={{ padding: '8px 15px', color: '#374151', textDecoration: 'none', fontSize: '15px', display: 'flex', alignItems: 'center', gap: '8px', display: 'block' }}
+                    style={{ padding: '8px 15px', color: '#374151', textDecoration: 'none', fontSize: '15px', display: 'block' }}
                   >
-                    <span style={{ fontSize: '12px', color: '#1e3a8a' }}>➔</span> {item.name}
+                    <span style={{ fontSize: '12px', color: '#1e3a8a', marginRight: '8px' }}>➔</span> {item.name}
                   </Link>
                 ))}
               </div>
