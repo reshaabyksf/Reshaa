@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import DcutBag from './products/DcutBag';
 import WcutBag from './products/WcutBag';
 import LoopBag from './products/LoopBag';
@@ -60,7 +61,7 @@ export default function Products() {
               marginBottom: '35px'
             }} />
 
-            {/* Sub-Category Nodes Grid (6 items) */}
+            {/* Sub-Category Nodes Grid (6 items) with anchor links */}
             <div style={{ 
               display: 'grid', 
               gridTemplateColumns: 'repeat(6, 1fr)', 
@@ -69,35 +70,39 @@ export default function Products() {
               maxWidth: '1100px'
             }}>
               {[
-                { title: 'D-Cut Bags', color: '#3b82f6' },
-                { title: 'W-Cut Bags', color: '#10b981' },
-                { title: 'Loop Bags', color: '#8b5cf6' },
-                { title: 'BOPP Bags', color: '#f59e0b' },
-                { title: 'Stitched Bags', color: '#ef4444' },
-                { title: 'Box Bags', color: '#64748b' }
+                { title: 'D-Cut Bags', color: '#3b82f6', link: '#d-cut-bag' },
+                { title: 'W-Cut Bags', color: '#10b981', link: '#w-cut-bag' },
+                { title: 'Loop Bags', color: '#8b5cf6', link: '#loop-bag' },
+                { title: 'BOPP Bags', color: '#f59e0b', link: '#bopp-bag' },
+                { title: 'Stitched Bags', color: '#ef4444', link: '#stitched-bag' },
+                { title: 'Box Bags', color: '#64748b', link: '#box-bag' }
               ].map((sub, index) => (
                 <div key={index} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                   {/* Vertical drop line down to each card */}
                   <div style={{ width: '2px', height: '25px', backgroundColor: '#9ca3af', marginTop: '-35px' }} />
                   
-                  {/* Sub-node Card */}
-                  <div style={{ 
-                    backgroundColor: '#f9fafb', 
-                    border: '1px solid #e5e7eb', 
-                    borderRadius: '12px', 
-                    padding: '14px 8px', 
-                    width: '100%',
-                    textAlign: 'center',
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.03)',
-                    borderTop: `4px solid ${sub.color}`
-                  }}>
-                    <span style={{ fontSize: '13px', fontWeight: 'bold', color: '#1f2937', display: 'block', marginBottom: '4px' }}>
-                      {sub.title}
-                    </span>
-                    <span style={{ fontSize: '11px', color: '#6b7280', fontStyle: 'italic' }}>
-                      Verified Spec ↓
-                    </span>
-                  </div>
+                  {/* Clickable Sub-node Card */}
+                  <Link href={sub.link} style={{ width: '100%', textDecoration: 'none' }}>
+                    <div style={{ 
+                      backgroundColor: '#f9fafb', 
+                      border: '1px solid #e5e7eb', 
+                      borderRadius: '12px', 
+                      padding: '14px 8px', 
+                      width: '100%',
+                      textAlign: 'center',
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.03)',
+                      borderTop: `4px solid ${sub.color}`,
+                      transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                      cursor: 'pointer'
+                    }}>
+                      <span style={{ fontSize: '13px', fontWeight: 'bold', color: '#1f2937', display: 'block', marginBottom: '4px' }}>
+                        {sub.title}
+                      </span>
+                      <span style={{ fontSize: '11px', color: '#2563eb', fontWeight: '500', fontStyle: 'italic' }}>
+                        Click to View ↓
+                      </span>
+                    </div>
+                  </Link>
                 </div>
               ))}
             </div>
@@ -106,31 +111,31 @@ export default function Products() {
         </div>
 
         {/* ==================================================== */}
-        {/* INDIVIDUAL BAG CATEGORY CARDS                        */}
+        {/* INDIVIDUAL BAG CATEGORY CARDS WITH ANCHOR IDS        */}
         {/* ==================================================== */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
           
-          <div style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb' }}>
+          <div id="d-cut-bag" style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb', scrollMarginTop: '100px' }}>
             <DcutBag />
           </div>
 
-          <div style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb' }}>
+          <div id="w-cut-bag" style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb', scrollMarginTop: '100px' }}>
             <WcutBag />
           </div>
 
-          <div style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb' }}>
+          <div id="loop-bag" style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb', scrollMarginTop: '100px' }}>
             <LoopBag />
           </div>
 
-          <div style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb' }}>
+          <div id="bopp-bag" style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb', scrollMarginTop: '100px' }}>
             <BOPPBag />
           </div>
 
-          <div style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb' }}>
+          <div id="stitched-bag" style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb', scrollMarginTop: '100px' }}>
             <StitchedBag />
           </div>
 
-          <div style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb' }}>
+          <div id="box-bag" style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb', scrollMarginTop: '100px' }}>
             <BoxBag />
           </div>
 
