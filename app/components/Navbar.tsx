@@ -6,28 +6,34 @@ import Link from 'next/link';
 export default function Navbar() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
 
-  // Locked font size for consistency
+  // Locked font size for consistency across all nav headers
   const sharedFontSize = '16px';
 
   return (
     <header style={{ width: '100%', backgroundColor: 'white', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', position: 'sticky', top: 0, zIndex: 100 }}>
       <nav style={{ maxWidth: '1200px', margin: '0 auto', padding: '15px 30px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         
+        {/* Left: Logo (Intact) */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
           <div style={{ position: 'relative', width: '100px', height: '50px' }}>
             <Image src="/images/logo.png" alt="Reshaa Logo" fill style={{ objectFit: 'contain' }} />
           </div>
         </Link>
 
+        {/* Right: Nav Links */}
         <div style={{ display: 'flex', gap: '25px', alignItems: 'center' }}>
+          
           {/* About */}
-          <Link href="#about" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>About</Link>
+          <Link href="#about" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
+            About
+          </Link>
           
           {/* Products Dropdown */}
           <div style={{ position: 'relative' }}>
             <button 
-              onClick={() => { setIsProductsOpen(!isProductsOpen); setIsServicesOpen(false); }}
+              onClick={() => { setIsProductsOpen(!isProductsOpen); setIsServicesOpen(false); setIsLangOpen(false); }}
               style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: sharedFontSize, display: 'flex', alignItems: 'center', gap: '5px' }}
             >
               Our Products {isProductsOpen ? '▲' : '▼'}
@@ -46,7 +52,7 @@ export default function Navbar() {
           {/* Services Dropdown */}
           <div style={{ position: 'relative' }}>
             <button 
-              onClick={() => { setIsServicesOpen(!isServicesOpen); setIsProductsOpen(false); }}
+              onClick={() => { setIsServicesOpen(!isServicesOpen); setIsProductsOpen(false); setIsLangOpen(false); }}
               style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: sharedFontSize, display: 'flex', alignItems: 'center', gap: '5px' }}
             >
               Our Services {isServicesOpen ? '▲' : '▼'}
@@ -62,8 +68,35 @@ export default function Navbar() {
             )}
           </div>
 
-          <Link href="#gallery" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>Gallery</Link>
-          <Link href="#contact" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>Contact Us</Link>
+          {/* Gallery */}
+          <Link href="#gallery" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
+            Gallery
+          </Link>
+
+          {/* Contact Us */}
+          <Link href="#contact" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
+            Contact Us
+          </Link>
+
+          {/* Language Dropdown */}
+          <div style={{ position: 'relative' }}>
+            <button 
+              onClick={() => { setIsLangOpen(!isLangOpen); setIsProductsOpen(false); setIsServicesOpen(false); }}
+              style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: sharedFontSize, display: 'flex', alignItems: 'center', gap: '5px' }}
+            >
+              Language {isLangOpen ? '▲' : '▼'}
+            </button>
+            {isLangOpen && (
+              <div style={{ position: 'absolute', top: '100%', right: 0, backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '4px', padding: '5px 0', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '180px' }}>
+                {["English", "हिंदी (Hindi)", "Español", "Français"].map(lang => (
+                  <div key={lang} style={{ padding: '8px 15px', color: '#374151', cursor: 'pointer', fontSize: sharedFontSize, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ fontSize: '12px', color: '#1e3a8a' }}>➔</span> {lang}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
         </div>
       </nav>
     </header>
