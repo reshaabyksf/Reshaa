@@ -4,7 +4,7 @@ export default function MeetOurTeam() {
   const teamMembers = [
     {
       name: "Ms. Shubhi Gupta",
-      role: "FOUNDER & BRAND HEAD",
+      role: "FOUNDER",
       description: "Brief professional summary or description highlighting core responsibilities and strategic focus.",
       image: "/images/team-placeholder-1.jpg"
     },
