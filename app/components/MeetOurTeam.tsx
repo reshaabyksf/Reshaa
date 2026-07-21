@@ -3,20 +3,20 @@ import Image from 'next/image';
 export default function MeetOurTeam() {
   const teamMembers = [
     {
-      name: "TEAM MEMBER 1",
-      role: "DESIGNATION / TITLE",
+      name: "Ms. Shubhi Gupta",
+      role: "FOUNDER & BRAND HEAD",
       description: "Brief professional summary or description highlighting core responsibilities and strategic focus.",
       image: "/images/team-placeholder-1.jpg"
     },
     {
-      name: "TEAM MEMBER 2",
-      role: "DESIGNATION / TITLE",
+      name: "Mr. Naman Gupta",
+      role: "MANAGING DIRECTOR",
       description: "Brief professional summary or description highlighting core responsibilities and strategic focus.",
       image: "/images/team-placeholder-2.jpg"
     },
     {
-      name: "TEAM MEMBER 3",
-      role: "DESIGNATION / TITLE",
+      name: "Mrs. Priya Arya",
+      role: "EXECUTIVE DIRECTOR",
       description: "Brief professional summary or description highlighting core responsibilities and strategic focus.",
       image: "/images/team-placeholder-3.jpg"
     },
