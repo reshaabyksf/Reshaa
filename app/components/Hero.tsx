@@ -1,27 +1,79 @@
 export default function Hero() {
   return (
-    <section className="relative w-full h-[80vh] flex items-center justify-center overflow-hidden">
-      {/* Background Video - Uses updated factory.mp4 automatically */}
+    <div style={{ 
+      position: 'relative', 
+      width: '100%', 
+      height: '85vh', 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center', 
+      textAlign: 'center',
+      overflow: 'hidden'
+    }}>
+      {/* Background Video Layer (Intact) */}
       <video 
         autoPlay 
         loop 
         muted 
-        playsInline
-        preload="auto"
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        playsInline 
+        style={{ 
+          position: 'absolute', 
+          top: 0, 
+          left: 0, 
+          width: '100%', 
+          height: '100%', 
+          objectFit: 'cover',
+          zIndex: 1
+        }}
       >
-        <source src="/factory.mp4" type="video/mp4" />
+        <source src="/Videos/hero-bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      {/* Dark Overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/50 z-10" />
+      {/* Dark Overlay to make white text crisp and legible over the video */}
+      <div style={{ 
+        position: 'absolute', 
+        top: 0, 
+        left: 0, 
+        width: '100%', 
+        height: '100%', 
+        backgroundColor: 'rgba(0, 0, 0, 0.55)', 
+        zIndex: 2 
+      }} />
 
-      {/* Hero Content */}
-      <div className="relative z-20 text-center text-white px-6">
-        <h1 className="text-6xl font-extrabold mb-4">Welcome to Reshaa</h1>
-        <p className="text-2xl font-medium tracking-wide">Bonded for Bags – Quality Packaging Solutions</p>
+      {/* Hero Content Container */}
+      <div style={{ 
+        position: 'relative', 
+        zIndex: 3, 
+        maxWidth: '900px', 
+        padding: '0 20px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '20px'
+      }}>
+        <h1 style={{ 
+          fontSize: '56px', 
+          fontWeight: '800', 
+          color: '#ffffff', 
+          margin: 0,
+          letterSpacing: '1px',
+          textShadow: '0 4px 12px rgba(0,0,0,0.4)'
+        }}>
+          Welcome to Reshaa
+        </h1>
+
+        <p style={{ 
+          fontSize: '24px', 
+          fontWeight: '500', 
+          color: '#f3f4f6', 
+          margin: 0,
+          letterSpacing: '0.5px',
+          textShadow: '0 2px 8px rgba(0,0,0,0.4)'
+        }}>
+          Bonded for Bags – Quality Packaging Solutions
+        </p>
       </div>
-    </section>
+    </div>
   );
 }
