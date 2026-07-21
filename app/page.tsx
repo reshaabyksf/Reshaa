@@ -2,6 +2,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Products from './components/Products';
+import MeetOurTeam from './components/MeetOurTeam';
 import Footer from './components/Footer';
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <div id="about"><About /></div>
       <Products />
+      <MeetOurTeam />
       <Footer />
     </main>
   );
