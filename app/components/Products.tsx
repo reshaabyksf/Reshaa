@@ -1,9 +1,9 @@
-import DCutBag from './products/D-cut bag';
-import WCutBag from './products/W-cut bag';
-import LoopBag from './products/Loop bag';
-import BoppBag from './products/BOPP bag';
-import StitchedBag from './products/Stitched bag';
-import BoxBag from './products/Box bag';
+import DcutBag from './products/DcutBag';
+import WcutBag from './products/WcutBag';
+import LoopBag from './products/LoopBag';
+import BOPPBag from './products/BOPPBag';
+import StitchedBag from './products/StitchedBag';
+import BoxBag from './products/BoxBag';
 
 export default function Products() {
   return (
@@ -13,11 +13,11 @@ export default function Products() {
           Our Packaging Solutions
         </h2>
 
-        {/* All 6 modular categories rendered cleanly */}
-        <DCutBag />
-        <WCutBag />
+        {/* All 6 modular categories rendered with alternating layouts */}
+        <DcutBag />
+        <WcutBag />
         <LoopBag />
-        <BoppBag />
+        <BOPPBag />
         <StitchedBag />
         <BoxBag />
       </div>
