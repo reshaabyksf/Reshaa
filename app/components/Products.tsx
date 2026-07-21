@@ -7,13 +7,21 @@ import BoxBag from './products/BoxBag';
 
 export default function Products() {
   return (
-    <section id="products" style={{ padding: '96px 32px', backgroundColor: '#ffffff' }}>
+    <section id="products" style={{ padding: '96px 32px', backgroundColor: '#f9fafb' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         
         {/* ==================================================== */}
-        {/* HEADER & VALUE CHAIN HIERARCHY TREE                  */}
+        {/* MAIN PORTFOLIO CARD CONTAINER                        */}
         {/* ==================================================== */}
-        <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+        <div style={{ 
+          backgroundColor: '#ffffff', 
+          padding: '60px 40px', 
+          borderRadius: '24px', 
+          boxShadow: '0 4px 24px rgba(0, 0, 0, 0.05)',
+          border: '1px solid #e5e7eb',
+          marginBottom: '60px',
+          textAlign: 'center' 
+        }}>
           <h2 style={{ fontSize: '42px', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '16px' }}>
             Our Product Portfolio
           </h2>
@@ -34,8 +42,7 @@ export default function Products() {
               fontWeight: 'bold',
               letterSpacing: '0.5px',
               boxShadow: '0 10px 25px rgba(30, 58, 138, 0.2)',
-              zIndex: 2,
-              marginBottom: '0px'
+              zIndex: 2
             }}>
               OUR PACKAGING SOLUTIONS
             </div>
@@ -99,15 +106,34 @@ export default function Products() {
         </div>
 
         {/* ==================================================== */}
-        {/* DETAILED PRODUCT SECTIONS (Alternating Layout)       */}
+        {/* INDIVIDUAL BAG CATEGORY CARDS                        */}
         {/* ==================================================== */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
-          <DcutBag />
-          <WcutBag />
-          <LoopBag />
-          <BOPPBag />
-          <StitchedBag />
-          <BoxBag />
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
+          
+          <div style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb' }}>
+            <DcutBag />
+          </div>
+
+          <div style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb' }}>
+            <WcutBag />
+          </div>
+
+          <div style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb' }}>
+            <LoopBag />
+          </div>
+
+          <div style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb' }}>
+            <BOPPBag />
+          </div>
+
+          <div style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb' }}>
+            <StitchedBag />
+          </div>
+
+          <div style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb' }}>
+            <BoxBag />
+          </div>
+
         </div>
 
       </div>
