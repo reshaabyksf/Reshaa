@@ -64,7 +64,7 @@ export default function About() {
             Your browser does not support the video tag.
           </video>
           
-          {/* Bag Graphic Overlay (Scaled to 600px for an extra-large fit) */}
+          {/* Bag Graphic Overlay */}
           <div 
             style={{ 
               position: 'absolute', 
@@ -82,17 +82,30 @@ export default function About() {
           />
         </div>
 
-        {/* Right: Text */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+        {/* Right: Vision, Mission & Tagline */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '30px', flex: 1 }}>
           <div>
-            <h3 style={{ fontSize: '32px', fontWeight: 'bold', color: '#1e3a8a', margin: '0 0 10px 0' }}>Our Mission</h3>
-            <p style={{ color: '#374151', fontSize: '18px', margin: '0' }}>Content coming soon...</p>
+            <h3 style={{ fontSize: '28px', fontWeight: 'bold', color: '#1e3a8a', margin: '0 0 10px 0' }}>Our Vision</h3>
+            <p style={{ color: '#374151', fontSize: '16px', lineHeight: '1.6', margin: '0' }}>
+              To become a trusted global partner in sustainable packaging by transforming non-woven materials into innovative, reliable, and responsible packaging solutions that help businesses grow.
+            </p>
           </div>
           <div>
-            <h3 style={{ fontSize: '32px', fontWeight: 'bold', color: '#1e3a8a', margin: '0 0 10px 0' }}>Our Vision</h3>
-            <p style={{ color: '#374151', fontSize: '18px', margin: '0' }}>Content coming soon...</p>
+            <h3 style={{ fontSize: '28px', fontWeight: 'bold', color: '#1e3a8a', margin: '0 0 10px 0' }}>Our Mission</h3>
+            <p style={{ color: '#374151', fontSize: '16px', lineHeight: '1.6', margin: '0' }}>
+              At Reshaa, we are committed to delivering high-quality non-woven bags and customized packaging solutions that combine functionality, durability, aesthetics, and sustainability. We strive to understand our customers’ unique packaging needs and provide dependable products that add value to their brands while contributing to a more sustainable future.
+            </p>
+          </div>
+          <div style={{ borderTop: '2px solid #e5e7eb', paddingTop: '16px' }}>
+            <h4 style={{ fontSize: '20px', fontWeight: 'bold', color: '#1e3a8a', margin: '0 0 4px 0' }}>
+              Reshaa — Bonded for Bags
+            </h4>
+            <p style={{ color: '#6b7280', fontSize: '15px', fontStyle: 'italic', margin: '0' }}>
+              Where quality, innovation, and reliable packaging solutions come together.
+            </p>
           </div>
         </div>
+
       </div>
     </section>
   );
