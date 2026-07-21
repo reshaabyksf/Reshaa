@@ -1,7 +1,6 @@
 import Image from 'next/image';
 
 export default function MeetOurTeam() {
-  // Array configured for 5 team member cards
   const teamMembers = [
     {
       name: "TEAM MEMBER 1",
@@ -36,11 +35,11 @@ export default function MeetOurTeam() {
   ];
 
   return (
-    <section id="contact" style={{ padding: '80px 20px', backgroundColor: '#f9fafb', scrollMarginTop: '80px' }}>
+    <section id="contact" style={{ padding: '30px 20px 80px 20px', backgroundColor: '#f9fafb', scrollMarginTop: '80px' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
         
         {/* Section Header */}
-        <h2 style={{ fontSize: '38px', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '50px', letterSpacing: '0.5px' }}>
+        <h2 style={{ fontSize: '38px', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '40px', letterSpacing: '0.5px' }}>
           MEET OUR TEAM
         </h2>
 
