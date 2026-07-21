@@ -10,7 +10,7 @@ export default function Hero() {
       textAlign: 'center',
       overflow: 'hidden'
     }}>
-      {/* Background Video Layer (Intact) */}
+      {/* Background Video Layer pointing directly to public root */}
       <video 
         autoPlay 
         loop 
@@ -26,11 +26,11 @@ export default function Hero() {
           zIndex: 1
         }}
       >
-        <source src="/Videos/hero-bg.mp4" type="video/mp4" />
+        <source src="/hero-bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      {/* Dark Overlay to make white text crisp and legible over the video */}
+      {/* Dark Overlay for crisp text legibility */}
       <div style={{ 
         position: 'absolute', 
         top: 0, 
