@@ -8,9 +8,10 @@ export default function Hero() {
       alignItems: 'center', 
       justifyContent: 'center', 
       textAlign: 'center',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      backgroundColor: '#000000'
     }}>
-      {/* Background Video Layer pointing directly to public root */}
+      {/* Background Video Layer pointing directly to root public folder */}
       <video 
         autoPlay 
         loop 
@@ -26,7 +27,7 @@ export default function Hero() {
           zIndex: 1
         }}
       >
-        <source src="/hero-bg.mp4" type="video/mp4" />
+        <source src="/factory.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
