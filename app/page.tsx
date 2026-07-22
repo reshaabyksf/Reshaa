@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Products from './components/Products';
 import MeetOurTeam from './components/MeetOurTeam';
+import ConnectWithUs from './components/ConnectWithUs'; // <-- 1. Import it here
 import Footer from './components/Footer';
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <div id="about"><About /></div>
       <Products />
       <MeetOurTeam />
+      <ConnectWithUs /> {/* <-- 2. Render it here */}
       <Footer />
     </main>
   );
