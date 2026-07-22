@@ -1,17 +1,111 @@
 'use client';
+import { useState } from 'react';
 import Link from 'next/link';
 
-export default function ConnectWithUs() {
+export default function ContactSection() {
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
   return (
-    <section style={{ padding: '40px 20px 80px 20px', backgroundColor: '#f9fafb' }}>
+    <section id="contact" style={{ padding: '40px 20px 80px 20px', backgroundColor: '#f9fafb', scrollMarginTop: '80px' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         
         {/* Section Heading */}
-        <h2 style={{ fontSize: '38px', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '40px', textAlign: 'center', letterSpacing: '0.5px' }}>
-          CONNECT WITH US
+        <h2 style={{ fontSize: '38px', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '16px', textAlign: 'center', letterSpacing: '0.5px' }}>
+          CONTACT US
         </h2>
+        <p style={{ fontSize: '16px', color: '#6b7280', textAlign: 'center', marginBottom: '40px' }}>
+          We would love to hear from you. Reach out for bulk enquiries, partnerships, or support.
+        </p>
 
-        {/* Main Card Container */}
+        {/* Part 1: Interactive Inquiry Form (Fills the Gap) */}
+        <div style={{ 
+          backgroundColor: '#ffffff', 
+          borderRadius: '24px', 
+          padding: '40px', 
+          boxShadow: '0 10px 30px rgba(0, 0, 0, 0.04)', 
+          border: '1px solid #e5e7eb',
+          marginBottom: '40px'
+        }}>
+          <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '8px' }}>
+            Send Us a Message
+          </h3>
+          <p style={{ fontSize: '14px', color: '#4b5563', marginBottom: '24px' }}>
+            Fill out the form below and our sales support team will get back to you shortly.
+          </p>
+
+          {submitted ? (
+            <div style={{ padding: '20px', backgroundColor: '#ecfdf5', border: '1px solid #a7f3d0', borderRadius: '12px', color: '#065f46', textAlign: 'center', fontWeight: '600' }}>
+              Thank you! Your message has been sent successfully. We will contact you soon.
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+              <div>
+                <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', color: '#374151', marginBottom: '6px' }}>Your Name</label>
+                <input 
+                  type="text" 
+                  required 
+                  placeholder="Enter your name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '15px', outline: 'none' }}
+                />
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', color: '#374151', marginBottom: '6px' }}>Email Address</label>
+                <input 
+                  type="email" 
+                  required 
+                  placeholder="Enter your email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '15px', outline: 'none' }}
+                />
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', color: '#374151', marginBottom: '6px' }}>Phone Number</label>
+                <input 
+                  type="tel" 
+                  required 
+                  placeholder="Enter your phone number"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                  style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '15px', outline: 'none' }}
+                />
+              </div>
+
+              <div style={{ gridColumn: '1 / -1' }}>
+                <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', color: '#374151', marginBottom: '6px' }}>Message / Requirements</label>
+                <textarea 
+                  rows={4}
+                  required 
+                  placeholder="Tell us about your bag or non-woven fabric requirements..."
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '15px', outline: 'none', resize: 'vertical' }}
+                />
+              </div>
+
+              <div style={{ gridColumn: '1 / -1' }}>
+                <button 
+                  type="submit" 
+                  style={{ backgroundColor: '#1e3a8a', color: 'white', padding: '14px 28px', borderRadius: '8px', border: 'none', fontWeight: 'bold', fontSize: '16px', cursor: 'pointer', transition: 'background-color 0.2s' }}
+                >
+                  Submit Enquiry
+                </button>
+              </div>
+            </form>
+          )}
+        </div>
+
+        {/* Part 2: Connect With Us Grid (Facility Details, Contacts, Socials & Map) */}
         <div style={{ 
           backgroundColor: '#ffffff', 
           borderRadius: '24px', 
@@ -63,17 +157,17 @@ export default function ConnectWithUs() {
                 <span style={{ fontSize: '15px', color: '#4b5563', display: 'block' }}>Sales Support: +91-9217176508</span>
               </div>
 
-              {/* Social Media Profiles with Attached Links & True Icons */}
+              {/* Social Media Profiles with Linked Icons */}
               <div>
                 <strong style={{ fontSize: '14px', color: '#1f2937', display: 'block', marginBottom: '10px' }}>Social Profiles:</strong>
                 <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
                   
-                  {/* Facebook Icon & Link */}
+                  {/* Facebook */}
                   <Link 
                     href="https://www.facebook.com/profile.php?id=61588265550977" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    style={{ width: '42px', height: '42px', borderRadius: '50%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background-color 0.2s', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}
+                    style={{ width: '42px', height: '42px', borderRadius: '50%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}
                     title="Facebook"
                   >
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="#1e3a8a">
@@ -81,12 +175,12 @@ export default function ConnectWithUs() {
                     </svg>
                   </Link>
 
-                  {/* LinkedIn Icon & Link */}
+                  {/* LinkedIn */}
                   <Link 
                     href="https://www.linkedin.com/company/112146919/admin/dashboard/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    style={{ width: '42px', height: '42px', borderRadius: '50%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background-color 0.2s', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}
+                    style={{ width: '42px', height: '42px', borderRadius: '50%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}
                     title="LinkedIn"
                   >
                     <svg width="19" height="19" viewBox="0 0 24 24" fill="#1e3a8a">
@@ -94,12 +188,12 @@ export default function ConnectWithUs() {
                     </svg>
                   </Link>
 
-                  {/* Instagram Icon & Link */}
+                  {/* Instagram */}
                   <Link 
                     href="https://www.instagram.com/reshaabyksf/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    style={{ width: '42px', height: '42px', borderRadius: '50%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background-color 0.2s', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}
+                    style={{ width: '42px', height: '42px', borderRadius: '50%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}
                     title="Instagram"
                   >
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="#1e3a8a">
