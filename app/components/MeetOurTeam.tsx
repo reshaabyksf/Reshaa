@@ -89,53 +89,53 @@ export default function MeetOurTeam() {
                 bottom: 0, 
                 left: 0, 
                 width: '100%', 
-                height: '65%', 
-                background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 60%, transparent 100%)',
+                height: '70%', 
+                background: 'linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.6) 60%, transparent 100%)',
                 zIndex: 1 
               }} />
 
-              {/* Card Content (Name, Role, and LinkedIn Icon) */}
+              {/* Card Content (Vertical Stack so nothing gets clipped) */}
               <div style={{ 
                 position: 'absolute', 
                 bottom: 0, 
                 left: 0, 
                 width: '100%', 
-                padding: '28px 24px', 
+                padding: '24px 20px', 
                 zIndex: 2,
                 display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'flex-end',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                gap: '12px',
                 textAlign: 'left'
               }}>
                 <div>
-                  <h3 style={{ fontSize: '22px', fontWeight: 'bold', color: '#ffffff', margin: '0 0 4px 0', letterSpacing: '0.3px' }}>
+                  <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#ffffff', margin: '0 0 4px 0', lineHeight: '1.2' }}>
                     {member.name}
                   </h3>
-                  <p style={{ fontSize: '15px', fontWeight: '500', color: '#d1d5db', margin: 0, letterSpacing: '0.2px' }}>
+                  <p style={{ fontSize: '14px', fontWeight: '500', color: '#d1d5db', margin: 0 }}>
                     {member.role}
                   </p>
                 </div>
 
-                {/* LinkedIn Circular Icon Button */}
+                {/* Fully Visible LinkedIn Icon Button */}
                 <Link 
                   href={member.linkedin} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   style={{ 
-                    width: '42px', 
-                    height: '42px', 
+                    width: '38px', 
+                    height: '38px', 
                     borderRadius: '50%', 
                     backgroundColor: '#ffffff', 
                     display: 'flex', 
                     alignItems: 'center', 
                     justifyContent: 'center',
                     transition: 'transform 0.2s ease, background-color 0.2s',
-                    flexShrink: 0,
-                    boxShadow: '0 4px 10px rgba(0,0,0,0.2)'
+                    boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
                   }}
                   title="Connect on LinkedIn"
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#0f172a">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#0f172a">
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                   </svg>
                 </Link>
@@ -150,12 +150,12 @@ export default function MeetOurTeam() {
       {/* Hover expansion & zoom styling */}
       <style jsx>{`
         .team-row:hover .team-card {
-          flex: 0.8;
+          flex: 0.75;
         }
         .team-row .team-card:hover {
-          flex: 2.2;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-          transform: translateY(-4px);
+          flex: 2.5;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+          transform: translateY(-6px);
         }
         .team-card:hover .team-img {
           transform: scale(1.08);
