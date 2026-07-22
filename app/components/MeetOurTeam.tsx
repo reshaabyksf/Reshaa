@@ -37,7 +37,7 @@ export default function MeetOurTeam() {
   ];
 
   return (
-    <section id="team" style={{ padding: '60px 20px', backgroundColor: '#f9fafb', scrollMarginTop: '80px' }}>
+    <section id="team" style={{ padding: '20px 20px 60px 20px', backgroundColor: '#f9fafb', scrollMarginTop: '80px' }}>
       <div style={{ maxWidth: '1300px', margin: '0 auto', textAlign: 'center' }}>
         
         {/* Section Header */}
@@ -57,7 +57,7 @@ export default function MeetOurTeam() {
             gap: '16px', 
             justifyContent: 'center',
             alignItems: 'stretch',
-            height: '460px',
+            height: '500px',
             width: '100%'
           }}>
             {teamMembers.map((member, index) => (
@@ -75,13 +75,13 @@ export default function MeetOurTeam() {
                   boxShadow: '0 8px 20px rgba(0, 0, 0, 0.06)'
                 }}
               >
-                {/* Background Image with Scale Zoom */}
+                {/* Background Image with Cover Layout */}
                 <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden' }}>
                   <Image 
                     src={member.image} 
                     alt={member.name} 
                     fill 
-                    style={{ objectFit: 'cover', transition: 'transform 0.6s ease' }} 
+                    style={{ objectFit: 'cover', objectPosition: 'center top', transition: 'transform 0.6s ease' }} 
                     className="team-img"
                   />
                 </div>
@@ -164,7 +164,7 @@ export default function MeetOurTeam() {
           z-index: 10;
         }
         .team-card:hover .team-img {
-          transform: scale(1.08);
+          transform: scale(1.05);
         }
       `}</style>
     </section>
