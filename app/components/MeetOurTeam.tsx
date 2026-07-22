@@ -1,109 +1,156 @@
+'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function MeetOurTeam() {
   const teamMembers = [
     {
       name: "Ms. Shubhi Gupta",
       role: "FOUNDER",
-      description: "Brief professional summary or description highlighting core responsibilities and strategic focus.",
-      image: "/images/team-placeholder-1.jpg"
+      image: "/images/team-placeholder-1.jpg",
+      linkedin: "https://www.linkedin.com"
     },
     {
       name: "Mr. Naman Gupta",
       role: "MANAGING DIRECTOR",
-      description: "Brief professional summary or description highlighting core responsibilities and strategic focus.",
-      image: "/images/team-placeholder-2.jpg"
+      image: "/images/team-placeholder-2.jpg",
+      linkedin: "https://www.linkedin.com"
     },
     {
       name: "Mrs. Priya Arya",
       role: "EXECUTIVE DIRECTOR",
-      description: "Brief professional summary or description highlighting core responsibilities and strategic focus.",
-      image: "/images/team-placeholder-3.jpg"
+      image: "/images/team-placeholder-3.jpg",
+      linkedin: "https://www.linkedin.com"
     },
     {
       name: "TEAM MEMBER 4",
       role: "DESIGNATION / TITLE",
-      description: "Brief professional summary or description highlighting core responsibilities and strategic focus.",
-      image: "/images/team-placeholder-4.jpg"
+      image: "/images/team-placeholder-4.jpg",
+      linkedin: "https://www.linkedin.com"
     },
     {
       name: "TEAM MEMBER 5",
       role: "DESIGNATION / TITLE",
-      description: "Brief professional summary or description highlighting core responsibilities and strategic focus.",
-      image: "/images/team-placeholder-5.jpg"
+      image: "/images/team-placeholder-5.jpg",
+      linkedin: "https://www.linkedin.com"
     }
   ];
 
   return (
-    <section id="contact" style={{ padding: '30px 20px 80px 20px', backgroundColor: '#f9fafb', scrollMarginTop: '80px' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
+    <section id="contact" style={{ padding: '60px 20px', backgroundColor: '#f9fafb', scrollMarginTop: '80px' }}>
+      <div style={{ maxWidth: '1300px', margin: '0 auto', textAlign: 'center' }}>
         
         {/* Section Header */}
-        <h2 style={{ fontSize: '38px', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '40px', letterSpacing: '0.5px' }}>
+        <h2 style={{ fontSize: '38px', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '10px', letterSpacing: '0.5px' }}>
           MEET OUR TEAM
         </h2>
+        <p style={{ fontSize: '16px', color: '#6b7280', marginBottom: '40px' }}>
+          Leadership driving innovation, quality, and sustainable packaging solutions.
+        </p>
 
-        {/* Grid Container for 5 Cards */}
+        {/* Grid Container for Team Cards */}
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
-          gap: '30px', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', 
+          gap: '20px', 
           justifyContent: 'center',
           alignItems: 'stretch'
         }}>
           {teamMembers.map((member, index) => (
             <div 
               key={index} 
+              className="team-card"
               style={{ 
-                backgroundColor: '#ffffff', 
-                borderRadius: '20px', 
-                padding: '40px 30px', 
-                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.04)', 
-                border: '1px solid #e5e7eb',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                textAlign: 'center'
+                position: 'relative',
+                height: '420px',
+                borderRadius: '16px',
+                overflow: 'hidden',
+                boxShadow: '0 10px 25px rgba(0, 0, 0, 0.08)',
+                backgroundColor: '#1f2937',
+                cursor: 'pointer'
               }}
             >
-              {/* Circular Image Container */}
-              <div style={{ 
-                position: 'relative', 
-                width: '130px', 
-                height: '130px', 
-                borderRadius: '50%', 
-                overflow: 'hidden', 
-                marginBottom: '24px',
-                border: '3px solid #f3f4f6',
-                boxShadow: '0 4px 10px rgba(0,0,0,0.08)'
-              }}>
+              {/* Background Image with Hover Zoom Effect */}
+              <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden' }}>
                 <Image 
                   src={member.image} 
                   alt={member.name} 
                   fill 
-                  style={{ objectFit: 'cover' }} 
+                  style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }} 
+                  className="team-img"
                 />
               </div>
 
-              {/* Name */}
-              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#1f2937', marginBottom: '8px', letterSpacing: '0.5px' }}>
-                {member.name}
-              </h3>
+              {/* Dark Gradient Overlay for Readability */}
+              <div style={{ 
+                position: 'absolute', 
+                bottom: 0, 
+                left: 0, 
+                width: '100%', 
+                height: '60%', 
+                background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%)',
+                zIndex: 1 
+              }} />
 
-              {/* Role / Designation */}
-              <h4 style={{ fontSize: '14px', fontWeight: '700', color: '#2563eb', marginBottom: '16px', letterSpacing: '1px' }}>
-                {member.role}
-              </h4>
+              {/* Card Content (Name, Role & LinkedIn Icon) */}
+              <div style={{ 
+                position: 'absolute', 
+                bottom: 0, 
+                left: 0, 
+                width: '100%', 
+                padding: '24px 20px', 
+                zIndex: 2,
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'flex-end',
+                textAlign: 'left'
+              }}>
+                <div>
+                  <h4 style={{ fontSize: '12px', fontWeight: '700', color: '#60a5fa', marginBottom: '4px', letterSpacing: '1px', textTransform: 'uppercase' }}>
+                    {member.role}
+                  </h4>
+                  <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#ffffff', margin: 0, letterSpacing: '0.3px' }}>
+                    {member.name}
+                  </h3>
+                </div>
 
-              {/* Description */}
-              <p style={{ fontSize: '14px', color: '#4b5563', lineHeight: '1.6', margin: 0 }}>
-                {member.description}
-              </p>
+                {/* LinkedIn Icon Button */}
+                <Link 
+                  href={member.linkedin} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{ 
+                    width: '36px', 
+                    height: '36px', 
+                    borderRadius: '50%', 
+                    backgroundColor: 'rgba(255, 255, 255, 0.2)', 
+                    backdropFilter: 'blur(5px)',
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    transition: 'background-color 0.2s',
+                    flexShrink: 0
+                  }}
+                  title="Connect on LinkedIn"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#ffffff">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                </Link>
+              </div>
+
             </div>
           ))}
         </div>
 
       </div>
+
+      {/* Internal CSS for smooth image zoom on hover */}
+      <style jsx>{`
+        .team-card:hover .team-img {
+          transform: scale(1.06);
+        }
+      `}</style>
     </section>
   );
 }
