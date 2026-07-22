@@ -24,19 +24,19 @@ export default function ConnectWithUs() {
           alignItems: 'start'
         }}>
           
-          {/* Left Column: Facility Coordinates & Communication Channels */}
+          {/* Left Column: Manufacturing Facility & Contact Points */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
             
-            {/* Facility Coordinates */}
+            {/* Manufacturing Facility */}
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
                 <span style={{ fontSize: '20px' }}>📍</span>
                 <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#1e3a8a', margin: 0 }}>
-                  Facility Coordinates
+                  Manufacturing Facility
                 </h3>
               </div>
               <p style={{ fontSize: '15px', color: '#4b5563', lineHeight: '1.6', margin: 0 }}>
-                <strong>Krishna Solar Farms Pvt. Ltd.</strong><br />
+                <strong>Reshaa - Bonded for Bags</strong><br />
                 C-1, Industrial Area, Growth Center,<br />
                 Jamour, Shahjahanpur - 242001 UP
               </p>
@@ -44,25 +44,23 @@ export default function ConnectWithUs() {
 
             <hr style={{ border: 'none', borderTop: '1px solid #e5e7eb', margin: 0 }} />
 
-            {/* Communication Channels */}
+            {/* Contact Points */}
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
                 <span style={{ fontSize: '20px' }}>✉️</span>
                 <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#1e3a8a', margin: 0 }}>
-                  Communication Channels
+                  Contact Points
                 </h3>
               </div>
               
               <div style={{ marginBottom: '16px' }}>
                 <strong style={{ fontSize: '14px', color: '#1f2937', display: 'block', marginBottom: '4px' }}>Email Enquiries:</strong>
-                <a href="mailto:upnonwovens@gmail.com" style={{ fontSize: '15px', color: '#2563eb', textDecoration: 'none', display: 'block' }}>upnonwovens@gmail.com</a>
-                <a href="mailto:sale.ksfnonwoven@gmail.com" style={{ fontSize: '15px', color: '#2563eb', textDecoration: 'none', display: 'block' }}>sale.ksfnonwoven@gmail.com</a>
+                <a href="mailto:reshaabyksf@gmail.com" style={{ fontSize: '15px', color: '#2563eb', textDecoration: 'none', display: 'block' }}>reshaabyksf@gmail.com</a>
               </div>
 
               <div style={{ marginBottom: '20px' }}>
                 <strong style={{ fontSize: '14px', color: '#1f2937', display: 'block', marginBottom: '4px' }}>Direct Contacts:</strong>
-                <span style={{ fontSize: '15px', color: '#4b5563', display: 'block' }}>Naman Gupta: +91 6306078257</span>
-                <span style={{ fontSize: '15px', color: '#4b5563', display: 'block' }}>Office Desk: +91 9473714888</span>
+                <span style={{ fontSize: '15px', color: '#4b5563', display: 'block' }}>Sales Support: +91-9217176508</span>
               </div>
 
               {/* Social Media Profiles (Icon Only) */}
@@ -88,7 +86,7 @@ export default function ConnectWithUs() {
 
           </div>
 
-          {/* Right Column: Google Map Embed */}
+          {/* Right Column: Google Map Embed Intact */}
           <div style={{ width: '100%', height: '420px', borderRadius: '16px', overflow: 'hidden', border: '1px solid #e5e7eb', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.441112838027!2d79.907!3d27.882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDUyJzU5LjIiTiA3OcKwNTQnMjUuMiJF!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin" 
