@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section id="about" style={{ padding: '96px 32px', backgroundColor: '#f9fafb' }}>
+    <section id="about" style={{ padding: '96px 32px 140px 32px', backgroundColor: '#f9fafb', position: 'relative', overflow: 'hidden' }}>
       <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
         
         {/* ==================================================== */}
@@ -135,6 +135,17 @@ export default function About() {
         </div>
 
       </div>
+
+      {/* Aesthetic Bottom Gradient Fade Divider into Product Section */}
+      <div style={{ 
+        position: 'absolute', 
+        bottom: 0, 
+        left: 0, 
+        width: '100%', 
+        height: '40px', 
+        background: 'linear-gradient(to bottom, transparent, rgba(243, 244, 246, 0.6))',
+        pointerEvents: 'none'
+      }} />
     </section>
   );
 }
