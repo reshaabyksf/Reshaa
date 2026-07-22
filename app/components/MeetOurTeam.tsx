@@ -6,38 +6,38 @@ export default function MeetOurTeam() {
   const teamMembers = [
     {
       name: "Ms. Shubhi Gupta",
-      role: "FOUNDER",
+      role: "Founder",
       image: "/images/team-placeholder-1.jpg",
       linkedin: "https://www.linkedin.com"
     },
     {
       name: "Mr. Naman Gupta",
-      role: "MANAGING DIRECTOR",
+      role: "Managing Director",
       image: "/images/team-placeholder-2.jpg",
       linkedin: "https://www.linkedin.com"
     },
     {
       name: "Mrs. Priya Arya",
-      role: "EXECUTIVE DIRECTOR",
+      role: "Executive Director",
       image: "/images/team-placeholder-3.jpg",
       linkedin: "https://www.linkedin.com"
     },
     {
-      name: "TEAM MEMBER 4",
-      role: "DESIGNATION / TITLE",
+      name: "Team Member 4",
+      role: "Designation",
       image: "/images/team-placeholder-4.jpg",
       linkedin: "https://www.linkedin.com"
     },
     {
-      name: "TEAM MEMBER 5",
-      role: "DESIGNATION / TITLE",
+      name: "Team Member 5",
+      role: "Designation",
       image: "/images/team-placeholder-5.jpg",
       linkedin: "https://www.linkedin.com"
     }
   ];
 
   return (
-    <section id="contact" style={{ padding: '60px 20px', backgroundColor: '#f9fafb', scrollMarginTop: '80px' }}>
+    <section id="team" style={{ padding: '60px 20px', backgroundColor: '#f9fafb', scrollMarginTop: '80px' }}>
       <div style={{ maxWidth: '1300px', margin: '0 auto', textAlign: 'center' }}>
         
         {/* Section Header */}
@@ -48,13 +48,14 @@ export default function MeetOurTeam() {
           Leadership driving innovation, quality, and sustainable packaging solutions.
         </p>
 
-        {/* Grid Container for Team Cards */}
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', 
-          gap: '20px', 
+        {/* Expandable Flex Row Container */}
+        <div className="team-row" style={{ 
+          display: 'flex', 
+          gap: '16px', 
           justifyContent: 'center',
-          alignItems: 'stretch'
+          alignItems: 'stretch',
+          height: '460px',
+          width: '100%'
         }}>
           {teamMembers.map((member, index) => (
             <div 
@@ -62,43 +63,44 @@ export default function MeetOurTeam() {
               className="team-card"
               style={{ 
                 position: 'relative',
-                height: '420px',
-                borderRadius: '16px',
+                borderRadius: '20px',
                 overflow: 'hidden',
-                boxShadow: '0 10px 25px rgba(0, 0, 0, 0.08)',
                 backgroundColor: '#1f2937',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                flex: '1',
+                transition: 'flex 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s ease, box-shadow 0.5s ease',
+                boxShadow: '0 8px 20px rgba(0, 0, 0, 0.06)'
               }}
             >
-              {/* Background Image with Hover Zoom Effect */}
+              {/* Background Image with Scale Zoom */}
               <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden' }}>
                 <Image 
                   src={member.image} 
                   alt={member.name} 
                   fill 
-                  style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }} 
+                  style={{ objectFit: 'cover', transition: 'transform 0.6s ease' }} 
                   className="team-img"
                 />
               </div>
 
-              {/* Dark Gradient Overlay for Readability */}
+              {/* Dark Bottom Gradient Overlay */}
               <div style={{ 
                 position: 'absolute', 
                 bottom: 0, 
                 left: 0, 
                 width: '100%', 
-                height: '60%', 
-                background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%)',
+                height: '65%', 
+                background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 60%, transparent 100%)',
                 zIndex: 1 
               }} />
 
-              {/* Card Content (Name, Role & LinkedIn Icon) */}
+              {/* Card Content (Name, Role, and LinkedIn Icon) */}
               <div style={{ 
                 position: 'absolute', 
                 bottom: 0, 
                 left: 0, 
                 width: '100%', 
-                padding: '24px 20px', 
+                padding: '28px 24px', 
                 zIndex: 2,
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -106,34 +108,34 @@ export default function MeetOurTeam() {
                 textAlign: 'left'
               }}>
                 <div>
-                  <h4 style={{ fontSize: '12px', fontWeight: '700', color: '#60a5fa', marginBottom: '4px', letterSpacing: '1px', textTransform: 'uppercase' }}>
-                    {member.role}
-                  </h4>
-                  <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#ffffff', margin: 0, letterSpacing: '0.3px' }}>
+                  <h3 style={{ fontSize: '22px', fontWeight: 'bold', color: '#ffffff', margin: '0 0 4px 0', letterSpacing: '0.3px' }}>
                     {member.name}
                   </h3>
+                  <p style={{ fontSize: '15px', fontWeight: '500', color: '#d1d5db', margin: 0, letterSpacing: '0.2px' }}>
+                    {member.role}
+                  </p>
                 </div>
 
-                {/* LinkedIn Icon Button */}
+                {/* LinkedIn Circular Icon Button */}
                 <Link 
                   href={member.linkedin} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   style={{ 
-                    width: '36px', 
-                    height: '36px', 
+                    width: '42px', 
+                    height: '42px', 
                     borderRadius: '50%', 
-                    backgroundColor: 'rgba(255, 255, 255, 0.2)', 
-                    backdropFilter: 'blur(5px)',
+                    backgroundColor: '#ffffff', 
                     display: 'flex', 
                     alignItems: 'center', 
                     justifyContent: 'center',
-                    transition: 'background-color 0.2s',
-                    flexShrink: 0
+                    transition: 'transform 0.2s ease, background-color 0.2s',
+                    flexShrink: 0,
+                    boxShadow: '0 4px 10px rgba(0,0,0,0.2)'
                   }}
                   title="Connect on LinkedIn"
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#ffffff">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#0f172a">
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                   </svg>
                 </Link>
@@ -145,10 +147,18 @@ export default function MeetOurTeam() {
 
       </div>
 
-      {/* Internal CSS for smooth image zoom on hover */}
+      {/* Hover expansion & zoom styling */}
       <style jsx>{`
+        .team-row:hover .team-card {
+          flex: 0.8;
+        }
+        .team-row .team-card:hover {
+          flex: 2.2;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+          transform: translateY(-4px);
+        }
         .team-card:hover .team-img {
-          transform: scale(1.06);
+          transform: scale(1.08);
         }
       `}</style>
     </section>
