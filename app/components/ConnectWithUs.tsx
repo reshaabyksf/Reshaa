@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
-export default function ContactSection() {
+export default function ConnectWithUs() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
@@ -12,7 +12,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" style={{ padding: '40px 20px 80px 20px', backgroundColor: '#f9fafb', scrollMarginTop: '80px' }}>
+    <section id="contact" style={{ padding: '10px 20px 80px 20px', backgroundColor: '#f9fafb', scrollMarginTop: '80px' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         
         {/* Section Heading */}
@@ -23,7 +23,7 @@ export default function ContactSection() {
           We would love to hear from you. Reach out for bulk enquiries, partnerships, or support.
         </p>
 
-        {/* Part 1: Interactive Inquiry Form (Fills the Gap) */}
+        {/* Part 1: Interactive Inquiry Form */}
         <div style={{ 
           backgroundColor: '#ffffff', 
           borderRadius: '24px', 
@@ -86,7 +86,7 @@ export default function ContactSection() {
                 <textarea 
                   rows={4}
                   required 
-                  placeholder="Tell us about your bag or non-woven fabric requirements..."
+                  placeholder="Tell us about your non-woven bag requirements..."
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                   style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '15px', outline: 'none', resize: 'vertical' }}
@@ -105,7 +105,7 @@ export default function ContactSection() {
           )}
         </div>
 
-        {/* Part 2: Connect With Us Grid (Facility Details, Contacts, Socials & Map) */}
+        {/* Part 2: Connect With Us Grid */}
         <div style={{ 
           backgroundColor: '#ffffff', 
           borderRadius: '24px', 
