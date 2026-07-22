@@ -8,7 +8,7 @@ export default function MeetOurTeam() {
       name: "Ms. Shubhi Gupta",
       role: "Founder",
       image: "/images/team-placeholder-1.jpg",
-      linkedin: "https://www.linkedin.com"
+      linkedin: "https://www.linkedin.com/in/shubhi-gupta1617"
     },
     {
       name: "Mr. Naman Gupta",
