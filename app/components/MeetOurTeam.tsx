@@ -25,7 +25,7 @@ export default function MeetOurTeam() {
     {
       name: "Mr. Aman Kumar",
       role: "Sales & Operations Executive",
-      image: "/images/team-placeholder-4.jpeg",
+      image: "/images/team-placeholder-4.jpeg?v=2",
       linkedin: "https://www.linkedin.com/in/aman-kumar-6940a3280"
     },
     {
