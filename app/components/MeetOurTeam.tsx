@@ -75,13 +75,13 @@ export default function MeetOurTeam() {
                   boxShadow: '0 8px 20px rgba(0, 0, 0, 0.06)'
                 }}
               >
-                {/* Background Image with Cover Layout */}
+                {/* Background Image with Uniform Top Alignment */}
                 <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden' }}>
                   <Image 
                     src={member.image} 
                     alt={member.name} 
                     fill 
-                    style={{ objectFit: 'cover', objectPosition: 'center top', transition: 'transform 0.6s ease' }} 
+                    style={{ objectFit: 'cover', objectPosition: 'center 20%', transition: 'transform 0.6s ease' }} 
                     className="team-img"
                   />
                 </div>
