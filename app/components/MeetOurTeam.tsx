@@ -23,10 +23,10 @@ export default function MeetOurTeam() {
       linkedin: "https://www.linkedin.com"
     },
     {
-      name: "Team Member 4",
-      role: "Designation",
-      image: "/images/team-placeholder-4.jpg",
-      linkedin: "https://www.linkedin.com"
+      name: "Mr. Aman Kumar",
+      role: "Sales & Operations Executive",
+      image: "/images/team-placeholder-4.jpeg",
+      linkedin: "https://www.linkedin.com/in/aman-kumar-6940a3280"
     },
     {
       name: "Team Member 5",
