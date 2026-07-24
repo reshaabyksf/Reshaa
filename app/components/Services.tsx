@@ -10,7 +10,7 @@ export default function Services() {
       tag: "High-Volume Precision",
       description: "Delivering razor-sharp text and rich, high-definition color fidelity tailored for premium brand presentations.",
       detailedDescription: "Offset printing is a widely used mass-production printing technique where the inked image is transferred (or 'offset') from a plate to a rubber blanket, then to the printing surface. It is the premier choice for high-volume runs, offering unmatched color consistency, crisp typography, and extraordinary detail reproduction for corporate catalogues, packaging boxes, and promotional materials.",
-      videoUrl: "/videos/offset-printing.mp4", // <-- Updated with your exact video filename
+      videoUrl: "/videos/offset-printing.mp4",
       isVideoFile: true
     },
     {
@@ -186,10 +186,10 @@ export default function Services() {
               {selectedService.title}
             </h3>
 
-            {/* Video Container */}
+            {/* Video Container (Optimized for Portrait & Landscape Videos) */}
             <div style={{
               width: '100%',
-              aspectRatio: '16/9',
+              maxHeight: '450px',
               backgroundColor: '#0f172a',
               borderRadius: '12px',
               overflow: 'hidden',
@@ -205,13 +205,13 @@ export default function Services() {
                   autoPlay 
                   muted
                   playsInline
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  style={{ width: '100%', maxHeight: '450px', objectFit: 'contain' }}
                 />
               ) : (
                 <iframe 
                   src={selectedService.videoUrl} 
                   title={selectedService.title}
-                  style={{ width: '100%', height: '100%', border: 'none' }}
+                  style={{ width: '100%', height: '400px', border: 'none' }}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
