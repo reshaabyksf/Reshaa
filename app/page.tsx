@@ -2,8 +2,10 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Products from './components/Products';
+import Services from './components/Services'; 
+import Gallery from './components/Gallery';
 import MeetOurTeam from './components/MeetOurTeam';
-import ConnectWithUs from './components/ConnectWithUs'; // <-- Updated filename here
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function Home() {
@@ -11,10 +13,12 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
-      <div id="about"><About /></div>
+      <About />
       <Products />
+      <Services /> {/* <-- Positioned directly below Products */}
+      <Gallery />
       <MeetOurTeam />
-      <ConnectWithUs />
+      <Contact />
       <Footer />
     </main>
   );
