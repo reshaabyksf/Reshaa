@@ -10,8 +10,8 @@ export default function Services() {
       tag: "High-Volume Precision",
       description: "Delivering razor-sharp text and rich, high-definition color fidelity tailored for premium brand presentations.",
       detailedDescription: "Offset printing is a widely used mass-production printing technique where the inked image is transferred (or 'offset') from a plate to a rubber blanket, then to the printing surface. It is the premier choice for high-volume runs, offering unmatched color consistency, crisp typography, and extraordinary detail reproduction for corporate catalogues, packaging boxes, and promotional materials.",
-      videoUrl: "/videos/offset.mp4", // <-- Your added offset video path inside public/videos/
-      isVideoFile: true // Flag to use HTML5 video player instead of iframe
+      videoUrl: "/videos/offset-printing.mp4", // <-- Updated with your exact video filename
+      isVideoFile: true
     },
     {
       title: "Screen Printing",
@@ -203,6 +203,8 @@ export default function Services() {
                   src={selectedService.videoUrl} 
                   controls 
                   autoPlay 
+                  muted
+                  playsInline
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
               ) : (
