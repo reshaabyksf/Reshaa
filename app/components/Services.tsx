@@ -128,8 +128,8 @@ export default function Services() {
           left: 0,
           width: '100vw',
           height: '100vh',
-          backgroundColor: 'rgba(0, 0, 0, 0.6)',
-          backdropFilter: 'blur(4px)',
+          backgroundColor: 'rgba(0, 0, 0, 0.7)',
+          backdropFilter: 'blur(5px)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -139,9 +139,9 @@ export default function Services() {
           <div style={{
             backgroundColor: '#ffffff',
             borderRadius: '20px',
-            maxWidth: '800px',
+            maxWidth: '750px',
             width: '100%',
-            maxHeight: '90vh',
+            maxHeight: '92vh',
             overflowY: 'auto',
             padding: '32px',
             position: 'relative',
@@ -163,7 +163,8 @@ export default function Services() {
                 fontSize: '18px',
                 fontWeight: 'bold',
                 cursor: 'pointer',
-                color: '#334155'
+                color: '#334155',
+                zIndex: 10
               }}
             >
               ✕
@@ -186,17 +187,17 @@ export default function Services() {
               {selectedService.title}
             </h3>
 
-            {/* Video Container (Optimized for Portrait & Landscape Videos) */}
+            {/* Aesthetic Video Frame Optimized for Portrait or Landscape */}
             <div style={{
               width: '100%',
-              maxHeight: '450px',
-              backgroundColor: '#0f172a',
+              backgroundColor: '#090d16',
               borderRadius: '12px',
               overflow: 'hidden',
-              marginBottom: '20px',
+              marginBottom: '24px',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.4)'
             }}>
               {selectedService.isVideoFile ? (
                 <video 
@@ -205,7 +206,13 @@ export default function Services() {
                   autoPlay 
                   muted
                   playsInline
-                  style={{ width: '100%', maxHeight: '450px', objectFit: 'contain' }}
+                  style={{ 
+                    width: '100%', 
+                    maxHeight: '500px', 
+                    objectFit: 'contain', 
+                    display: 'block',
+                    margin: '0 auto' 
+                  }}
                 />
               ) : (
                 <iframe 
