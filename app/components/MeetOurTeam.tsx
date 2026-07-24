@@ -19,7 +19,7 @@ export default function MeetOurTeam() {
     {
       name: "Mrs. Priya Arya",
       role: "Executive Director",
-      image: "/images/team-placeholder-3.jpg",
+      image: "/images/team-placeholder-3.jpeg",
       linkedin: "https://www.linkedin.com"
     },
     {
