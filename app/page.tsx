@@ -4,7 +4,7 @@ import About from './components/About';
 import Products from './components/Products';
 import Services from './components/Services';
 import MeetOurTeam from './components/MeetOurTeam';
-import Contact from './components/Contact';
+import ConnectWithUs from './components/ConnectWithUs';
 import Footer from './components/Footer';
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
       <Products />
       <Services />
       <MeetOurTeam />
-      <Contact />
+      <ConnectWithUs />
       <Footer />
     </main>
   );
