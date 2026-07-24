@@ -187,7 +187,7 @@ export default function Services() {
               {selectedService.title}
             </h3>
 
-            {/* Aesthetic Video Frame Optimized for Portrait or Landscape */}
+            {/* Video Container with Explicit Source Tag */}
             <div style={{
               width: '100%',
               backgroundColor: '#090d16',
@@ -201,7 +201,6 @@ export default function Services() {
             }}>
               {selectedService.isVideoFile ? (
                 <video 
-                  src={selectedService.videoUrl} 
                   controls 
                   autoPlay 
                   muted
@@ -213,7 +212,10 @@ export default function Services() {
                     display: 'block',
                     margin: '0 auto' 
                   }}
-                />
+                >
+                  <source src={selectedService.videoUrl} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               ) : (
                 <iframe 
                   src={selectedService.videoUrl} 
