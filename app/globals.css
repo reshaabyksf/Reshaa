@@ -15,9 +15,8 @@
 /* ==================================================== */
 
 body {
-  /* Adjusted overlay opacity to 0.75 so your bg-fabric.jpg image is clearly visible */
-  background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), 
-              url('/images/bg-fabric.jpg');
+  background-color: #f8fafc;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url('/images/bg-fabric.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
