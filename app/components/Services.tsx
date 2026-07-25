@@ -10,7 +10,7 @@ export default function Services() {
       tag: "High-Volume Precision",
       description: "Delivering razor-sharp text and rich, high-definition color fidelity tailored for premium brand presentations.",
       detailedDescription: "Offset printing is a widely used mass-production printing technique where the inked image is transferred (or 'offset') from a plate to a rubber blanket, then to the printing surface. It is the premier choice for high-volume runs, offering unmatched color consistency, crisp typography, and extraordinary detail reproduction for corporate catalogues, packaging boxes, and promotional materials.",
-      videoUrl: "/videos/offset-printing.mp4",
+      videoUrl: "/Videos/offset-printing.mp4", // <-- Updated with capital V to match your folder
       isVideoFile: true
     },
     {
@@ -40,78 +40,45 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" style={{ padding: '80px 20px', backgroundColor: '#f8fafc', scrollMarginTop: '80px' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
+    <section id="services" className="services-section">
+      <div className="services-container">
         
         {/* Section Header */}
-        <h2 style={{ fontSize: '38px', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '12px', letterSpacing: '0.5px' }}>
+        <h2 className="services-title">
           Our Core Services
         </h2>
-        <p style={{ fontSize: '16px', color: '#64748b', marginBottom: '50px', maxWidth: '600px', marginInline: 'auto' }}>
+        <p className="services-subtitle">
           Advanced industrial manufacturing and specialized finishing techniques built for superior quality and reliability. Click any service to explore details.
         </p>
 
         {/* Services Grid Layout */}
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', 
-          gap: '24px',
-          textAlign: 'left'
-        }}>
+        <div className="services-grid">
           {servicesList.map((service, index) => (
             <div 
               key={index}
               onClick={() => setSelectedService(service)}
               className="service-card"
-              style={{
-                backgroundColor: '#ffffff',
-                borderRadius: '16px',
-                padding: '32px 24px',
-                position: 'relative',
-                overflow: 'hidden',
-                border: '1px solid #e2e8f0',
-                cursor: 'pointer',
-                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02)',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease'
-              }}
             >
               {/* Top Accent Gradient Bar */}
-              <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '4px',
-                background: 'linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%)'
-              }} />
+              <div className="gradient-bar" />
 
               {/* Tag / Category Badge */}
-              <span style={{
-                display: 'inline-block',
-                fontSize: '12px',
-                fontWeight: '600',
-                color: '#2563eb',
-                backgroundColor: '#eff6ff',
-                padding: '4px 10px',
-                borderRadius: '20px',
-                marginBottom: '16px',
-                letterSpacing: '0.3px'
-              }}>
+              <span className="service-tag">
                 {service.tag}
               </span>
 
               {/* Service Title */}
-              <h3 style={{ fontSize: '22px', fontWeight: 'bold', color: '#0f172a', marginBottom: '12px' }}>
+              <h3 className="card-title">
                 {service.title}
               </h3>
 
               {/* Description */}
-              <p style={{ fontSize: '15px', color: '#475569', lineHeight: '1.6', margin: '0 0 16px 0' }}>
+              <p className="card-description">
                 {service.description}
               </p>
 
               {/* Click to open cue */}
-              <span style={{ fontSize: '14px', fontWeight: '600', color: '#1e3a8a' }}>
+              <span className="card-cta">
                 Click to view details & video ↓
               </span>
             </div>
@@ -122,96 +89,34 @@ export default function Services() {
 
       {/* Modal Popup for Details & Video */}
       {selectedService && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          backgroundColor: 'rgba(0, 0, 0, 0.7)',
-          backdropFilter: 'blur(5px)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 1000,
-          padding: '20px'
-        }}>
-          <div style={{
-            backgroundColor: '#ffffff',
-            borderRadius: '20px',
-            maxWidth: '750px',
-            width: '100%',
-            maxHeight: '92vh',
-            overflowY: 'auto',
-            padding: '32px',
-            position: 'relative',
-            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-            textAlign: 'left'
-          }}>
+        <div className="modal-overlay" onClick={() => setSelectedService(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             {/* Close Button */}
             <button 
               onClick={() => setSelectedService(null)}
-              style={{
-                position: 'absolute',
-                top: '20px',
-                right: '20px',
-                background: '#f1f5f9',
-                border: 'none',
-                borderRadius: '50%',
-                width: '36px',
-                height: '36px',
-                fontSize: '18px',
-                fontWeight: 'bold',
-                cursor: 'pointer',
-                color: '#334155',
-                zIndex: 10
-              }}
+              className="close-btn"
+              aria-label="Close modal"
             >
               ✕
             </button>
 
             {/* Modal Header */}
-            <span style={{
-              display: 'inline-block',
-              fontSize: '12px',
-              fontWeight: '600',
-              color: '#2563eb',
-              backgroundColor: '#eff6ff',
-              padding: '4px 10px',
-              borderRadius: '20px',
-              marginBottom: '10px'
-            }}>
+            <span className="service-tag">
               {selectedService.tag}
             </span>
-            <h3 style={{ fontSize: '28px', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '16px' }}>
+            <h3 className="modal-title">
               {selectedService.title}
             </h3>
 
-            {/* Video Container with Explicit Source Tag */}
-            <div style={{
-              width: '100%',
-              backgroundColor: '#090d16',
-              borderRadius: '12px',
-              overflow: 'hidden',
-              marginBottom: '24px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.4)'
-            }}>
+            {/* Video Container */}
+            <div className="video-container">
               {selectedService.isVideoFile ? (
                 <video 
                   controls 
                   autoPlay 
                   muted
                   playsInline
-                  style={{ 
-                    width: '100%', 
-                    maxHeight: '500px', 
-                    objectFit: 'contain', 
-                    display: 'block',
-                    margin: '0 auto' 
-                  }}
+                  className="video-player"
                 >
                   <source src={selectedService.videoUrl} type="video/mp4" />
                   Your browser does not support the video tag.
@@ -220,7 +125,7 @@ export default function Services() {
                 <iframe 
                   src={selectedService.videoUrl} 
                   title={selectedService.title}
-                  style={{ width: '100%', height: '400px', border: 'none' }}
+                  className="iframe-player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
@@ -228,22 +133,278 @@ export default function Services() {
             </div>
 
             {/* Detailed Description */}
-            <h4 style={{ fontSize: '18px', fontWeight: 'bold', color: '#0f172a', marginBottom: '8px' }}>
+            <h4 className="overview-heading">
               Detailed Overview
             </h4>
-            <p style={{ fontSize: '16px', color: '#475569', lineHeight: '1.7', margin: 0 }}>
+            <p className="overview-text">
               {selectedService.detailedDescription}
             </p>
           </div>
         </div>
       )}
 
-      {/* Hover Effects Styling */}
+      {/* Comprehensive Responsive Styles */}
       <style jsx>{`
+        .services-section {
+          padding: 80px 20px;
+          background-color: #f8fafc;
+          scroll-margin-top: 80px;
+        }
+
+        .services-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          text-align: center;
+        }
+
+        .services-title {
+          font-size: 38px;
+          font-weight: 700;
+          color: #1e3a8a;
+          margin-bottom: 12px;
+          letter-spacing: 0.5px;
+        }
+
+        .services-subtitle {
+          font-size: 16px;
+          color: #64748b;
+          margin-bottom: 50px;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .services-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          gap: 24px;
+          text-align: left;
+        }
+
+        .service-card {
+          background-color: #ffffff;
+          border-radius: 16px;
+          padding: 32px 24px;
+          position: relative;
+          overflow: hidden;
+          border: 1px solid #e2e8f0;
+          cursor: pointer;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
         .service-card:hover {
           transform: translateY(-6px);
           box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
           border-color: #cbd5e1;
+        }
+
+        .gradient-bar {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+
+        .service-tag {
+          display: inline-block;
+          font-size: 12px;
+          font-weight: 600;
+          color: #2563eb;
+          background-color: #eff6ff;
+          padding: 4px 10px;
+          border-radius: 20px;
+          margin-bottom: 16px;
+          letter-spacing: 0.3px;
+        }
+
+        .card-title {
+          font-size: 22px;
+          font-weight: 700;
+          color: #0f172a;
+          margin-bottom: 12px;
+        }
+
+        .card-description {
+          font-size: 15px;
+          color: #475569;
+          line-height: 1.6;
+          margin: 0 0 16px 0;
+        }
+
+        .card-cta {
+          font-size: 14px;
+          font-weight: 600;
+          color: #1e3a8a;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background-color: rgba(0, 0, 0, 0.75);
+          backdrop-filter: blur(5px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 1000;
+          padding: 20px;
+          box-sizing: border-box;
+        }
+
+        .modal-content {
+          background-color: #ffffff;
+          border-radius: 20px;
+          max-width: 750px;
+          width: 100%;
+          max-height: 90vh;
+          overflow-y: auto;
+          padding: 32px;
+          position: relative;
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+          text-align: left;
+          box-sizing: border-box;
+        }
+
+        .close-btn {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          background: #f1f5f9;
+          border: none;
+          border-radius: 50%;
+          width: 38px;
+          height: 38px;
+          font-size: 18px;
+          font-weight: bold;
+          cursor: pointer;
+          color: #334155;
+          z-index: 10;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .modal-title {
+          font-size: 28px;
+          font-weight: 700;
+          color: #1e3a8a;
+          margin-bottom: 16px;
+          padding-right: 40px;
+        }
+
+        .video-container {
+          width: 100%;
+          background-color: #090d16;
+          border-radius: 12px;
+          overflow: hidden;
+          margin-bottom: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+        }
+
+        .video-player {
+          width: 100%;
+          max-height: 480px;
+          object-fit: contain;
+          display: block;
+          margin: 0 auto;
+        }
+
+        .iframe-player {
+          width: 100%;
+          height: 380px;
+          border: none;
+        }
+
+        .overview-heading {
+          font-size: 18px;
+          font-weight: 700;
+          color: #0f172a;
+          margin-bottom: 8px;
+        }
+
+        .overview-text {
+          font-size: 16px;
+          color: #475569;
+          line-height: 1.7;
+          margin: 0;
+        }
+
+        /* --- Mobile Responsiveness Breakpoints --- */
+        @media (max-width: 640px) {
+          .services-section {
+            padding: 48px 16px;
+          }
+
+          .services-title {
+            font-size: 28px;
+          }
+
+          .services-subtitle {
+            font-size: 14px;
+            margin-bottom: 32px;
+          }
+
+          .services-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+          }
+
+          .service-card {
+            padding: 24px 18px;
+          }
+
+          .card-title {
+            font-size: 20px;
+          }
+
+          .modal-overlay {
+            padding: 12px;
+          }
+
+          .modal-content {
+            padding: 20px 16px;
+            border-radius: 16px;
+            max-height: 94vh;
+          }
+
+          .close-btn {
+            top: 14px;
+            right: 14px;
+            width: 34px;
+            height: 34px;
+            font-size: 16px;
+          }
+
+          .modal-title {
+            font-size: 22px;
+            margin-bottom: 12px;
+          }
+
+          .video-player {
+            max-height: 320px;
+          }
+
+          .iframe-player {
+            height: 220px;
+          }
+
+          .overview-heading {
+            font-size: 16px;
+          }
+
+          .overview-text {
+            font-size: 14px;
+            line-height: 1.6;
+          }
         }
       `}</style>
     </section>
