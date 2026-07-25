@@ -10,7 +10,7 @@ export default function Services() {
       tag: "High-Volume Precision",
       description: "Delivering razor-sharp text and rich, high-definition color fidelity tailored for premium brand presentations.",
       detailedDescription: "Offset printing is a widely used mass-production printing technique where the inked image is transferred (or 'offset') from a plate to a rubber blanket, then to the printing surface. It is the premier choice for high-volume runs, offering unmatched color consistency, crisp typography, and extraordinary detail reproduction for corporate catalogues, packaging boxes, and promotional materials.",
-      videoUrl: "/Videos/offset-printing.mp4", // <-- Updated with capital V to match your folder
+      videoUrl: "/Videos/offset-printing.mp4",
       isVideoFile: true
     },
     {
@@ -26,14 +26,6 @@ export default function Services() {
       tag: "High-Speed Efficiency",
       description: "Adaptable, high-speed printing solutions optimized for continuous rolls and mass-volume non-woven bag production.",
       detailedDescription: "Flexographic printing uses flexible relief plates mounted on rotary cylinders to print at high speeds across diverse packaging materials, including continuous non-woven fabric rolls and plastic films, ensuring high efficiency and cost-effectiveness.",
-      videoUrl: "https://www.youtube.com/embed/placeholder",
-      isVideoFile: false
-    },
-    {
-      title: "Stitching",
-      tag: "Structural Integrity",
-      description: "Advanced automated and manual stitching configurations ensuring exceptional load capacity and heavy-duty durability.",
-      detailedDescription: "Precision stitching forms the backbone of durable carrying solutions. Using advanced automated sewing machinery alongside skilled manual tailoring, we reinforce handles, gussets, and side seams to ensure superior weight capacity and long-term bag resilience.",
       videoUrl: "https://www.youtube.com/embed/placeholder",
       isVideoFile: false
     }
