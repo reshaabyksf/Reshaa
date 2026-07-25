@@ -15,8 +15,8 @@
 /* ==================================================== */
 
 body {
-  /* Soft white tint overlay combined with background image for text clarity */
-  background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), 
+  /* Adjusted overlay opacity to 0.75 so your bg-fabric.jpg image is clearly visible */
+  background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), 
               url('/images/bg-fabric.jpg');
   background-size: cover;
   background-position: center;
