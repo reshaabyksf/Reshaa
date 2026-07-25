@@ -113,7 +113,7 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Services Dropdown */}
+          {/* Services Dropdown (Stitching Removed) */}
           <div style={{ position: 'relative' }}>
             <button 
               onClick={() => { setIsServicesOpen(!isServicesOpen); setIsProductsOpen(false); setIsLangOpen(false); }}
@@ -123,7 +123,7 @@ export default function Navbar() {
             </button>
             {isServicesOpen && (
               <div style={{ position: 'absolute', top: '100%', left: 0, backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '4px', padding: '5px 0', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '180px', zIndex: 100 }}>
-                {["Offset Printing", "Screen Printing", "Flexo Printing", "Stitching"].map(item => (
+                {["Offset Printing", "Screen Printing", "Flexo Printing"].map(item => (
                   <div key={item} style={{ padding: '8px 15px', color: '#374151', cursor: 'pointer', fontSize: '15px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <span style={{ fontSize: '12px', color: '#1e3a8a' }}>➔</span> {item}
                   </div>
