@@ -135,10 +135,10 @@ export default function Services() {
         </div>
       )}
 
-      {/* Comprehensive Responsive Styles */}
+      {/* Comprehensive Responsive Styles with Reduced Top Spacing */}
       <style jsx>{`
         .services-section {
-          padding: 80px 20px;
+          padding: 30px 20px 80px 20px; /* Reduced top padding from 80px to 30px */
           background-color: #f8fafc;
           scroll-margin-top: 80px;
         }
@@ -153,14 +153,14 @@ export default function Services() {
           font-size: 38px;
           font-weight: 700;
           color: #1e3a8a;
-          margin-bottom: 12px;
+          margin-bottom: 8px; /* Tightened gap below title */
           letter-spacing: 0.5px;
         }
 
         .services-subtitle {
           font-size: 16px;
           color: #64748b;
-          margin-bottom: 50px;
+          margin-bottom: 30px; /* Reduced gap below subtitle */
           max-width: 600px;
           margin-left: auto;
           margin-right: auto;
@@ -333,7 +333,7 @@ export default function Services() {
         /* --- Mobile Responsiveness Breakpoints --- */
         @media (max-width: 640px) {
           .services-section {
-            padding: 48px 16px;
+            padding: 24px 16px 48px 16px;
           }
 
           .services-title {
@@ -342,7 +342,7 @@ export default function Services() {
 
           .services-subtitle {
             font-size: 14px;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
           }
 
           .services-grid {
