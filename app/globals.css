@@ -27,6 +27,12 @@ body {
   padding: 0;
 }
 
+/* Make section containers semi-transparent so the background image shows through */
+section, .services-section, div[style*="background-color: white"], div[style*="background-color: #ffffff"] {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(4px);
+}
+
 /* ==================================================== */
 /* MOBILE RESPONSIVE MEDIA QUERIES                    */
 /* ==================================================== */
