@@ -11,7 +11,25 @@
 }
 
 /* ==================================================== */
-/* MOBILE RESPONSIVE MEDIA QUERIES                      */
+/* GLOBAL AESTHETIC BACKGROUND (NON-WOVEN FABRIC THEME) */
+/* ==================================================== */
+
+body {
+  /* Soft white tint overlay combined with background image for text clarity */
+  background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), 
+              url('/images/bg-fabric.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: #0f172a;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==================================================== */
+/* MOBILE RESPONSIVE MEDIA QUERIES                    */
 /* ==================================================== */
 
 @media (max-width: 900px) {
