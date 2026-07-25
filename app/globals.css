@@ -16,7 +16,7 @@
 
 body {
   background-color: #f8fafc;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url('/images/bg-fabric.jpg');
+  background-image: url('/images/bg-fabric.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -25,12 +25,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
-}
-
-/* Make section containers semi-transparent so the background image shows through */
-section, .services-section, div[style*="background-color: white"], div[style*="background-color: #ffffff"] {
-  background-color: rgba(255, 255, 255, 0.85) !important;
-  backdrop-filter: blur(4px);
 }
 
 /* ==================================================== */
