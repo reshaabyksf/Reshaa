@@ -128,25 +128,14 @@ const Tools = () => {
   return (
     <div style={{ maxWidth: '1200px', margin: '40px auto', padding: '0 20px', boxSizing: 'border-box' }}>
       
-      {/* Section Title Header inside a fitted Solid White Card */}
-      <section style={{ marginBottom: '40px', display: 'flex', justifyContent: 'center' }}>
-        <div style={{
-          backgroundColor: '#ffffff',
-          padding: '32px 40px',
-          borderRadius: '20px',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)',
-          border: '1px solid #e5e7eb',
-          textAlign: 'center',
-          maxWidth: '900px',
-          width: '100%'
-        }}>
-          <h1 style={{ fontSize: 'clamp(24px, 3vw, 34px)', fontWeight: 'bold', color: '#1e3a8a', margin: '0 0 12px 0', letterSpacing: '0.5px' }}>
-            Non-Woven Bag Specification Calculator
-          </h1>
-          <p style={{ color: '#4b5563', fontSize: '15px', margin: 0, lineHeight: '1.6' }}>
-            Instantly compute exact fabric roll widths, unit piece weights, and manufacturing yield rates based on your custom bag dimensions.
-          </p>
-        </div>
+      {/* Standardized Section Heading matching the rest of the website */}
+      <section style={{ marginBottom: '40px', textAlign: 'center' }}>
+        <h2 style={{ fontSize: '38px', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '16px', textAlign: 'center', letterSpacing: '0.5px' }}>
+          SPECIFICATION CALCULATOR
+        </h2>
+        <p style={{ fontSize: '16px', color: '#6b7280', textAlign: 'center', marginBottom: '40px' }}>
+          Instantly compute exact fabric roll widths, unit piece weights, and manufacturing yield rates based on your custom bag dimensions.
+        </p>
       </section>
 
       {/* SINGLE UNIFIED MASTER CARD: Calculator UI */}
