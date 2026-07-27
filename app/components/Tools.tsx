@@ -105,7 +105,7 @@ const Tools = () => {
     }
   }, [inputs, orderMode]);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const value = e.target.type === 'number' ? Number(e.target.value) : e.target.value;
     setInputs({ ...inputs, [e.target.name]: value });
   };
@@ -328,4 +328,4 @@ const Tools = () => {
   );
 };
 
-export default Tools;
+export default Tools.tsx; // Note: In file name it should just be export default Tools;
