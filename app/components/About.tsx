@@ -1,17 +1,18 @@
 export default function About() {
   return (
-    <section id="about" style={{ padding: '96px 32px', backgroundColor: '#f9fafb' }}>
+    <section id="about" style={{ padding: '40px 20px', backgroundColor: 'transparent' }}>
       <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
         
         {/* ==================================================== */}
         {/* SECTION 1: CORPORATE OVERVIEW CARD                    */}
         {/* ==================================================== */}
         <div style={{ 
-          backgroundColor: '#ffffff', 
+          backgroundColor: 'rgba(255, 255, 255, 0.75)', 
+          backdropFilter: 'blur(6px)',
           padding: '48px', 
           borderRadius: '20px', 
           boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)',
-          border: '1px solid #e5e7eb',
+          border: '1px solid rgba(255, 255, 255, 0.6)',
           marginBottom: '60px'
         }}>
           <h2 style={{ fontSize: '32px', fontWeight: 'bold', marginBottom: '24px', color: '#1e3a8a', textAlign: 'center' }}>
@@ -43,7 +44,7 @@ export default function About() {
         <div style={{ 
           width: '100%', 
           height: '1px', 
-          backgroundColor: '#e5e7eb', 
+          backgroundColor: 'rgba(229, 231, 235, 0.6)', 
           marginBottom: '60px' 
         }} />
 
@@ -54,7 +55,8 @@ export default function About() {
           display: 'flex', 
           alignItems: 'center', 
           justifyContent: 'flex-start', 
-          gap: '60px' 
+          gap: '60px',
+          flexWrap: 'wrap'
         }}>
           
           {/* Left: Circular Frame with Video & Bag Overlay */}
@@ -64,9 +66,10 @@ export default function About() {
             borderRadius: '50%', 
             overflow: 'hidden',
             position: 'relative',
-            border: '4px solid #d1d5db',
+            border: '4px solid rgba(255, 255, 255, 0.8)',
             flexShrink: 0,
-            boxShadow: '0 8px 24px rgba(0,0,0,0.08)'
+            boxShadow: '0 8px 24px rgba(0,0,0,0.08)',
+            margin: '0 auto'
           }}>
             {/* Background Video Layer */}
             <video 
@@ -106,23 +109,47 @@ export default function About() {
             />
           </div>
 
-          {/* Right: Vision, Mission & Tagline */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '30px', flex: 1 }}>
-            <div>
-              <h3 style={{ fontSize: '26px', fontWeight: 'bold', color: '#1e3a8a', margin: '0 0 10px 0' }}>Our Vision</h3>
+          {/* Right: Vision, Mission & Tagline inside Cards */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', flex: 1, minWidth: '280px' }}>
+            
+            {/* Vision Card */}
+            <div style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.75)',
+              backdropFilter: 'blur(6px)',
+              borderRadius: '16px',
+              padding: '24px',
+              border: '1px solid rgba(255, 255, 255, 0.6)',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.02)'
+            }}>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#1e3a8a', margin: '0 0 10px 0' }}>Our Vision</h3>
               <p style={{ color: '#4b5563', fontSize: '16px', lineHeight: '1.6', margin: '0' }}>
                 To become a trusted global partner in sustainable packaging by transforming non-woven materials into innovative, reliable, and responsible packaging solutions that help businesses grow.
               </p>
             </div>
 
-            <div>
-              <h3 style={{ fontSize: '26px', fontWeight: 'bold', color: '#1e3a8a', margin: '0 0 10px 0' }}>Our Mission</h3>
+            {/* Mission Card */}
+            <div style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.75)',
+              backdropFilter: 'blur(6px)',
+              borderRadius: '16px',
+              padding: '24px',
+              border: '1px solid rgba(255, 255, 255, 0.6)',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.02)'
+            }}>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#1e3a8a', margin: '0 0 10px 0' }}>Our Mission</h3>
               <p style={{ color: '#4b5563', fontSize: '16px', lineHeight: '1.6', margin: '0' }}>
                 At Reshaa, we are committed to delivering high-quality non-woven bags and customized packaging solutions that combine functionality, durability, aesthetics, and sustainability. We strive to understand our customers’ unique packaging needs and provide dependable products that add value to their brands while contributing to a more sustainable future.
               </p>
             </div>
 
-            <div style={{ borderTop: '2px solid #f3f4f6', paddingTop: '16px' }}>
+            {/* Tagline Card */}
+            <div style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.60)',
+              backdropFilter: 'blur(6px)',
+              borderRadius: '12px',
+              padding: '16px 24px',
+              border: '1px solid rgba(255, 255, 255, 0.5)'
+            }}>
               <h4 style={{ fontSize: '18px', fontWeight: 'bold', color: '#1e3a8a', margin: '0 0 4px 0' }}>
                 Reshaa — Bonded for Bags
               </h4>
@@ -130,6 +157,7 @@ export default function About() {
                 Where quality, innovation, and reliable packaging solutions come together.
               </p>
             </div>
+
           </div>
 
         </div>
