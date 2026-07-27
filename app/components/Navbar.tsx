@@ -118,7 +118,7 @@ export default function Navbar() {
                 position: 'absolute', 
                 top: '100%', 
                 right: 0, 
-                backgroundColor: 'white', 
+                backgroundColor: '#ffffff', 
                 border: '1px solid #e5e7eb', 
                 borderRadius: '8px', 
                 padding: '6px 0', 
@@ -132,9 +132,9 @@ export default function Navbar() {
                   <div 
                     key={lang.code} 
                     onClick={() => handleLanguageSelect(lang.code, lang.name)}
-                    style={{ padding: '10px 15px', color: '#374151', cursor: 'pointer', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '8px', transition: 'background-color 0.2s' }}
+                    style={{ padding: '10px 15px', color: '#374151', cursor: 'pointer', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '8px', backgroundColor: '#ffffff', transition: 'background-color 0.2s' }}
                     onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f3f4f6'}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ffffff'}
                   >
                     <span style={{ fontSize: '12px', color: '#1e3a8a' }}>➔</span> {lang.name}
                   </div>
@@ -174,7 +174,7 @@ export default function Navbar() {
                 <button
                   key={lang.code}
                   onClick={() => { handleLanguageSelect(lang.code, lang.name); setIsMobileMenuOpen(false); }}
-                  style={{ textAlign: 'left', padding: '8px 10px', backgroundColor: '#f3f4f6', border: 'none', borderRadius: '6px', fontSize: '13px', color: '#374151', cursor: 'pointer' }}
+                  style={{ textAlign: 'left', padding: '8px 10px', backgroundColor: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '6px', fontSize: '13px', color: '#374151', cursor: 'pointer' }}
                 >
                   {lang.name}
                 </button>
