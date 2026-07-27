@@ -4,8 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Navbar() {
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [selectedLangName, setSelectedLangName] = useState('Language');
@@ -82,55 +80,15 @@ export default function Navbar() {
             About
           </Link>
           
-          {/* Products Dropdown with Specific Category Anchor Links */}
-          <div style={{ position: 'relative' }}>
-            <button 
-              onClick={() => { setIsProductsOpen(!isProductsOpen); setIsServicesOpen(false); setIsLangOpen(false); }}
-              style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: sharedFontSize, display: 'flex', alignItems: 'center', gap: '4px' }}
-            >
-              Our Products {isProductsOpen ? '▲' : '▼'}
-            </button>
-            {isProductsOpen && (
-              <div style={{ position: 'absolute', top: '100%', left: 0, backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '4px', padding: '5px 0', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '180px', zIndex: 100 }}>
-                {[
-                  { name: "D-cut Bag", link: "#d-cut-bag" },
-                  { name: "W-cut Bag", link: "#w-cut-bag" },
-                  { name: "Loop Bag", link: "#loop-bag" },
-                  { name: "Stitched Bag", link: "#stitched-bag" },
-                  { name: "BOPP Bag", link: "#bopp-bag" },
-                  { name: "Box Bag", link: "#box-bag" }
-                ].map(item => (
-                  <Link 
-                    key={item.name} 
-                    href={item.link} 
-                    onClick={() => setIsProductsOpen(false)}
-                    style={{ padding: '8px 15px', color: '#374151', textDecoration: 'none', fontSize: '15px', display: 'block' }}
-                  >
-                    <span style={{ fontSize: '12px', color: '#1e3a8a', marginRight: '8px' }}>➔</span> {item.name}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
+          {/* Products Direct Link */}
+          <Link href="#products" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
+            Our Products
+          </Link>
 
-          {/* Services Dropdown */}
-          <div style={{ position: 'relative' }}>
-            <button 
-              onClick={() => { setIsServicesOpen(!isServicesOpen); setIsProductsOpen(false); setIsLangOpen(false); }}
-              style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: sharedFontSize, display: 'flex', alignItems: 'center', gap: '4px' }}
-            >
-              Our Services {isServicesOpen ? '▲' : '▼'}
-            </button>
-            {isServicesOpen && (
-              <div style={{ position: 'absolute', top: '100%', left: 0, backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '4px', padding: '5px 0', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', width: '180px', zIndex: 100 }}>
-                {["Offset Printing", "Screen Printing", "Flexo Printing"].map(item => (
-                  <div key={item} style={{ padding: '8px 15px', color: '#374151', cursor: 'pointer', fontSize: '15px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ fontSize: '12px', color: '#1e3a8a' }}>➔</span> {item}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+          {/* Services Direct Link */}
+          <Link href="#services" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
+            Our Services
+          </Link>
 
           {/* Calculator Tool Link placed right after Services */}
           <Link href="#tools" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
@@ -150,7 +108,7 @@ export default function Navbar() {
           {/* Comprehensive Language Dropdown */}
           <div style={{ position: 'relative' }}>
             <button 
-              onClick={() => { setIsLangOpen(!isLangOpen); setIsProductsOpen(false); setIsServicesOpen(false); }}
+              onClick={() => { setIsLangOpen(!isLangOpen); }}
               style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: sharedFontSize, display: 'flex', alignItems: 'center', gap: '4px' }}
             >
               🌐 {selectedLangName} {isLangOpen ? '▲' : '▼'}
