@@ -100,7 +100,7 @@ export default function Services() {
               {selectedService.title}
             </h3>
 
-            {/* Video Container */}
+            {/* Video Container with Aesthetic Fabric Background on the Sides */}
             <div className="video-container">
               {selectedService.isVideoFile ? (
                 <video 
@@ -135,11 +135,11 @@ export default function Services() {
         </div>
       )}
 
-      {/* Comprehensive Responsive Styles with Reduced Top Spacing */}
+      {/* Comprehensive Responsive Styles */}
       <style jsx>{`
         .services-section {
-          padding: 30px 20px 80px 20px; /* Reduced top padding from 80px to 30px */
-          background-color: #f8fafc;
+          padding: 30px 20px 80px 20px;
+          background-color: transparent;
           scroll-margin-top: 80px;
         }
 
@@ -153,14 +153,14 @@ export default function Services() {
           font-size: 38px;
           font-weight: 700;
           color: #1e3a8a;
-          margin-bottom: 8px; /* Tightened gap below title */
+          margin-bottom: 8px;
           letter-spacing: 0.5px;
         }
 
         .services-subtitle {
           font-size: 16px;
           color: #64748b;
-          margin-bottom: 30px; /* Reduced gap below subtitle */
+          margin-bottom: 30px;
           max-width: 600px;
           margin-left: auto;
           margin-right: auto;
@@ -174,7 +174,7 @@ export default function Services() {
         }
 
         .service-card {
-          background-color: #ffffff;
+          background-color: rgba(255, 255, 255, 0.9);
           border-radius: 16px;
           padding: 32px 24px;
           position: relative;
@@ -290,16 +290,19 @@ export default function Services() {
           padding-right: 40px;
         }
 
+        /* Video Container with Aesthetic Fabric Background on the sides */
         .video-container {
           width: 100%;
-          background-color: #090d16;
+          background-image: url('/images/bg-fabric.jpg');
+          background-size: cover;
+          background-position: center;
           border-radius: 12px;
           overflow: hidden;
           margin-bottom: 24px;
           display: flex;
           align-items: center;
           justify-content: center;
-          box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+          box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .video-player {
@@ -308,6 +311,7 @@ export default function Services() {
           object-fit: contain;
           display: block;
           margin: 0 auto;
+          background: transparent;
         }
 
         .iframe-player {
