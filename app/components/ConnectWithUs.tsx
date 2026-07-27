@@ -117,7 +117,7 @@ export default function ConnectWithUs() {
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
           gap: '40px',
-          alignIte ms: 'start'
+          alignItems: 'start'
         }}>
           
           {/* Left Column: Manufacturing Facility & Contact Points */}
@@ -210,7 +210,7 @@ export default function ConnectWithUs() {
 
           </div>
 
-          {/* Right Column: Google Map Embed Updated with your exact link */}
+          {/* Right Column: Google Map Embed Updated */}
           <div style={{ width: '100%', height: '420px', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(255, 255, 255, 0.6)', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3528.0397862488894!2d79.8436796!3d27.8393128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399fbdda93fcfd8d%3A0xedef446843b33ee6!2sReshaa%20Bags%20%7C%20Kanhiya%20Hosiery%20group!5e0!3m2!1sen!2sin!4v1785149809559!5m2!1sen!2sin" 
