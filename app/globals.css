@@ -27,14 +27,16 @@ body {
   padding: 0;
 }
 
-/* Make section cards and containers translucent so the background image shows through */
+/* Make section cards and containers translucent with proper clearance for sticky navbar */
 section {
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.90);
   backdrop-filter: blur(4px);
-  margin: 20px auto;
+  margin: 30px auto;
+  padding-top: 40px; /* Prevents content from hiding behind sticky elements */
   border-radius: 20px;
-  max-width: 1240px;
+  max-width: 1200px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  scroll-margin-top: 90px; /* Ensures anchor jumps clear the sticky header */
 }
 
 /* ==================================================== */
@@ -67,7 +69,7 @@ section {
 
   section {
     padding: 30px 16px !important;
-    margin: 10px;
+    margin: 15px;
     border-radius: 12px;
   }
 
