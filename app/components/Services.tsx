@@ -230,15 +230,14 @@ export default function Services() {
           color: #1e3a8a;
         }
 
-        /* Fully Fixed Modal Overlay to prevent section overlap */
+        /* Solid Opaque Modal Overlay to completely hide background content */
         .modal-overlay {
           position: fixed !important;
           top: 0 !important;
           left: 0 !important;
           width: 100vw !important;
           height: 100vh !important;
-          background-color: rgba(15, 23, 42, 0.85) !important;
-          backdrop-filter: blur(6px);
+          background-color: rgba(11, 17, 32, 0.98) !important;
           display: flex !important;
           align-items: center !important;
           justify-content: center !important;
@@ -256,7 +255,7 @@ export default function Services() {
           overflow-y: auto;
           padding: 32px;
           position: relative;
-          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
           text-align: left;
           box-sizing: border-box;
         }
