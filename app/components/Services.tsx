@@ -230,14 +230,14 @@ export default function Services() {
           color: #1e3a8a;
         }
 
-        /* Solid Opaque Modal Overlay to completely hide background content */
+        /* 100% Solid Opaque Modal Overlay */
         .modal-overlay {
           position: fixed !important;
           top: 0 !important;
           left: 0 !important;
           width: 100vw !important;
           height: 100vh !important;
-          background-color: rgba(11, 17, 32, 0.98) !important;
+          background-color: #0b1120 !important;
           display: flex !important;
           align-items: center !important;
           justify-content: center !important;
@@ -251,7 +251,7 @@ export default function Services() {
           border-radius: 20px;
           max-width: 750px;
           width: 100%;
-          max-height: 80vh;
+          max-height: 85vh;
           overflow-y: auto;
           padding: 32px;
           position: relative;
@@ -287,7 +287,7 @@ export default function Services() {
           padding-right: 40px;
         }
 
-        /* Video Container with Aesthetic Fabric Background on the sides */
+        /* Video Container with Aesthetic Fabric Background on the Sides */
         .video-container {
           width: 100%;
           background-image: url('/images/bg-fabric.jpg');
@@ -366,7 +366,7 @@ export default function Services() {
           .modal-content {
             padding: 20px 16px;
             border-radius: 16px;
-            max-height: 85vh;
+            max-height: 90vh;
           }
 
           .close-btn {
