@@ -138,7 +138,7 @@ export default function Services() {
       {/* Comprehensive Responsive Styles */}
       <style jsx>{`
         .services-section {
-          padding: 30px 20px 80px 20px;
+          padding: 40px 20px;
           background-color: transparent;
           scroll-margin-top: 80px;
         }
@@ -159,7 +159,7 @@ export default function Services() {
 
         .services-subtitle {
           font-size: 16px;
-          color: #64748b;
+          color: #475569;
           margin-bottom: 30px;
           max-width: 600px;
           margin-left: auto;
@@ -174,21 +174,19 @@ export default function Services() {
         }
 
         .service-card {
-          background-color: rgba(255, 255, 255, 0.9);
           border-radius: 16px;
           padding: 32px 24px;
           position: relative;
           overflow: hidden;
-          border: 1px solid #e2e8f0;
+          border: 1px solid rgba(255, 255, 255, 0.6);
           cursor: pointer;
-          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
-          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .service-card:hover {
           transform: translateY(-6px);
-          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-          border-color: #cbd5e1;
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
         }
 
         .gradient-bar {
@@ -232,19 +230,19 @@ export default function Services() {
           color: #1e3a8a;
         }
 
-        /* Modal Styles */
+        /* Fixed Modal Styles with High z-index */
         .modal-overlay {
           position: fixed;
           top: 0;
           left: 0;
           width: 100vw;
           height: 100vh;
-          background-color: rgba(0, 0, 0, 0.75);
-          backdrop-filter: blur(5px);
+          background-color: rgba(15, 23, 42, 0.85);
+          backdrop-filter: blur(6px);
           display: flex;
           align-items: center;
           justify-content: center;
-          z-index: 1000;
+          z-index: 9999;
           padding: 20px;
           box-sizing: border-box;
         }
@@ -254,7 +252,7 @@ export default function Services() {
           border-radius: 20px;
           max-width: 750px;
           width: 100%;
-          max-height: 90vh;
+          max-height: 85vh;
           overflow-y: auto;
           padding: 32px;
           position: relative;
@@ -307,7 +305,7 @@ export default function Services() {
 
         .video-player {
           width: 100%;
-          max-height: 480px;
+          max-height: 420px;
           object-fit: contain;
           display: block;
           margin: 0 auto;
@@ -316,7 +314,7 @@ export default function Services() {
 
         .iframe-player {
           width: 100%;
-          height: 380px;
+          height: 350px;
           border: none;
         }
 
@@ -337,7 +335,7 @@ export default function Services() {
         /* --- Mobile Responsiveness Breakpoints --- */
         @media (max-width: 640px) {
           .services-section {
-            padding: 24px 16px 48px 16px;
+            padding: 24px 16px;
           }
 
           .services-title {
@@ -369,7 +367,7 @@ export default function Services() {
           .modal-content {
             padding: 20px 16px;
             border-radius: 16px;
-            max-height: 94vh;
+            max-height: 90vh;
           }
 
           .close-btn {
@@ -386,11 +384,11 @@ export default function Services() {
           }
 
           .video-player {
-            max-height: 320px;
+            max-height: 280px;
           }
 
           .iframe-player {
-            height: 220px;
+            height: 200px;
           }
 
           .overview-heading {
