@@ -130,7 +130,7 @@ const Tools = () => {
       
       {/* Section Title Header */}
       <section style={{ marginBottom: '40px', textAlign: 'center' }}>
-        <h1 style={{ fontSize: 'clamp(28px, 4vw, 36px)', fontWeight: '800', color: '#0f172a', margin: '0 0 12px 0' }}>
+        <h1 style={{ fontSize: 'clamp(28px, 4vw, 36px)', fontWeight: '800', color: '#1e3a8a', margin: '0 0 12px 0' }}>
           Non-Woven Bag Specification Calculator
         </h1>
         <p style={{ color: '#475569', fontSize: '16px', margin: 0, maxWidth: '750px', display: 'inline-block', lineHeight: '1.6' }}>
