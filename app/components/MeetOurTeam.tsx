@@ -1,168 +1,172 @@
 'use client';
-import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function MeetOurTeam() {
-  const [activeTab, setActiveTab] = useState<'leadership' | 'operations'>('leadership');
-
-  const leadershipTeam = [
+  const teamMembers = [
     {
-      name: "Mr. Rajendra Kumar Gupta",
-      role: "Managing Director & Founder",
-      bio: "Visionary leader with decades of expertise in industrial manufacturing, strategic growth, and non-woven enterprise expansion.",
-      image: "/images/team-placeholder-1.jpeg",
-      linkedin: "https://www.linkedin.com"
+      name: "Ms. Shubhi Gupta",
+      role: "Founder",
+      image: "/images/team-placeholder-1.jpg",
+      linkedin: "https://www.linkedin.com/in/shubhi-gupta1617"
     },
     {
-      name: "Mrs. Pushpa Gupta",
-      role: "Director",
-      bio: "Pioneering guiding force overseeing quality standardization, corporate governance, and sustainable business development.",
-      image: "/images/team-placeholder-2.jpeg",
+      name: "Mr. Naman Gupta",
+      role: "Managing Director",
+      image: "/images/team-placeholder-2.jpg",
       linkedin: "https://www.linkedin.com"
     },
     {
       name: "Mrs. Priya Arya",
       role: "Executive Director",
-      bio: "Driving organizational efficiency, cross-functional coordination, and high-performance execution across enterprise divisions.",
       image: "/images/team-placeholder-3.jpeg",
-      linkedin: "https://www.linkedin.com/in/priya-gupta-39b77122a"
+      linkedin: "https://www.linkedin.com"
     },
     {
-      name: "Mr. Shubham Gupta",
-      role: "Business Manager & Operations Head",
-      bio: "Managing digital branding, automated production workflows, supply chain logistics, and scale expansion.",
+      name: "Mr. Aman Kumar",
+      role: "Sales & Operations Executive",
       image: "/images/team-placeholder-4.jpeg",
-      linkedin: "https://www.linkedin.com"
-    }
-  ];
-
-  const operationsTeam = [
-    {
-      name: "Plant & Production Unit",
-      role: "Industrial Engineering",
-      bio: "Our specialized floor technicians, machine operators, and quality controllers dedicated to precision roll and bag manufacturing.",
-      image: "/images/team-placeholder-1.jpeg",
-      linkedin: "https://www.linkedin.com"
+      linkedin: "https://www.linkedin.com/in/aman-kumar-6940a3280"
     },
     {
-      name: "Logistics & Supply Chain",
-      role: "Fulfillment & Dispatch",
-      bio: "Ensuring timely, safe, and secure delivery of bulk non-woven rolls and finished goods pan-India and globally.",
-      image: "/images/team-placeholder-2.jpeg",
+      name: "Team Member 5",
+      role: "Designation",
+      image: "/images/team-placeholder-5.jpg",
       linkedin: "https://www.linkedin.com"
     }
   ];
-
-  const currentTeam = activeTab === 'leadership' ? leadershipTeam : operationsTeam;
 
   return (
-    <section id="team" style={{ padding: '40px 20px', textAlign: 'center' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+    <section id="team" style={{ padding: '20px 20px 60px 20px', backgroundColor: '#f9fafb', scrollMarginTop: '80px' }}>
+      <div style={{ maxWidth: '1300px', margin: '0 auto', textAlign: 'center' }}>
         
-        <h2 style={{ fontSize: '36px', fontWeight: '700', color: '#1e3a8a', marginBottom: '10px' }}>
-          Meet Our Team
+        {/* Section Header */}
+        <h2 style={{ fontSize: '38px', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '10px', letterSpacing: '0.5px' }}>
+          MEET OUR TEAM
         </h2>
-        <p style={{ fontSize: '16px', color: '#475569', marginBottom: '30px', maxWidth: '600px', marginInline: 'auto' }}>
-          The dedicated leaders and professionals driving innovation, quality, and reliability at Reshaa.
+        <p style={{ fontSize: '16px', color: '#6b7280', marginBottom: '40px' }}>
+          Leadership driving innovation, quality, and sustainable packaging solutions.
         </p>
 
-        {/* Toggle Tabs */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '40px' }}>
-          <button
-            onClick={() => setActiveTab('leadership')}
-            style={{
-              padding: '10px 24px',
-              borderRadius: '25px',
-              fontWeight: '600',
-              fontSize: '15px',
-              cursor: 'pointer',
-              border: 'none',
-              backgroundColor: activeTab === 'leadership' ? '#1e3a8a' : '#e2e8f0',
-              color: activeTab === 'leadership' ? '#ffffff' : '#334155',
-              transition: 'all 0.3s ease'
-            }}
-          >
-            Leadership
-          </button>
-          <button
-            onClick={() => setActiveTab('operations')}
-            style={{
-              padding: '10px 24px',
-              borderRadius: '25px',
-              fontWeight: '600',
-              fontSize: '15px',
-              cursor: 'pointer',
-              border: 'none',
-              backgroundColor: activeTab === 'operations' ? '#1e3a8a' : '#e2e8f0',
-              color: activeTab === 'operations' ? '#ffffff' : '#334155',
-              transition: 'all 0.3s ease'
-            }}
-          >
-            Operations & Plant
-          </button>
-        </div>
+        {/* Outer Wrapper to Prevent Layout Shift Clipping on Hover */}
+        <div className="team-row-container" style={{ padding: '10px 0', width: '100%' }}>
+          
+          {/* Expandable Flex Row Container */}
+          <div className="team-row" style={{ 
+            display: 'flex', 
+            gap: '16px', 
+            justifyContent: 'center',
+            alignItems: 'stretch',
+            height: '500px',
+            width: '100%'
+          }}>
+            {teamMembers.map((member, index) => (
+              <div 
+                key={index} 
+                className="team-card"
+                style={{ 
+                  position: 'relative',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  backgroundColor: '#1f2937',
+                  cursor: 'pointer',
+                  flex: '1',
+                  transition: 'flex 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s ease, box-shadow 0.5s ease',
+                  boxShadow: '0 8px 20px rgba(0, 0, 0, 0.06)'
+                }}
+              >
+                {/* Background Image with Uniform Top Alignment */}
+                <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden' }}>
+                  <Image 
+                    src={member.image} 
+                    alt={member.name} 
+                    fill 
+                    style={{ objectFit: 'cover', objectPosition: 'center 20%', transition: 'transform 0.6s ease' }} 
+                    className="team-img"
+                  />
+                </div>
 
-        {/* Team Grid */}
-        <div className="team-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px', textAlign: 'left' }}>
-          {currentTeam.map((member, index) => (
-            <div 
-              key={index} 
-              className="team-card"
-              style={{
-                backgroundColor: '#ffffff',
-                borderRadius: '16px',
-                overflow: 'hidden',
-                border: '1px solid #e2e8f0',
-                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.02)',
-                display: 'flex',
-                flexDirection: 'column',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease'
-              }}
-            >
-              <div style={{ position: 'relative', width: '100%', height: '240px', backgroundColor: '#f1f5f9' }}>
-                <Image 
-                  src={member.image} 
-                  alt={member.name} 
-                  fill 
-                  style={{ objectFit: 'cover' }} 
-                />
+                {/* Dark Bottom Gradient Overlay */}
+                <div style={{ 
+                  position: 'absolute', 
+                  bottom: 0, 
+                  left: 0, 
+                  width: '100%', 
+                  height: '70%', 
+                  background: 'linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.6) 60%, transparent 100%)',
+                  zIndex: 1 
+                }} />
+
+                {/* Card Content (Vertical Stack so nothing gets clipped) */}
+                <div style={{ 
+                  position: 'absolute', 
+                  bottom: 0, 
+                  left: 0, 
+                  width: '100%', 
+                  padding: '24px 20px', 
+                  zIndex: 2,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  gap: '12px',
+                  textAlign: 'left'
+                }}>
+                  <div>
+                    <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#ffffff', margin: '0 0 4px 0', lineHeight: '1.2' }}>
+                      {member.name}
+                    </h3>
+                    <p style={{ fontSize: '14px', fontWeight: '500', color: '#d1d5db', margin: 0 }}>
+                      {member.role}
+                    </p>
+                  </div>
+
+                  {/* Fully Visible LinkedIn Icon Button */}
+                  <Link 
+                    href={member.linkedin} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={{ 
+                      width: '38px', 
+                      height: '38px', 
+                      borderRadius: '50%', 
+                      backgroundColor: '#ffffff', 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      justifyContent: 'center',
+                      transition: 'transform 0.2s ease, background-color 0.2s',
+                      boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
+                    }}
+                    title="Connect on LinkedIn"
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#0f172a">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                  </Link>
+                </div>
+
               </div>
+            ))}
+          </div>
 
-              <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                <h3 style={{ fontSize: '20px', fontWeight: '700', color: '#0f172a', marginBottom: '4px' }}>
-                  {member.name}
-                </h3>
-                <span style={{ fontSize: '14px', fontWeight: '600', color: '#2563eb', marginBottom: '12px' }}>
-                  {member.role}
-                </span>
-                <p style={{ fontSize: '14px', color: '#475569', lineHeight: '1.6', marginBottom: '20px', flexGrow: 1 }}>
-                  {member.bio}
-                </p>
-
-                <Link 
-                  href={member.linkedin} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    fontSize: '14px',
-                    fontWeight: '600',
-                    color: '#1e3a8a',
-                    textDecoration: 'none',
-                    marginTop: 'auto'
-                  }}
-                >
-                  <span>LinkedIn Profile</span> ➔
-                </Link>
-              </div>
-            </div>
-          ))}
         </div>
 
       </div>
+
+      {/* Hover expansion & zoom styling */}
+      <style jsx>{`
+        .team-row:hover .team-card {
+          flex: 0.7;
+        }
+        .team-row .team-card:hover {
+          flex: 2.8;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+          transform: translateY(-8px);
+          z-index: 10;
+        }
+        .team-card:hover .team-img {
+          transform: scale(1.05);
+        }
+      `}</style>
     </section>
   );
 }
