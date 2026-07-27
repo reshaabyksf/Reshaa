@@ -230,19 +230,19 @@ export default function Services() {
           color: #1e3a8a;
         }
 
-        /* Fixed Modal Styles with High z-index */
+        /* Fully Fixed Modal Overlay to prevent section overlap */
         .modal-overlay {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          background-color: rgba(15, 23, 42, 0.85);
+          position: fixed !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100vw !important;
+          height: 100vh !important;
+          background-color: rgba(15, 23, 42, 0.85) !important;
           backdrop-filter: blur(6px);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 9999;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          z-index: 999999 !important;
           padding: 20px;
           box-sizing: border-box;
         }
@@ -252,7 +252,7 @@ export default function Services() {
           border-radius: 20px;
           max-width: 750px;
           width: 100%;
-          max-height: 85vh;
+          max-height: 80vh;
           overflow-y: auto;
           padding: 32px;
           position: relative;
@@ -305,7 +305,7 @@ export default function Services() {
 
         .video-player {
           width: 100%;
-          max-height: 420px;
+          max-height: 380px;
           object-fit: contain;
           display: block;
           margin: 0 auto;
@@ -314,7 +314,7 @@ export default function Services() {
 
         .iframe-player {
           width: 100%;
-          height: 350px;
+          height: 320px;
           border: none;
         }
 
@@ -367,7 +367,7 @@ export default function Services() {
           .modal-content {
             padding: 20px 16px;
             border-radius: 16px;
-            max-height: 90vh;
+            max-height: 85vh;
           }
 
           .close-btn {
@@ -384,11 +384,11 @@ export default function Services() {
           }
 
           .video-player {
-            max-height: 280px;
+            max-height: 240px;
           }
 
           .iframe-player {
-            height: 200px;
+            height: 180px;
           }
 
           .overview-heading {
