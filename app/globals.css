@@ -11,7 +11,7 @@
 }
 
 /* ==================================================== */
-/* GLOBAL AESTHETIC BACKGROUND (NON-WOVEN FABRIC THEME) */
+/* GLOBAL AESTHETIC BACKGROUND & SECTION STYLING        */
 /* ==================================================== */
 
 body {
@@ -27,29 +27,35 @@ body {
   padding: 0;
 }
 
+/* Make section cards and containers translucent so the background image shows through */
+section {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  margin: 20px auto;
+  border-radius: 20px;
+  max-width: 1240px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
 /* ==================================================== */
 /* MOBILE RESPONSIVE MEDIA QUERIES                    */
 /* ==================================================== */
 
 @media (max-width: 900px) {
-  /* Hide desktop navbar links on smaller screens */
   .desktop-nav {
     display: none !important;
   }
   
-  /* Show mobile hamburger toggle button */
   .mobile-menu-btn {
     display: block !important;
   }
 }
 
 @media (max-width: 768px) {
-  /* Prevent horizontal overflow on mobile devices */
   body {
     overflow-x: hidden;
   }
 
-  /* Scale down hero headers for mobile viewports */
   h1 {
     font-size: 32px !important;
     line-height: 1.3 !important;
@@ -59,32 +65,29 @@ body {
     font-size: 26px !important;
   }
 
-  /* Stack ALL side-by-side flexbox and grid layouts vertically on mobile */
+  section {
+    padding: 30px 16px !important;
+    margin: 10px;
+    border-radius: 12px;
+  }
+
   section div[style*="display: flex"],
   section div[style*="display:flex"] {
     flex-direction: column !important;
     gap: 20px !important;
   }
 
-  /* Fix About Section & Vision/Mission layout on mobile */
   #about div[style*="display: flex"] {
     flex-direction: column !important;
     align-items: center !important;
   }
 
-  /* Make product portfolio tree grid items stack vertically on mobile */
   div[style*="gridTemplateColumns"] {
     display: flex !important;
     flex-direction: column !important;
     gap: 15px !important;
   }
 
-  /* Optimize section padding across the entire website for small screens */
-  section {
-    padding: 40px 16px !important;
-  }
-
-  /* Make Meet Our Team cards stack properly on mobile */
   .team-row {
     flex-direction: column !important;
     height: auto !important;
