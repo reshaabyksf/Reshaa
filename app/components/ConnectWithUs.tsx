@@ -12,30 +12,31 @@ export default function ConnectWithUs() {
   };
 
   return (
-    <section id="contact" style={{ padding: '10px 20px 80px 20px', backgroundColor: '#f9fafb', scrollMarginTop: '80px' }}>
+    <section id="contact" style={{ padding: '40px 20px', backgroundColor: 'transparent', scrollMarginTop: '80px' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         
         {/* Section Heading */}
         <h2 style={{ fontSize: '38px', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '16px', textAlign: 'center', letterSpacing: '0.5px' }}>
           CONTACT US
         </h2>
-        <p style={{ fontSize: '16px', color: '#6b7280', textAlign: 'center', marginBottom: '40px' }}>
+        <p style={{ fontSize: '16px', color: '#475569', textAlign: 'center', marginBottom: '40px' }}>
           We would love to hear from you. Reach out for bulk enquiries, partnerships, or support.
         </p>
 
         {/* Part 1: Interactive Inquiry Form */}
         <div style={{ 
-          backgroundColor: '#ffffff', 
+          backgroundColor: 'rgba(255, 255, 255, 0.75)', 
+          backdropFilter: 'blur(6px)',
           borderRadius: '24px', 
           padding: '40px', 
           boxShadow: '0 10px 30px rgba(0, 0, 0, 0.04)', 
-          border: '1px solid #e5e7eb',
+          border: '1px solid rgba(255, 255, 255, 0.6)',
           marginBottom: '40px'
         }}>
           <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '8px' }}>
             Send Us a Message
           </h3>
-          <p style={{ fontSize: '14px', color: '#4b5563', marginBottom: '24px' }}>
+          <p style={{ fontSize: '14px', color: '#475569', marginBottom: '24px' }}>
             Fill out the form below and our sales support team will get back to you shortly.
           </p>
 
@@ -53,7 +54,7 @@ export default function ConnectWithUs() {
                   placeholder="Enter your name"
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '15px', outline: 'none' }}
+                  style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '15px', outline: 'none', backgroundColor: 'rgba(255, 255, 255, 0.9)' }}
                 />
               </div>
 
@@ -65,7 +66,7 @@ export default function ConnectWithUs() {
                   placeholder="Enter your email"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '15px', outline: 'none' }}
+                  style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '15px', outline: 'none', backgroundColor: 'rgba(255, 255, 255, 0.9)' }}
                 />
               </div>
 
@@ -77,7 +78,7 @@ export default function ConnectWithUs() {
                   placeholder="Enter your phone number"
                   value={formData.phone}
                   onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                  style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '15px', outline: 'none' }}
+                  style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '15px', outline: 'none', backgroundColor: 'rgba(255, 255, 255, 0.9)' }}
                 />
               </div>
 
@@ -89,7 +90,7 @@ export default function ConnectWithUs() {
                   placeholder="Tell us about your non-woven bag requirements..."
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '15px', outline: 'none', resize: 'vertical' }}
+                  style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '15px', outline: 'none', resize: 'vertical', backgroundColor: 'rgba(255, 255, 255, 0.9)' }}
                 />
               </div>
 
@@ -107,15 +108,16 @@ export default function ConnectWithUs() {
 
         {/* Part 2: Connect With Us Grid */}
         <div style={{ 
-          backgroundColor: '#ffffff', 
+          backgroundColor: 'rgba(255, 255, 255, 0.75)', 
+          backdropFilter: 'blur(6px)',
           borderRadius: '24px', 
           padding: '40px', 
           boxShadow: '0 10px 30px rgba(0, 0, 0, 0.04)', 
-          border: '1px solid #e5e7eb',
+          border: '1px solid rgba(255, 255, 255, 0.6)',
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
           gap: '40px',
-          alignItems: 'start'
+          alignIte ms: 'start'
         }}>
           
           {/* Left Column: Manufacturing Facility & Contact Points */}
@@ -129,14 +131,14 @@ export default function ConnectWithUs() {
                   Manufacturing Facility
                 </h3>
               </div>
-              <p style={{ fontSize: '15px', color: '#4b5563', lineHeight: '1.6', margin: 0 }}>
+              <p style={{ fontSize: '15px', color: '#475569', lineHeight: '1.6', margin: 0 }}>
                 <strong>Reshaa - Bonded for Bags</strong><br />
                 C-1, Industrial Area, Growth Center,<br />
                 Jamour, Shahjahanpur - 242001 UP
               </p>
             </div>
 
-            <hr style={{ border: 'none', borderTop: '1px solid #e5e7eb', margin: 0 }} />
+            <hr style={{ border: 'none', borderTop: '1px solid rgba(229, 231, 235, 0.8)', margin: 0 }} />
 
             {/* Contact Points */}
             <div>
@@ -154,7 +156,7 @@ export default function ConnectWithUs() {
 
               <div style={{ marginBottom: '20px' }}>
                 <strong style={{ fontSize: '14px', color: '#1f2937', display: 'block', marginBottom: '4px' }}>Direct Contacts:</strong>
-                <span style={{ fontSize: '15px', color: '#4b5563', display: 'block' }}>Sales Support: +91-9217176508</span>
+                <span style={{ fontSize: '15px', color: '#475569', display: 'block' }}>Sales Support: +91-9217176508</span>
               </div>
 
               {/* Social Media Profiles with Linked Icons */}
@@ -167,7 +169,7 @@ export default function ConnectWithUs() {
                     href="https://www.facebook.com/profile.php?id=61588265550977" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    style={{ width: '42px', height: '42px', borderRadius: '50%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}
+                    style={{ width: '42px', height: '42px', borderRadius: '50%', backgroundColor: 'rgba(243, 244, 246, 0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}
                     title="Facebook"
                   >
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="#1e3a8a">
@@ -180,7 +182,7 @@ export default function ConnectWithUs() {
                     href="https://www.linkedin.com/company/112146919/admin/dashboard/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    style={{ width: '42px', height: '42px', borderRadius: '50%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}
+                    style={{ width: '42px', height: '42px', borderRadius: '50%', backgroundColor: 'rgba(243, 244, 246, 0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}
                     title="LinkedIn"
                   >
                     <svg width="19" height="19" viewBox="0 0 24 24" fill="#1e3a8a">
@@ -193,7 +195,7 @@ export default function ConnectWithUs() {
                     href="https://www.instagram.com/reshaabyksf/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    style={{ width: '42px', height: '42px', borderRadius: '50%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}
+                    style={{ width: '42px', height: '42px', borderRadius: '50%', backgroundColor: 'rgba(243, 244, 246, 0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}
                     title="Instagram"
                   >
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="#1e3a8a">
@@ -208,16 +210,16 @@ export default function ConnectWithUs() {
 
           </div>
 
-          {/* Right Column: Google Map Embed Intact */}
-          <div style={{ width: '100%', height: '420px', borderRadius: '16px', overflow: 'hidden', border: '1px solid #e5e7eb', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+          {/* Right Column: Google Map Embed Updated with your exact link */}
+          <div style={{ width: '100%', height: '420px', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(255, 255, 255, 0.6)', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.441112838027!2d79.907!3d27.882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDUyJzU5LjIiTiA3OcKwNTQnMjUuMiJF!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3528.0397862488894!2d79.8436796!3d27.8393128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399fbdda93fcfd8d%3A0xedef446843b33ee6!2sReshaa%20Bags%20%7C%20Kanhiya%20Hosiery%20group!5e0!3m2!1sen!2sin!4v1785149809559!5m2!1sen!2sin" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 
               allowFullScreen={false} 
               loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
+              referrerPolicy="strict-origin-when-cross-origin"
             />
           </div>
 
