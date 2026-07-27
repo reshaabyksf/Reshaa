@@ -328,4 +328,4 @@ const Tools = () => {
   );
 };
 
-export default Tools.tsx; // Note: In file name it should just be export default Tools;
+export default Tools;
