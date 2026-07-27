@@ -27,11 +27,11 @@ body {
   padding: 0;
 }
 
-/* Make section cards and white containers semi-transparent so the background fabric image shines through vividly */
+/* Make section cards and containers highly translucent so the background fabric image is vividly visible */
 section, .services-section, .service-card, .team-card, div[style*="background-color: white"], div[style*="background-color: #ffffff"] {
-  background-color: rgba(255, 255, 255, 0.45) !important;
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(3px);
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
 }
 
 /* ==================================================== */
