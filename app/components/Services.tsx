@@ -26,8 +26,8 @@ export default function Services() {
       tag: "High-Speed Efficiency",
       description: "Adaptable, high-speed printing solutions optimized for continuous rolls and mass-volume non-woven bag production.",
       detailedDescription: "Flexographic printing uses flexible relief plates mounted on rotary cylinders to print at high speeds across diverse packaging materials, including continuous non-woven fabric rolls and plastic films, ensuring high efficiency and cost-effectiveness.",
-      videoUrl: "https://www.youtube.com/embed/placeholder",
-      isVideoFile: false
+      videoUrl: "/Videos/flexo-printing.mp4",
+      isVideoFile: true
     }
   ];
 
