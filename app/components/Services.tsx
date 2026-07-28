@@ -18,8 +18,8 @@ export default function Services() {
       tag: "Custom Fabric Branding",
       description: "Versatile and long-lasting print applications designed for vibrant, durable logos directly onto textile surfaces.",
       detailedDescription: "Screen printing involves pushing ink through a mesh stencil onto the fabric substrate. This method ensures heavy ink deposition, vibrant color payoff, and exceptional durability, making it ideal for customized branding, reusable non-woven bags, and apparel items.",
-      videoUrl: "https://www.youtube.com/embed/placeholder",
-      isVideoFile: false
+      videoUrl: "/Videos/screen-printing.mp4",
+      isVideoFile: true
     },
     {
       title: "Flexo Printing",
