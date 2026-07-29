@@ -108,6 +108,7 @@ export default function Services() {
                   autoPlay 
                   muted
                   playsInline
+                  key={selectedService.videoUrl}
                   className="video-player"
                 >
                   <source src={selectedService.videoUrl} type="video/mp4" />
