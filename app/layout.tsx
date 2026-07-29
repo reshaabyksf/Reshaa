@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Reshaabags",
   description: "Reshaa — Bonded for Bags. Premium non-woven packaging and sustainable manufacturing solutions.",
   icons: {
-    icon: "/images/bag-icon.png", // Aap apne logo/favicon ka path yahan de sakte hain
+    icon: "/favicon.ico",
   },
 };
 
