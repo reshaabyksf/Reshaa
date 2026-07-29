@@ -40,8 +40,8 @@ export default function MeetOurTeam() {
       name: "Mr. Prasenjit Sarkar",
       role: "General Manager",
       image: "/images/team-placeholder-5.jpeg",
-      objectPosition: "center 20%",
-      objectFit: "contain" as const, // Changed to contain so the entire photo zooms out and fits nicely
+      objectPosition: "center top",
+      objectFit: "cover" as const,
       linkedin: "https://www.linkedin.com"
     }
   ];
