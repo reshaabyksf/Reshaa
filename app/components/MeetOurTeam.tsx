@@ -29,8 +29,8 @@ export default function MeetOurTeam() {
       linkedin: "https://www.linkedin.com/in/aman-kumar-6940a3280"
     },
     {
-      name: "Team Member 5",
-      role: "Designation",
+      name: "Mr. Prasenjit Sarkar",
+      role: "General Manager",
       image: "/images/team-placeholder-5.jpg",
       linkedin: "https://www.linkedin.com"
     }
