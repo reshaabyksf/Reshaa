@@ -13,7 +13,7 @@ export default function MeetOurTeam() {
     {
       name: "Mr. Naman Gupta",
       role: "Managing Director",
-      image: "/images/team-placeholder-2.jpg",
+      image: "/images/team-placeholder-2.jpeg",
       linkedin: "https://www.linkedin.com"
     },
     {
@@ -31,7 +31,7 @@ export default function MeetOurTeam() {
     {
       name: "Mr. Prasenjit Sarkar",
       role: "General Manager",
-      image: "/images/team-placeholder-5.jpg",
+      image: "/images/team-placeholder-5.jpeg",
       linkedin: "https://www.linkedin.com"
     }
   ];
