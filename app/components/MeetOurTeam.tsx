@@ -8,30 +8,35 @@ export default function MeetOurTeam() {
       name: "Ms. Shubhi Gupta",
       role: "Founder",
       image: "/images/team-placeholder-1.jpg",
+      objectPosition: "center 20%",
       linkedin: "https://www.linkedin.com/in/shubhi-gupta1617"
     },
     {
       name: "Mr. Naman Gupta",
       role: "Managing Director",
       image: "/images/team-placeholder-2.jpeg",
+      objectPosition: "center 20%",
       linkedin: "https://www.linkedin.com"
     },
     {
       name: "Mrs. Priya Arya",
       role: "Executive Director",
       image: "/images/team-placeholder-3.jpeg",
+      objectPosition: "center 20%",
       linkedin: "https://www.linkedin.com"
     },
     {
       name: "Mr. Aman Kumar",
       role: "Sales & Operations Executive",
       image: "/images/team-placeholder-4.jpeg",
+      objectPosition: "center 20%",
       linkedin: "https://www.linkedin.com/in/aman-kumar-6940a3280"
     },
     {
       name: "Mr. Prasenjit Sarkar",
       role: "General Manager",
       image: "/images/team-placeholder-5.jpeg",
+      objectPosition: "center top",
       linkedin: "https://www.linkedin.com"
     }
   ];
@@ -75,13 +80,13 @@ export default function MeetOurTeam() {
                   boxShadow: '0 8px 20px rgba(0, 0, 0, 0.06)'
                 }}
               >
-                {/* Background Image with Uniform Top Alignment */}
+                {/* Background Image with Individual Alignment Support */}
                 <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden' }}>
                   <Image 
                     src={member.image} 
                     alt={member.name} 
                     fill 
-                    style={{ objectFit: 'cover', objectPosition: 'center 20%', transition: 'transform 0.6s ease' }} 
+                    style={{ objectFit: 'cover', objectPosition: member.objectPosition, transition: 'transform 0.6s ease' }} 
                     className="team-img"
                   />
                 </div>
