@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import WhatsAppFloat from "./components/WhatsAppFloat";
 
 export const metadata: Metadata = {
   title: "Reshaabags",
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
+        <WhatsAppFloat />
       </body>
     </html>
   );
