@@ -115,11 +115,10 @@ export default function Products() {
         </div>
 
         {/* ==================================================== */}
-        {/* COMPACT PRODUCT CARDS WITH ALTERNATING ZOOM BADGE      */}
+        {/* INDIVIDUAL BAG CATEGORY CARDS (ORIGINAL FORMAT)      */}
         {/* ==================================================== */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
           {productsList.map((item, index) => {
-            // Determine position based on alternate index (Even = Right side, Odd = Left side)
             const isEven = index % 2 === 0;
 
             return (
@@ -128,48 +127,43 @@ export default function Products() {
                 id={item.id} 
                 style={{ 
                   backgroundColor: '#ffffff', 
-                  borderRadius: '16px', 
-                  padding: '20px', 
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.03)', 
+                  borderRadius: '20px', 
+                  padding: '24px', 
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.04)', 
                   border: '1px solid #e5e7eb', 
                   scrollMarginTop: '100px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center'
+                  position: 'relative'
                 }}
               >
-                {/* Category Title Header */}
-                <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '16px', alignSelf: 'flex-start' }}>
-                  {item.title}
-                </h3>
+                {/* Original Component Rendering */}
+                {item.component}
 
-                {/* Photo Wrapper with Alternating Zoom Badge Position */}
-                <div style={{ position: 'relative', display: 'inline-block', width: '100%', textAlign: 'center' }}>
-                  <div style={{ display: 'inline-block', position: 'relative', maxWidth: '100%' }}>
-                    {item.component}
-
-                    {/* Alternating Zoom Badge: Even items on Right, Odd items on Left */}
-                    <button 
-                      onClick={() => setSelectedImage(item.imgSrc)}
-                      style={{
-                        position: 'absolute',
-                        bottom: '15px',
-                        [isEven ? 'right' : 'left']: '15px',
-                        backgroundColor: 'rgba(30, 58, 138, 0.9)',
-                        color: '#ffffff',
-                        padding: '8px 16px',
-                        borderRadius: '30px',
-                        fontSize: '12px',
-                        fontWeight: '600',
-                        border: '1px solid rgba(255, 255, 255, 0.3)',
-                        boxShadow: '0 4px 12px rgba(0,0,0,0.25)',
-                        cursor: 'pointer',
-                        backdropFilter: 'blur(4px)'
-                      }}
-                    >
-                      🔍 Click to View & Zoom
-                    </button>
-                  </div>
+                {/* Alternating Zoom Badge strictly on image area */}
+                <div style={{ 
+                  display: 'flex', 
+                  justifyContent: isEven ? 'flex-end' : 'flex-start', 
+                  marginTop: '16px', 
+                  padding: isEven ? '0 8px 0 0' : '0 0 0 8px' 
+                }}>
+                  <button 
+                    onClick={() => setSelectedImage(item.imgSrc)}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      backgroundColor: '#2d3748',
+                      color: '#ffffff',
+                      padding: '10px 20px',
+                      borderRadius: '50px',
+                      fontSize: '14px',
+                      fontWeight: '500',
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    <span style={{ color: '#38bdf8' }}>🔍</span> Click to View & Zoom
+                  </button>
                 </div>
               </div>
             );
@@ -188,12 +182,12 @@ export default function Products() {
             position: 'fixed',
             inset: 0,
             zIndex: 9999,
-            backgroundColor: 'rgba(0, 0, 0, 0.85)',
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             padding: '16px',
-            backdropFilter: 'blur(5px)'
+            backdropFilter: 'blur(4px)'
           }}
         >
           <div 
@@ -202,8 +196,8 @@ export default function Products() {
           >
             <img 
               src={selectedImage} 
-              alt="Zoomed Product" 
-              style={{ maxHeight: '85vh', maxWidth: '100%', objectFit: 'contain', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.2)', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7)' }}
+              alt="Zoomed Product Portfolio" 
+              style={{ maxHeight: '85vh', maxWidth: '100%', objectFit: 'contain', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.2)', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.5)' }}
             />
             <button 
               onClick={() => setSelectedImage(null)}
