@@ -12,7 +12,6 @@ import BoxBag from './products/BoxBag';
 export default function Products() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  // Helper data for products with their respective image paths
   const productsList = [
     { id: 'd-cut-bag', title: 'D-Cut Bags', color: '#3b82f6', component: <DcutBag />, imgSrc: '/images/d-cut-bag.png' },
     { id: 'w-cut-bag', title: 'W-Cut Bags', color: '#10b981', component: <WcutBag />, imgSrc: '/images/w-cut-bag.png' },
@@ -119,7 +118,7 @@ export default function Products() {
         </div>
 
         {/* ==================================================== */}
-        {/* INDIVIDUAL BAG CATEGORY CARDS WITH ZOOM BUTTONS      */}
+        {/* INDIVIDUAL BAG CATEGORY CARDS WITH PHOTO ZOOM OVERLAY */}
         {/* ==================================================== */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
           {productsList.map((item) => (
@@ -132,37 +131,39 @@ export default function Products() {
                 padding: '24px', 
                 boxShadow: '0 4px 20px rgba(0,0,0,0.04)', 
                 border: '1px solid #e5e7eb', 
-                scrollMarginTop: '100px',
-                position: 'relative'
+                scrollMarginTop: '100px'
               }}
             >
-              {/* Render the individual bag component */}
-              {item.component}
+              {/* Wrapper to attach the zoom trigger relative to the component content/photo area */}
+              <div style={{ position: 'relative' }}>
+                {item.component}
 
-              {/* Click to View & Zoom Action Button */}
-              <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px', paddingRight: '8px' }}>
-                <button 
-                  onClick={() => setSelectedImage(item.imgSrc)}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    backgroundColor: '#2d3748',
-                    color: '#ffffff',
-                    padding: '10px 20px',
-                    borderRadius: '50px',
-                    fontSize: '14px',
-                    fontWeight: '500',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-                    cursor: 'pointer',
-                    transition: 'background-color 0.2s ease'
-                  }}
-                  onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#1a202c'}
-                  onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#2d3748'}
-                >
-                  <span style={{ color: '#38bdf8' }}>🔍</span> Click to View & Zoom
-                </button>
+                {/* Click to View & Zoom Badge positioned directly on top of the product photo area */}
+                <div style={{ position: 'absolute', bottom: '20px', right: '20px', zIndex: 10 }}>
+                  <button 
+                    onClick={() => setSelectedImage(item.imgSrc)}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      backgroundColor: 'rgba(45, 55, 72, 0.9)',
+                      color: '#ffffff',
+                      padding: '8px 16px',
+                      borderRadius: '50px',
+                      fontSize: '13px',
+                      fontWeight: '500',
+                      border: '1px solid rgba(255, 255, 255, 0.3)',
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+                      cursor: 'pointer',
+                      backdropFilter: 'blur(4px)',
+                      transition: 'background-color 0.2s ease'
+                    }}
+                    onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(26, 32, 44, 0.95)'}
+                    onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'rgba(45, 55, 72, 0.9)'}
+                  >
+                    <span style={{ color: '#38bdf8' }}>🔍</span> Click to View & Zoom
+                  </button>
+                </div>
               </div>
             </div>
           ))}
