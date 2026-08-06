@@ -53,9 +53,18 @@ section, .services-section, .service-card, .team-card, div[style*="background-co
 
 @media (max-width: 768px) {
   /* Prevent horizontal overflow on mobile devices */
-  body {
-    overflow-x: hidden;
+  html, body {
+    max-width: 100vw;
+    overflow-x: hidden !important;
     width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Force all main containers to fit within mobile screen width */
+  div, section, header, footer {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   /* Scale down hero headers for mobile viewports */
@@ -73,6 +82,12 @@ section, .services-section, .service-card, .team-card, div[style*="background-co
   section div[style*="display:flex"] {
     flex-direction: column !important;
     gap: 20px !important;
+  }
+
+  /* Fix packaging solutions buttons / tabs overlapping */
+  div[style*="display: flex"] {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
   }
 
   /* Fix About Section & Vision/Mission layout on mobile */
