@@ -4,11 +4,6 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Reshaabags",
   description: "Reshaa — Bonded for Bags. Premium non-woven packaging and sustainable manufacturing solutions.",
-  icons: {
-    icon: "/favicon.ico?v=2",
-    shortcut: "/favicon.ico?v=2",
-    apple: "/favicon.ico?v=2",
-  },
 };
 
 export default function RootLayout({
