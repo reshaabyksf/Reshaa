@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import DcutBag from './products/DcutBag';
 import WcutBag from './products/WcutBag';
@@ -7,6 +10,18 @@ import StitchedBag from './products/StitchedBag';
 import BoxBag from './products/BoxBag';
 
 export default function Products() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  // Helper data for products with their respective image paths
+  const productsList = [
+    { id: 'd-cut-bag', title: 'D-Cut Bags', color: '#3b82f6', component: <DcutBag />, imgSrc: '/images/d-cut-bag.png' },
+    { id: 'w-cut-bag', title: 'W-Cut Bags', color: '#10b981', component: <WcutBag />, imgSrc: '/images/w-cut-bag.png' },
+    { id: 'loop-bag', title: 'Loop Bags', color: '#8b5cf6', component: <LoopBag />, imgSrc: '/images/loop-bag.png' },
+    { id: 'bopp-bag', title: 'BOPP Bags', color: '#f59e0b', component: <BOPPBag />, imgSrc: '/images/bopp-bag.png' },
+    { id: 'stitched-bag', title: 'Stitched Bags', color: '#ef4444', component: <StitchedBag />, imgSrc: '/images/stitched-bag.png' },
+    { id: 'box-bag', title: 'Box Bags', color: '#64748b', component: <BoxBag />, imgSrc: '/images/box-bag.png' }
+  ];
+
   return (
     <section id="products" style={{ padding: '96px 32px', backgroundColor: '#f9fafb' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
@@ -69,20 +84,13 @@ export default function Products() {
               width: '100%',
               maxWidth: '1100px'
             }}>
-              {[
-                { title: 'D-Cut Bags', color: '#3b82f6', link: '#d-cut-bag' },
-                { title: 'W-Cut Bags', color: '#10b981', link: '#w-cut-bag' },
-                { title: 'Loop Bags', color: '#8b5cf6', link: '#loop-bag' },
-                { title: 'BOPP Bags', color: '#f59e0b', link: '#bopp-bag' },
-                { title: 'Stitched Bags', color: '#ef4444', link: '#stitched-bag' },
-                { title: 'Box Bags', color: '#64748b', link: '#box-bag' }
-              ].map((sub, index) => (
+              {productsList.map((sub, index) => (
                 <div key={index} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                   {/* Vertical drop line down to each card */}
                   <div style={{ width: '2px', height: '25px', backgroundColor: '#9ca3af', marginTop: '-35px' }} />
                   
                   {/* Clickable Sub-node Card */}
-                  <Link href={sub.link} style={{ width: '100%', textDecoration: 'none' }}>
+                  <Link href={`#${sub.id}`} style={{ width: '100%', textDecoration: 'none' }}>
                     <div style={{ 
                       backgroundColor: '#f9fafb', 
                       border: '1px solid #e5e7eb', 
@@ -111,37 +119,107 @@ export default function Products() {
         </div>
 
         {/* ==================================================== */}
-        {/* INDIVIDUAL BAG CATEGORY CARDS WITH ANCHOR IDS        */}
+        {/* INDIVIDUAL BAG CATEGORY CARDS WITH ZOOM BUTTONS      */}
         {/* ==================================================== */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
-          
-          <div id="d-cut-bag" style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb', scrollMarginTop: '100px' }}>
-            <DcutBag />
-          </div>
+          {productsList.map((item) => (
+            <div 
+              key={item.id} 
+              id={item.id} 
+              style={{ 
+                backgroundColor: '#ffffff', 
+                borderRadius: '20px', 
+                padding: '24px', 
+                boxShadow: '0 4px 20px rgba(0,0,0,0.04)', 
+                border: '1px solid #e5e7eb', 
+                scrollMarginTop: '100px',
+                position: 'relative'
+              }}
+            >
+              {/* Render the individual bag component */}
+              {item.component}
 
-          <div id="w-cut-bag" style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb', scrollMarginTop: '100px' }}>
-            <WcutBag />
-          </div>
-
-          <div id="loop-bag" style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb', scrollMarginTop: '100px' }}>
-            <LoopBag />
-          </div>
-
-          <div id="bopp-bag" style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb', scrollMarginTop: '100px' }}>
-            <BOPPBag />
-          </div>
-
-          <div id="stitched-bag" style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb', scrollMarginTop: '100px' }}>
-            <StitchedBag />
-          </div>
-
-          <div id="box-bag" style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e5e7eb', scrollMarginTop: '100px' }}>
-            <BoxBag />
-          </div>
-
+              {/* Click to View & Zoom Action Button */}
+              <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px', paddingRight: '8px' }}>
+                <button 
+                  onClick={() => setSelectedImage(item.imgSrc)}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    backgroundColor: '#2d3748',
+                    color: '#ffffff',
+                    padding: '10px 20px',
+                    borderRadius: '50px',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                    cursor: 'pointer',
+                    transition: 'background-color 0.2s ease'
+                  }}
+                  onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#1a202c'}
+                  onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#2d3748'}
+                >
+                  <span style={{ color: '#38bdf8' }}>🔍</span> Click to View & Zoom
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
 
       </div>
+
+      {/* ==================================================== */}
+      {/* FULL-SCREEN LIGHTBOX / ZOOM MODAL                    */}
+      {/* ==================================================== */}
+      {selectedImage && (
+        <div 
+          onClick={() => setSelectedImage(null)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 9999,
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '16px',
+            backdropFilter: 'blur(4px)'
+          }}
+        >
+          <div 
+            style={{ position: 'relative', maxWidth: '900px', width: '100%', maxHeight: '90vh', display: 'flex', justifyContent: 'center' }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img 
+              src={selectedImage} 
+              alt="Zoomed Product Portfolio" 
+              style={{ maxHeight: '85vh', maxWidth: '100%', objectFit: 'contain', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.2)', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.5)' }}
+            />
+            <button 
+              onClick={() => setSelectedImage(null)}
+              style={{
+                position: 'absolute',
+                top: '-15px',
+                right: '-15px',
+                backgroundColor: '#ffffff',
+                color: '#000000',
+                border: 'none',
+                borderRadius: '50%',
+                width: '36px',
+                height: '36px',
+                fontSize: '18px',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
+              }}
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
