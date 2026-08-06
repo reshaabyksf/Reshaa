@@ -25,6 +25,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 /* Make section cards and containers highly translucent so the background fabric image is vividly visible */
@@ -54,6 +55,7 @@ section, .services-section, .service-card, .team-card, div[style*="background-co
   /* Prevent horizontal overflow on mobile devices */
   body {
     overflow-x: hidden;
+    width: 100%;
   }
 
   /* Scale down hero headers for mobile viewports */
