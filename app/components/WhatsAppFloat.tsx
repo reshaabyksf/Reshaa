@@ -3,20 +3,8 @@
 export default function WhatsAppFloat() {
   const phoneNumber = "917068707763"; 
   
-  const message = `Hi! 👋 Welcome to Reshaa.
-
-Thank you for your enquiry. 😊 Please share:
-- Bag type
-- Quantity
-- Size (if known)
-- Printing requirement
-- Delivery location
-
-We'll connect with you shortly.
-
-Team Reshaa | Built Different.`;
-  
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  // Message removed to allow customer to type or Business Auto-reply to trigger
+  const whatsappUrl = `https://wa.me/${917068707763}`;
 
   return (
     <a 
