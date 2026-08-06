@@ -85,10 +85,8 @@ export default function Products() {
             }}>
               {productsList.map((sub, index) => (
                 <div key={index} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  {/* Vertical drop line down to each card */}
                   <div style={{ width: '2px', height: '25px', backgroundColor: '#9ca3af', marginTop: '-35px' }} />
                   
-                  {/* Clickable Sub-node Card */}
                   <Link href={`#${sub.id}`} style={{ width: '100%', textDecoration: 'none' }}>
                     <div style={{ 
                       backgroundColor: '#f9fafb', 
@@ -99,7 +97,6 @@ export default function Products() {
                       textAlign: 'center',
                       boxShadow: '0 4px 12px rgba(0,0,0,0.03)',
                       borderTop: `4px solid ${sub.color}`,
-                      transition: 'transform 0.2s ease, box-shadow 0.2s ease',
                       cursor: 'pointer'
                     }}>
                       <span style={{ fontSize: '13px', fontWeight: 'bold', color: '#1f2937', display: 'block', marginBottom: '4px' }}>
@@ -118,55 +115,65 @@ export default function Products() {
         </div>
 
         {/* ==================================================== */}
-        {/* INDIVIDUAL BAG CATEGORY CARDS WITH PHOTO ZOOM OVERLAY */}
+        {/* COMPACT PRODUCT CARDS WITH ALTERNATING ZOOM BADGE      */}
         {/* ==================================================== */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
-          {productsList.map((item) => (
-            <div 
-              key={item.id} 
-              id={item.id} 
-              style={{ 
-                backgroundColor: '#ffffff', 
-                borderRadius: '20px', 
-                padding: '24px', 
-                boxShadow: '0 4px 20px rgba(0,0,0,0.04)', 
-                border: '1px solid #e5e7eb', 
-                scrollMarginTop: '100px'
-              }}
-            >
-              {/* Wrapper to attach the zoom trigger relative to the component content/photo area */}
-              <div style={{ position: 'relative' }}>
-                {item.component}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+          {productsList.map((item, index) => {
+            // Determine position based on alternate index (Even = Right side, Odd = Left side)
+            const isEven = index % 2 === 0;
 
-                {/* Click to View & Zoom Badge positioned directly on top of the product photo area */}
-                <div style={{ position: 'absolute', bottom: '20px', right: '20px', zIndex: 10 }}>
-                  <button 
-                    onClick={() => setSelectedImage(item.imgSrc)}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      backgroundColor: 'rgba(45, 55, 72, 0.9)',
-                      color: '#ffffff',
-                      padding: '8px 16px',
-                      borderRadius: '50px',
-                      fontSize: '13px',
-                      fontWeight: '500',
-                      border: '1px solid rgba(255, 255, 255, 0.3)',
-                      boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-                      cursor: 'pointer',
-                      backdropFilter: 'blur(4px)',
-                      transition: 'background-color 0.2s ease'
-                    }}
-                    onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(26, 32, 44, 0.95)'}
-                    onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'rgba(45, 55, 72, 0.9)'}
-                  >
-                    <span style={{ color: '#38bdf8' }}>🔍</span> Click to View & Zoom
-                  </button>
+            return (
+              <div 
+                key={item.id} 
+                id={item.id} 
+                style={{ 
+                  backgroundColor: '#ffffff', 
+                  borderRadius: '16px', 
+                  padding: '20px', 
+                  boxShadow: '0 4px 15px rgba(0,0,0,0.03)', 
+                  border: '1px solid #e5e7eb', 
+                  scrollMarginTop: '100px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center'
+                }}
+              >
+                {/* Category Title Header */}
+                <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '16px', alignSelf: 'flex-start' }}>
+                  {item.title}
+                </h3>
+
+                {/* Photo Wrapper with Alternating Zoom Badge Position */}
+                <div style={{ position: 'relative', display: 'inline-block', width: '100%', textAlign: 'center' }}>
+                  <div style={{ display: 'inline-block', position: 'relative', maxWidth: '100%' }}>
+                    {item.component}
+
+                    {/* Alternating Zoom Badge: Even items on Right, Odd items on Left */}
+                    <button 
+                      onClick={() => setSelectedImage(item.imgSrc)}
+                      style={{
+                        position: 'absolute',
+                        bottom: '15px',
+                        [isEven ? 'right' : 'left']: '15px',
+                        backgroundColor: 'rgba(30, 58, 138, 0.9)',
+                        color: '#ffffff',
+                        padding: '8px 16px',
+                        borderRadius: '30px',
+                        fontSize: '12px',
+                        fontWeight: '600',
+                        border: '1px solid rgba(255, 255, 255, 0.3)',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.25)',
+                        cursor: 'pointer',
+                        backdropFilter: 'blur(4px)'
+                      }}
+                    >
+                      🔍 Click to View & Zoom
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>
@@ -181,12 +188,12 @@ export default function Products() {
             position: 'fixed',
             inset: 0,
             zIndex: 9999,
-            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            backgroundColor: 'rgba(0, 0, 0, 0.85)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             padding: '16px',
-            backdropFilter: 'blur(4px)'
+            backdropFilter: 'blur(5px)'
           }}
         >
           <div 
@@ -195,8 +202,8 @@ export default function Products() {
           >
             <img 
               src={selectedImage} 
-              alt="Zoomed Product Portfolio" 
-              style={{ maxHeight: '85vh', maxWidth: '100%', objectFit: 'contain', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.2)', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.5)' }}
+              alt="Zoomed Product" 
+              style={{ maxHeight: '85vh', maxWidth: '100%', objectFit: 'contain', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.2)', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7)' }}
             />
             <button 
               onClick={() => setSelectedImage(null)}
