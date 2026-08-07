@@ -3,12 +3,27 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 export default function ConnectWithUs() {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    const formData = new FormData(e.currentTarget);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSubmitted(true);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      alert("An error occurred. Please check your network.");
+    }
   };
 
   return (
@@ -46,14 +61,16 @@ export default function ConnectWithUs() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+              {/* Web3Forms Access Key */}
+              <input type="hidden" name="access_key" value="143b025a-3948-48f2-9813-79f6be2e470b" />
+
               <div>
                 <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', color: '#374151', marginBottom: '6px' }}>Your Name</label>
                 <input 
                   type="text" 
+                  name="name"
                   required 
                   placeholder="Enter your name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
                   style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '15px', outline: 'none', backgroundColor: 'rgba(255, 255, 255, 0.9)' }}
                 />
               </div>
@@ -62,10 +79,9 @@ export default function ConnectWithUs() {
                 <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', color: '#374151', marginBottom: '6px' }}>Email Address</label>
                 <input 
                   type="email" 
+                  name="email"
                   required 
                   placeholder="Enter your email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
                   style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '15px', outline: 'none', backgroundColor: 'rgba(255, 255, 255, 0.9)' }}
                 />
               </div>
@@ -74,10 +90,9 @@ export default function ConnectWithUs() {
                 <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', color: '#374151', marginBottom: '6px' }}>Phone Number</label>
                 <input 
                   type="tel" 
+                  name="phone"
                   required 
                   placeholder="Enter your phone number"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
                   style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '15px', outline: 'none', backgroundColor: 'rgba(255, 255, 255, 0.9)' }}
                 />
               </div>
@@ -86,10 +101,9 @@ export default function ConnectWithUs() {
                 <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', color: '#374151', marginBottom: '6px' }}>Message / Requirements</label>
                 <textarea 
                   rows={4}
+                  name="message"
                   required 
                   placeholder="Tell us about your non-woven bag requirements..."
-                  value={formData.message}
-                  onChange={(e) => setFormData({...formData, message: e.target.value})}
                   style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '15px', outline: 'none', resize: 'vertical', backgroundColor: 'rgba(255, 255, 255, 0.9)' }}
                 />
               </div>
