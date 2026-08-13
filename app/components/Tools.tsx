@@ -111,6 +111,7 @@ const Tools = () => {
   };
 
   const handleReset = () => {
+    setOrderMode('kg');
     setInputs({
       bagType: 'D-Cut',
       printType: 'Plain',
@@ -128,7 +129,6 @@ const Tools = () => {
   return (
     <div style={{ maxWidth: '1200px', margin: '40px auto', padding: '0 20px', boxSizing: 'border-box' }}>
       
-      {/* Standardized Section Heading matching the rest of the website */}
       <section style={{ marginBottom: '40px', textAlign: 'center' }}>
         <h2 style={{ fontSize: '38px', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '16px', textAlign: 'center', letterSpacing: '0.5px' }}>
           SPECIFICATION CALCULATOR
@@ -138,7 +138,6 @@ const Tools = () => {
         </p>
       </section>
 
-      {/* SINGLE UNIFIED MASTER CARD: Calculator UI */}
       <section style={{ marginBottom: '60px' }}>
         <div style={{ 
           backgroundColor: 'rgba(255, 255, 255, 0.95)', 
@@ -152,7 +151,6 @@ const Tools = () => {
           gap: '30px'
         }}>
           
-          {/* Top Bar: Title & Mode Selector */}
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '15px', borderBottom: '1px solid #e2e8f0', paddingBottom: '20px' }}>
             <h2 style={{ fontSize: '20px', fontWeight: '800', color: '#0f172a', margin: 0 }}>
               Engineering Parameters
@@ -163,12 +161,7 @@ const Tools = () => {
                 type="button" 
                 onClick={() => setOrderMode('pieces')} 
                 style={{ 
-                  padding: '6px 16px', 
-                  borderRadius: '6px', 
-                  fontSize: '14px', 
-                  fontWeight: '700', 
-                  border: 'none', 
-                  cursor: 'pointer',
+                  padding: '6px 16px', borderRadius: '6px', fontSize: '14px', fontWeight: '700', border: 'none', cursor: 'pointer',
                   backgroundColor: orderMode === 'pieces' ? '#ffffff' : 'transparent',
                   color: orderMode === 'pieces' ? '#2563eb' : '#64748b',
                   boxShadow: orderMode === 'pieces' ? '0 2px 4px rgba(0,0,0,0.08)' : 'none',
@@ -181,12 +174,7 @@ const Tools = () => {
                 type="button" 
                 onClick={() => setOrderMode('kg')} 
                 style={{ 
-                  padding: '6px 16px', 
-                  borderRadius: '6px', 
-                  fontSize: '14px', 
-                  fontWeight: '700', 
-                  border: 'none', 
-                  cursor: 'pointer',
+                  padding: '6px 16px', borderRadius: '6px', fontSize: '14px', fontWeight: '700', border: 'none', cursor: 'pointer',
                   backgroundColor: orderMode === 'kg' ? '#ffffff' : 'transparent',
                   color: orderMode === 'kg' ? '#16a34a' : '#64748b',
                   boxShadow: orderMode === 'kg' ? '0 2px 4px rgba(0,0,0,0.08)' : 'none',
@@ -198,16 +186,13 @@ const Tools = () => {
             </div>
           </div>
 
-          {/* Input Grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
-            
             <div>
               <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#64748b', textTransform: 'uppercase', marginBottom: '6px' }}>Bag Type</label>
               <select name="bagType" value={inputs.bagType} onChange={handleChange} style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '14px', fontWeight: '600', color: '#0f172a', backgroundColor: '#ffffff' }}>
                 {BAG_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
               </select>
             </div>
-
             <div>
               <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#64748b', textTransform: 'uppercase', marginBottom: '6px' }}>Print Technology</label>
               <select name="printType" value={inputs.printType} onChange={handleChange} style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '14px', fontWeight: '600', color: '#0f172a', backgroundColor: '#ffffff' }}>
@@ -217,61 +202,50 @@ const Tools = () => {
                 <option value="Screen">Screen Printing</option>
               </select>
             </div>
-
             <div>
               <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#7e22ce', textTransform: 'uppercase', marginBottom: '6px' }}>Polymer Quality</label>
               <select name="quality" value={inputs.quality} onChange={handleChange} style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #e9d5ff', fontSize: '14px', fontWeight: '600', color: '#0f172a', backgroundColor: '#f3e8ff' }}>
                 {QUALITIES.map(q => <option key={q} value={q}>{q}</option>)}
               </select>
             </div>
-
             <div>
               <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#64748b', textTransform: 'uppercase', marginBottom: '6px' }}>Fabric Color</label>
               <select name="color" value={inputs.color} onChange={handleChange} style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '14px', fontWeight: '600', color: '#0f172a', backgroundColor: '#ffffff' }}>
                 {COLORS.map(c => <option key={c} value={c}>{c}</option>)}
               </select>
             </div>
-
             <div>
               <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#64748b', textTransform: 'uppercase', marginBottom: '6px' }}>GSM (Weight)</label>
               <input type="number" name="gsm" value={inputs.gsm} onChange={handleChange} style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '14px', fontWeight: '600', color: '#0f172a', boxSizing: 'border-box' }} required />
             </div>
-
             <div>
               <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#64748b', textTransform: 'uppercase', marginBottom: '6px' }}>Width (Inches)</label>
               <input type="number" name="width" value={inputs.width} onChange={handleChange} style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '14px', fontWeight: '600', color: '#0f172a', boxSizing: 'border-box' }} required />
             </div>
-
             <div>
               <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#64748b', textTransform: 'uppercase', marginBottom: '6px' }}>Height (Inches)</label>
               <input type="number" name="height" value={inputs.height} onChange={handleChange} style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '14px', fontWeight: '600', color: '#0f172a', boxSizing: 'border-box' }} required />
             </div>
-
             <div>
               <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#64748b', textTransform: 'uppercase', marginBottom: '6px' }}>Gusset (Inches)</label>
               <input type="number" name="gusset" value={inputs.gusset} onChange={handleChange} style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '14px', fontWeight: '600', color: '#0f172a', boxSizing: 'border-box' }} />
             </div>
-
             <div>
               <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#e11d48', textTransform: 'uppercase', marginBottom: '6px' }}>Top Fold (Inches)</label>
               <input type="number" name="topFold" value={inputs.topFold} onChange={handleChange} style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #fecdd3', fontSize: '14px', fontWeight: '600', color: '#0f172a', backgroundColor: '#fff1f2', boxSizing: 'border-box' }} />
             </div>
-
             <div style={{ gridColumn: '1 / -1' }}>
               <label style={{ display: 'block', fontSize: '13px', fontWeight: '800', color: '#2563eb', textTransform: 'uppercase', marginBottom: '6px' }}>
                 {orderMode === 'pieces' ? 'Target Batch Quantity (Pieces)' : 'Target Batch Weight (Kg)'}
               </label>
               <input type="number" name="inputValue" value={inputs.inputValue === 0 ? '' : inputs.inputValue} onChange={handleChange} style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '2px solid #bfdbfe', fontSize: '16px', fontWeight: '700', color: '#1e3a8a', backgroundColor: '#eff6ff', boxSizing: 'border-box' }} required />
             </div>
-
           </div>
 
-          {/* Unit Weight Helper Display */}
           <div style={{ fontSize: '14px', fontWeight: '600', color: '#475569', textAlign: 'right' }}>
             {singleBagWeightGrams > 0 ? `Calculated Unit Weight: ${singleBagWeightGrams.toFixed(2)} g / piece` : ''}
           </div>
 
-          {/* --- RESULTS HUD DISPLAY --- */}
           <div style={{ backgroundColor: '#0f172a', color: '#ffffff', padding: '25px', borderRadius: '16px', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '20px', boxShadow: '0 10px 25px rgba(0,0,0,0.15)' }}>
             <div>
               <div style={{ fontSize: '13px', color: '#94a3b8', fontWeight: '700', textTransform: 'uppercase', marginBottom: '6px' }}>
@@ -301,7 +275,6 @@ const Tools = () => {
             </div>
           </div>
 
-          {/* Reset Action Button */}
           <button 
             type="button" 
             onClick={handleReset} 
@@ -320,10 +293,8 @@ const Tools = () => {
           >
             🔄 Reset Calculation Parameters
           </button>
-
         </div>
       </section>
-
     </div>
   );
 };
