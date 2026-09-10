@@ -30,6 +30,10 @@ export default function Gallery() {
     '/Gallery/bag25.jpg',
     '/Gallery/bag26.jpg',
     '/Gallery/bag27.jpg',
+    '/Gallery/bag28.jpg',
+    '/Gallery/bag29.jpg',
+    '/Gallery/bag30.jpg',
+    '/Gallery/bag31.jpg',
   ];
 
   const duplicatedGallery = [...galleryImages, ...galleryImages];
@@ -52,7 +56,7 @@ export default function Gallery() {
           display: flex;
           gap: 24px;
           width: max-content;
-          animation: scrollGallery 50s linear infinite;
+          animation: scrollGallery 60s linear infinite;
         }
         .marquee-track:hover {
           animation-play-state: paused;
