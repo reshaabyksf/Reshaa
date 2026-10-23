@@ -56,18 +56,23 @@ export default function Gallery() {
           display: flex;
           gap: 24px;
           width: max-content;
-          animation: scrollGallery 60s linear infinite; /* Laptop speed: 60s */
+          animation: scrollGallery 60s linear infinite; /* Laptop speed stays safe at 60s */
           will-change: transform;
         }
         .marquee-track:hover {
           animation-play-state: paused;
         }
         
-        /* Much faster motion for mobile screens */
+        /* High-speed, compact layout for mobile phones */
         @media (max-width: 768px) {
           .marquee-track {
-            animation-duration: 14s; /* Lower number = much faster movement */
-            gap: 16px;
+            animation-duration: 8s; /* Super fast movement */
+            gap: 12px;
+          }
+          .gallery-card {
+            min-width: 200px !important;
+            max-width: 200px !important;
+            height: 250px !important;
           }
         }
       `}</style>
@@ -77,6 +82,7 @@ export default function Gallery() {
           {duplicatedGallery.map((src, index) => (
             <div 
               key={index}
+              className="gallery-card"
               style={{ 
                 minWidth: '260px',
                 maxWidth: '260px',
