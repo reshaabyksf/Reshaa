@@ -44,12 +44,12 @@ const Tools = () => {
   }, [inputs.bagType]);
 
   useEffect(() => {
-    const numInputValue = Number(inputs.inputValue);
-    const numWidth = Number(inputs.width);
-    const numHeight = Number(inputs.height);
-    const numGusset = Number(inputs.gusset);
-    const numTopFold = Number(inputs.topFold);
-    const numGsm = Number(inputs.gsm);
+    const numInputValue = Number(inputs.inputValue) || 0;
+    const numWidth = Number(inputs.width) || 0;
+    const numHeight = Number(inputs.height) || 0;
+    const numGusset = Number(inputs.gusset) || 0;
+    const numTopFold = Number(inputs.topFold) || 0;
+    const numGsm = Number(inputs.gsm) || 0;
 
     if (numInputValue > 0 && numWidth > 0 && numHeight > 0) {
       const W = numWidth;
@@ -101,13 +101,15 @@ const Tools = () => {
         rollWidth: Math.ceil(calcRollWidth),
         wastageInfo: `${(wastagePercent * 100).toFixed(0)}%`
       });
+    } else {
+      setCalculatedResult({ mainValue: 0, finalKgForDb: 0, rollWidth: 0, wastageInfo: '0%' });
+      setSingleBagWeightGrams(0);
     }
   }, [inputs, orderMode]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
     if (type === 'number') {
-      // Allow empty string so backspacing works without stubborn 0s
       setInputs({ ...inputs, [name]: value === '' ? '' : Number(value) });
     } else {
       setInputs({ ...inputs, [name]: value });
@@ -126,7 +128,7 @@ const Tools = () => {
       height: 18,
       gusset: 5,
       topFold: 3,
-      inputValue: 100
+      inputValue: 0 // Resets to 0 cleanly as requested
     });
   };
 
