@@ -1,7 +1,9 @@
 'use client';
-import React from 'react';
+import React, { useRef } from 'react';
 
 export default function Gallery() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   const galleryImages = [
     '/Gallery/bag1.jpg',
     '/Gallery/bag2.jpg',
@@ -38,66 +40,160 @@ export default function Gallery() {
 
   const duplicatedGallery = [...galleryImages, ...galleryImages];
 
+  // Mobile manual scroll functions
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -280, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 280, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="gallery" style={{ padding: '60px 0', maxWidth: '100%', overflow: 'hidden', backgroundColor: '#f9fafb' }}>
-      <div style={{ textAlign: 'center', marginBottom: '40px', padding: '0 20px' }}>
+      <div style={{ textAlign: 'center', marginBottom: '30px', padding: '0 20px' }}>
         <h2 style={{ fontSize: '32px', fontWeight: 'bold', color: '#1e3a8a' }}>Our Gallery</h2>
         <p style={{ color: '#4b5563', marginTop: '8px', fontSize: '16px' }}>
           Explore our recent custom non-woven packaging and bag orders delivered for brands
         </p>
       </div>
 
-      <style>{`
-        @keyframes scrollGallery {
-          0% { transform: translate3d(0, 0, 0); }
-          100% { transform: translate3d(-50%, 0, 0); }
-        }
-        .marquee-track {
-          display: flex;
-          gap: 24px;
-          width: max-content;
-          animation: scrollGallery 60s linear infinite; /* Laptop speed: 60s */
-          will-change: transform;
-        }
-        .marquee-track:hover {
-          animation-play-state: paused;
-        }
-        
-        /* High-speed motion for mobile screens with eager loading support */
-        @media (max-width: 768px) {
+      {/* ==================== DESKTOP VIEW (Original Auto Marquee) ==================== */}
+      <div className="hidden md:block">
+        <style>{`
+          @keyframes scrollGallery {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+          }
           .marquee-track {
-            animation-duration: 12s; 
-            gap: 12px;
+            display: flex;
+            gap: 24px;
+            width: max-content;
+            animation: scrollGallery 60s linear infinite;
+            will-change: transform;
           }
-          .gallery-card {
-            min-width: 200px !important;
-            max-width: 200px !important;
-            height: 250px !important;
+          .marquee-track:hover {
+            animation-play-state: paused;
           }
-        }
-      `}</style>
+        `}</style>
 
-      <div style={{ overflow: 'hidden', width: '100%', position: 'relative', padding: '10px 0' }}>
-        <div className="marquee-track">
-          {duplicatedGallery.map((src, index) => (
-            <div 
+        <div style={{ overflow: 'hidden', width: '100%', position: 'relative', padding: '10px 0' }}>
+          <div className="marquee-track">
+            {duplicatedGallery.map((src, index) => (
+              <div 
+                key={index}
+                style={{ 
+                  minWidth: '260px',
+                  maxWidth: '260px',
+                  height: '320px',
+                  overflow: 'hidden', 
+                  borderRadius: '12px', 
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)', 
+                  backgroundColor: '#ffffff',
+                  border: '1px solid #e5e7eb',
+                  flexShrink: 0
+                }}
+              >
+                <img 
+                  src={src} 
+                  alt="Reshaa Gallery" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ==================== MOBILE VIEW (Manual Arrow Slider) ==================== */}
+      <div className="block md:hidden">
+        {/* Arrow Controls */}
+        <div style={{ padding: '0 20px 12px 20px', display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
+          <button
+            onClick={scrollLeft}
+            aria-label="Previous Image"
+            style={{
+              backgroundColor: '#1e3a8a',
+              color: '#ffffff',
+              border: 'none',
+              borderRadius: '50%',
+              width: '40px',
+              height: '40px',
+              fontSize: '16px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
+            }}
+          >
+            ❮
+          </button>
+          <button
+            onClick={scrollRight}
+            aria-label="Next Image"
+            style={{
+              backgroundColor: '#1e3a8a',
+              color: '#ffffff',
+              border: 'none',
+              borderRadius: '50%',
+              width: '40px',
+              height: '40px',
+              fontSize: '16px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
+            }}
+          >
+            ❯
+          </button>
+        </div>
+
+        {/* Scrollable Track */}
+        <div
+          ref={scrollRef}
+          style={{
+            display: 'flex',
+            gap: '16px',
+            overflowX: 'auto',
+            scrollBehavior: 'smooth',
+            padding: '10px 20px 20px 20px',
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none'
+          }}
+          className="hide-scrollbar"
+        >
+          <style>{`
+            .hide-scrollbar::-webkit-scrollbar {
+              display: none;
+            }
+          `}</style>
+
+          {galleryImages.map((src, index) => (
+            <div
               key={index}
-              className="gallery-card"
-              style={{ 
-                minWidth: '260px',
-                maxWidth: '260px',
-                height: '320px',
-                overflow: 'hidden', 
-                borderRadius: '12px', 
-                boxShadow: '0 4px 12px rgba(0,0,0,0.08)', 
+              style={{
+                minWidth: '240px',
+                maxWidth: '240px',
+                height: '300px',
+                overflow: 'hidden',
+                borderRadius: '12px',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
                 backgroundColor: '#ffffff',
                 border: '1px solid #e5e7eb',
                 flexShrink: 0
               }}
             >
-              <img 
-                src={src} 
-                alt="Reshaa Gallery" 
+              <img
+                src={src}
+                alt={`Reshaa Gallery Bag ${index + 1}`}
+                loading="lazy"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
               />
             </div>
