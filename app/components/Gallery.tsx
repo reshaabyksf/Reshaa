@@ -40,7 +40,7 @@ export default function Gallery() {
 
   const duplicatedGallery = [...galleryImages, ...galleryImages];
 
-  // Mobile manual scroll functions
+  // Mobile scroll functions (snaps to the next centered card)
   const scrollLeft = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({ left: -280, behavior: 'smooth' });
@@ -62,7 +62,7 @@ export default function Gallery() {
         </p>
       </div>
 
-      {/* ==================== DESKTOP VIEW (Original Auto Marquee) ==================== */}
+      {/* ==================== DESKTOP VIEW (Original Auto Marquee - Untouched) ==================== */}
       <div className="hidden md:block">
         <style>{`
           @keyframes scrollGallery {
@@ -109,53 +109,63 @@ export default function Gallery() {
         </div>
       </div>
 
-      {/* ==================== MOBILE VIEW (Manual Arrow Slider) ==================== */}
-      <div className="block md:hidden">
-        {/* Arrow Controls */}
-        <div style={{ padding: '0 20px 12px 20px', display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
-          <button
-            onClick={scrollLeft}
-            aria-label="Previous Image"
-            style={{
-              backgroundColor: '#1e3a8a',
-              color: '#ffffff',
-              border: 'none',
-              borderRadius: '50%',
-              width: '40px',
-              height: '40px',
-              fontSize: '16px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
-            }}
-          >
-            ❮
-          </button>
-          <button
-            onClick={scrollRight}
-            aria-label="Next Image"
-            style={{
-              backgroundColor: '#1e3a8a',
-              color: '#ffffff',
-              border: 'none',
-              borderRadius: '50%',
-              width: '40px',
-              height: '40px',
-              fontSize: '16px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
-            }}
-          >
-            ❯
-          </button>
-        </div>
+      {/* ==================== MOBILE VIEW (Centered Peek Carousel with Side Arrows) ==================== */}
+      <div className="block md:hidden" style={{ position: 'relative', padding: '0 5px' }}>
+        {/* Left Arrow Button */}
+        <button
+          onClick={scrollLeft}
+          aria-label="Previous Image"
+          style={{
+            position: 'absolute',
+            left: '4px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            zIndex: 20,
+            backgroundColor: '#1e3a8a',
+            color: '#ffffff',
+            border: 'none',
+            borderRadius: '50%',
+            width: '42px',
+            height: '42px',
+            fontSize: '18px',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.25)'
+          }}
+        >
+          ❮
+        </button>
 
-        {/* Scrollable Track */}
+        {/* Right Arrow Button */}
+        <button
+          onClick={scrollRight}
+          aria-label="Next Image"
+          style={{
+            position: 'absolute',
+            right: '4px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            zIndex: 20,
+            backgroundColor: '#1e3a8a',
+            color: '#ffffff',
+            border: 'none',
+            borderRadius: '50%',
+            width: '42px',
+            height: '42px',
+            fontSize: '18px',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.25)'
+          }}
+        >
+          ❯
+        </button>
+
+        {/* Snap-Scrolling Carousel Track */}
         <div
           ref={scrollRef}
           style={{
@@ -163,7 +173,8 @@ export default function Gallery() {
             gap: '16px',
             overflowX: 'auto',
             scrollBehavior: 'smooth',
-            padding: '10px 20px 20px 20px',
+            scrollSnapType: 'x mandatory',
+            padding: '10px 48px', // Leaves room on left/right for the arrows and peeking images
             scrollbarWidth: 'none',
             msOverflowStyle: 'none'
           }}
@@ -179,12 +190,13 @@ export default function Gallery() {
             <div
               key={index}
               style={{
-                minWidth: '240px',
-                maxWidth: '240px',
-                height: '300px',
+                minWidth: '250px',
+                maxWidth: '250px',
+                height: '340px',
+                scrollSnapAlign: 'center',
                 overflow: 'hidden',
                 borderRadius: '12px',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
                 backgroundColor: '#ffffff',
                 border: '1px solid #e5e7eb',
                 flexShrink: 0
@@ -193,7 +205,6 @@ export default function Gallery() {
               <img
                 src={src}
                 alt={`Reshaa Gallery Bag ${index + 1}`}
-                loading="lazy"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
               />
             </div>
