@@ -56,17 +56,17 @@ export default function Gallery() {
           display: flex;
           gap: 24px;
           width: max-content;
-          animation: scrollGallery 60s linear infinite; /* Laptop speed remains 60s */
+          animation: scrollGallery 60s linear infinite; /* Laptop speed: 60s */
           will-change: transform;
         }
         .marquee-track:hover {
           animation-play-state: paused;
         }
         
-        /* Much faster and smoother motion for mobile screens */
+        /* Much faster motion for mobile screens */
         @media (max-width: 768px) {
           .marquee-track {
-            animation-duration: 28s; /* Lower number = faster movement */
+            animation-duration: 14s; /* Lower number = much faster movement */
             gap: 16px;
           }
         }
