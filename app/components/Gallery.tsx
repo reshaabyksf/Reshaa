@@ -56,17 +56,17 @@ export default function Gallery() {
           display: flex;
           gap: 24px;
           width: max-content;
-          animation: scrollGallery 60s linear infinite; /* Restored to your original 60s for laptops */
+          animation: scrollGallery 60s linear infinite; /* Laptop speed remains 60s */
           will-change: transform;
         }
         .marquee-track:hover {
           animation-play-state: paused;
         }
         
-        /* Independent smooth speed adjustment for mobile screens only */
+        /* Much faster and smoother motion for mobile screens */
         @media (max-width: 768px) {
           .marquee-track {
-            animation-duration: 75s; 
+            animation-duration: 28s; /* Lower number = faster movement */
             gap: 16px;
           }
         }
