@@ -1,8 +1,20 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Gallery() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Automatically detect if the screen is mobile or laptop
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize(); // Check on initial load
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const galleryImages = [
     '/Gallery/bag1.jpg',
@@ -58,167 +70,169 @@ export default function Gallery() {
         </p>
       </div>
 
-      {/* ==================== DESKTOP VIEW (100% Original Laptop Marquee & 300x350 Sizing) ==================== */}
-      <div className="hidden md:block">
-        <style>{`
-          @keyframes scrollGallery {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          .marquee-track {
-            display: flex;
-            gap: 24px;
-            width: max-content;
-            animation: scrollGallery 60s linear infinite;
-          }
-          .marquee-track:hover {
-            animation-play-state: paused;
-          }
-        `}</style>
+      {!isMobile ? (
+        /* ==================== LAPTOP VIEW (Original Auto Marquee) ==================== */
+        <div>
+          <style>{`
+            @keyframes scrollGallery {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .marquee-track {
+              display: flex;
+              gap: 24px;
+              width: max-content;
+              animation: scrollGallery 60s linear infinite;
+            }
+            .marquee-track:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
 
-        <div style={{ overflow: 'hidden', width: '100%', position: 'relative', padding: '10px 0' }}>
-          <div className="marquee-track">
-            {duplicatedGallery.map((src, index) => (
-              <div 
-                key={index}
-                style={{ 
-                  minWidth: '300px',
-                  maxWidth: '300px',
-                  height: '350px',
-                  overflow: 'hidden', 
-                  borderRadius: '12px', 
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)', 
-                  backgroundColor: '#ffffff',
-                  border: '1px solid #e5e7eb',
-                  flexShrink: 0
-                }}
-              >
-                <img 
-                  src={src} 
-                  alt="Reshaa Gallery" 
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                />
-              </div>
-            ))}
+          <div style={{ overflow: 'hidden', width: '100%', position: 'relative', padding: '10px 0' }}>
+            <div className="marquee-track">
+              {duplicatedGallery.map((src, index) => (
+                <div 
+                  key={index}
+                  style={{ 
+                    minWidth: '300px',
+                    maxWidth: '300px',
+                    height: '350px',
+                    overflow: 'hidden', 
+                    borderRadius: '12px', 
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.08)', 
+                    backgroundColor: '#ffffff',
+                    border: '1px solid #e5e7eb',
+                    flexShrink: 0
+                  }}
+                >
+                  <img 
+                    src={src} 
+                    alt="Reshaa Gallery" 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* ==================== MOBILE VIEW (Stacked Card Deck Viewer) ==================== */}
-      <div className="block md:hidden" style={{ padding: '0 20px' }}>
-        <div style={{ 
-          position: 'relative', 
-          maxWidth: '320px', 
-          margin: '0 auto',
-          height: '380px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}>
-          
-          {/* Background Stacked Card Effect */}
-          <div style={{
-            position: 'absolute',
-            width: '88%',
-            height: '340px',
-            backgroundColor: '#e5e7eb',
-            borderRadius: '16px',
-            top: '16px',
-            transform: 'scale(0.92)',
-            zIndex: 1,
-            boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
-          }} />
-          <div style={{
-            position: 'absolute',
-            width: '94%',
-            height: '340px',
-            backgroundColor: '#f3f4f6',
-            borderRadius: '16px',
-            top: '8px',
-            transform: 'scale(0.96)',
-            zIndex: 2,
-            boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
-          }} />
-
-          {/* Main Active Card in Front */}
-          <div style={{
-            position: 'relative',
-            width: '100%',
-            height: '350px',
-            backgroundColor: '#ffffff',
-            borderRadius: '16px',
-            overflow: 'hidden',
-            boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
-            border: '1px solid #e5e7eb',
-            zIndex: 3
+      ) : (
+        /* ==================== MOBILE VIEW (Stacked Card Deck Viewer) ==================== */
+        <div style={{ padding: '0 20px' }}>
+          <div style={{ 
+            position: 'relative', 
+            maxWidth: '320px', 
+            margin: '0 auto',
+            height: '380px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}>
-            <img 
-              src={galleryImages[currentIndex]} 
-              alt={`Reshaa Gallery Bag ${currentIndex + 1}`}
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-            />
+            
+            {/* Background Stacked Card Effect */}
+            <div style={{
+              position: 'absolute',
+              width: '88%',
+              height: '340px',
+              backgroundColor: '#e5e7eb',
+              borderRadius: '16px',
+              top: '16px',
+              transform: 'scale(0.92)',
+              zIndex: 1,
+              boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
+            }} />
+            <div style={{
+              position: 'absolute',
+              width: '94%',
+              height: '340px',
+              backgroundColor: '#f3f4f6',
+              borderRadius: '16px',
+              top: '8px',
+              transform: 'scale(0.96)',
+              zIndex: 2,
+              boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
+            }} />
+
+            {/* Main Active Card in Front */}
+            <div style={{
+              position: 'relative',
+              width: '100%',
+              height: '350px',
+              backgroundColor: '#ffffff',
+              borderRadius: '16px',
+              overflow: 'hidden',
+              boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
+              border: '1px solid #e5e7eb',
+              zIndex: 3
+            }}>
+              <img 
+                src={galleryImages[currentIndex]} 
+                alt={`Reshaa Gallery Bag ${currentIndex + 1}`}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+            </div>
+
+            {/* Left Arrow Button */}
+            <button
+              onClick={handlePrev}
+              aria-label="Previous Photo"
+              style={{
+                position: 'absolute',
+                left: '-15px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                zIndex: 10,
+                backgroundColor: '#1e3a8a',
+                color: '#ffffff',
+                border: 'none',
+                borderRadius: '50%',
+                width: '45px',
+                height: '45px',
+                fontSize: '18px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
+              }}
+            >
+              ❮
+            </button>
+
+            {/* Right Arrow Button */}
+            <button
+              onClick={handleNext}
+              aria-label="Next Photo"
+              style={{
+                position: 'absolute',
+                right: '-15px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                zIndex: 10,
+                backgroundColor: '#1e3a8a',
+                color: '#ffffff',
+                border: 'none',
+                borderRadius: '50%',
+                width: '45px',
+                height: '45px',
+                fontSize: '18px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
+              }}
+            >
+              ❯
+            </button>
           </div>
 
-          {/* Left Arrow Button */}
-          <button
-            onClick={handlePrev}
-            aria-label="Previous Photo"
-            style={{
-              position: 'absolute',
-              left: '-15px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              zIndex: 10,
-              backgroundColor: '#1e3a8a',
-              color: '#ffffff',
-              border: 'none',
-              borderRadius: '50%',
-              width: '45px',
-              height: '45px',
-              fontSize: '18px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
-            }}
-          >
-            ❮
-          </button>
-
-          {/* Right Arrow Button */}
-          <button
-            onClick={handleNext}
-            aria-label="Next Photo"
-            style={{
-              position: 'absolute',
-              right: '-15px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              zIndex: 10,
-              backgroundColor: '#1e3a8a',
-              color: '#ffffff',
-              border: 'none',
-              borderRadius: '50%',
-              width: '45px',
-              height: '45px',
-              fontSize: '18px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
-            }}
-          >
-            ❯
-          </button>
+          {/* Counter Indicator */}
+          <div style={{ textAlign: 'center', marginTop: '20px', color: '#4b5563', fontSize: '14px', fontWeight: '500' }}>
+            Photo {currentIndex + 1} of {galleryImages.length}
+          </div>
         </div>
-
-        {/* Counter Indicator */}
-        <div style={{ textAlign: 'center', marginTop: '20px', color: '#4b5563', fontSize: '14px', fontWeight: '500' }}>
-          Photo {currentIndex + 1} of {galleryImages.length}
-        </div>
-      </div>
+      )}
     </section>
   );
 }
