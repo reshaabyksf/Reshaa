@@ -8,7 +8,18 @@ const BAG_TYPES = ['D-Cut', 'W-Cut', 'Loop Handle', 'Box Bag', 'Leader Bag', 'St
 const Tools = () => {
   const [orderMode, setOrderMode] = useState('kg');
 
-  const [inputs, setInputs] = useState({
+  const [inputs, setInputs] = useState<{
+    bagType: string;
+    printType: string;
+    gsm: number | string;
+    quality: string;
+    color: string;
+    width: number | string;
+    height: number | string;
+    gusset: number | string;
+    topFold: number | string;
+    inputValue: number | string;
+  }>({
     bagType: 'D-Cut',
     printType: 'Plain',
     gsm: 60,
@@ -33,12 +44,19 @@ const Tools = () => {
   }, [inputs.bagType]);
 
   useEffect(() => {
-    if (inputs.inputValue > 0 && inputs.width > 0 && inputs.height > 0) {
-      const W = Number(inputs.width);
-      const H = Number(inputs.height);
-      const G = Number(inputs.gusset);
-      const F = Number(inputs.topFold);
-      const GSM = Number(inputs.gsm);
+    const numInputValue = Number(inputs.inputValue);
+    const numWidth = Number(inputs.width);
+    const numHeight = Number(inputs.height);
+    const numGusset = Number(inputs.gusset);
+    const numTopFold = Number(inputs.topFold);
+    const numGsm = Number(inputs.gsm);
+
+    if (numInputValue > 0 && numWidth > 0 && numHeight > 0) {
+      const W = numWidth;
+      const H = numHeight;
+      const G = numGusset;
+      const F = numTopFold;
+      const GSM = numGsm;
       
       let calcRollWidth = 0;
       let fabricAreaInch = 0;
@@ -72,14 +90,14 @@ const Tools = () => {
 
       let mainResult = 0;
       if (orderMode === 'pieces') {
-        mainResult = Number(((singleBagTotalGrams * inputs.inputValue) / 1000 * (1 + wastagePercent)).toFixed(2));
+        mainResult = Number(((singleBagTotalGrams * numInputValue) / 1000 * (1 + wastagePercent)).toFixed(2));
       } else {
-        mainResult = Math.floor(((inputs.inputValue * 1000) / (1 + wastagePercent)) / singleBagTotalGrams);
+        mainResult = Math.floor(((numInputValue * 1000) / (1 + wastagePercent)) / singleBagTotalGrams);
       }
 
       setCalculatedResult({
         mainValue: mainResult,
-        finalKgForDb: inputs.inputValue,
+        finalKgForDb: numInputValue,
         rollWidth: Math.ceil(calcRollWidth),
         wastageInfo: `${(wastagePercent * 100).toFixed(0)}%`
       });
@@ -87,8 +105,13 @@ const Tools = () => {
   }, [inputs, orderMode]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const value = e.target.type === 'number' ? Number(e.target.value) : e.target.value;
-    setInputs({ ...inputs, [e.target.name]: value });
+    const { name, value, type } = e.target;
+    if (type === 'number') {
+      // Allow empty string so backspacing works without stubborn 0s
+      setInputs({ ...inputs, [name]: value === '' ? '' : Number(value) });
+    } else {
+      setInputs({ ...inputs, [name]: value });
+    }
   };
 
   const handleReset = () => {
