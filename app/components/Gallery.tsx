@@ -51,26 +51,25 @@ export default function Gallery() {
 
   return (
     <section id="gallery" style={{ padding: '60px 0', maxWidth: '100%', overflow: 'hidden', backgroundColor: '#f9fafb' }}>
-      <div style={{ textAlign: 'center', marginBottom: '30px', padding: '0 20px' }}>
+      <div style={{ textAlign: 'center', marginBottom: '40px', padding: '0 20px' }}>
         <h2 style={{ fontSize: '32px', fontWeight: 'bold', color: '#1e3a8a' }}>Our Gallery</h2>
         <p style={{ color: '#4b5563', marginTop: '8px', fontSize: '16px' }}>
           Explore our recent custom non-woven packaging and bag orders delivered for brands
         </p>
       </div>
 
-      {/* ==================== DESKTOP VIEW (Original Auto Marquee - Untouched) ==================== */}
+      {/* ==================== DESKTOP VIEW (100% Original Laptop Marquee & 300x350 Sizing) ==================== */}
       <div className="hidden md:block">
         <style>{`
           @keyframes scrollGallery {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
           }
           .marquee-track {
             display: flex;
             gap: 24px;
             width: max-content;
             animation: scrollGallery 60s linear infinite;
-            will-change: transform;
           }
           .marquee-track:hover {
             animation-play-state: paused;
@@ -83,9 +82,9 @@ export default function Gallery() {
               <div 
                 key={index}
                 style={{ 
-                  minWidth: '260px',
-                  maxWidth: '260px',
-                  height: '320px',
+                  minWidth: '300px',
+                  maxWidth: '300px',
+                  height: '350px',
                   overflow: 'hidden', 
                   borderRadius: '12px', 
                   boxShadow: '0 4px 12px rgba(0,0,0,0.08)', 
@@ -117,7 +116,7 @@ export default function Gallery() {
           justifyContent: 'center'
         }}>
           
-          {/* Background Stacked Card Effect (Ek ke peeche ek visual) */}
+          {/* Background Stacked Card Effect */}
           <div style={{
             position: 'absolute',
             width: '88%',
