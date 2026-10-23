@@ -56,17 +56,17 @@ export default function Gallery() {
           display: flex;
           gap: 24px;
           width: max-content;
-          animation: scrollGallery 60s linear infinite; /* Laptop speed stays safe at 60s */
+          animation: scrollGallery 60s linear infinite; /* Laptop speed: 60s */
           will-change: transform;
         }
         .marquee-track:hover {
           animation-play-state: paused;
         }
         
-        /* High-speed, compact layout for mobile phones */
+        /* High-speed motion for mobile screens with eager loading support */
         @media (max-width: 768px) {
           .marquee-track {
-            animation-duration: 8s; /* Super fast movement */
+            animation-duration: 12s; 
             gap: 12px;
           }
           .gallery-card {
@@ -98,8 +98,6 @@ export default function Gallery() {
               <img 
                 src={src} 
                 alt="Reshaa Gallery" 
-                loading="lazy"
-                decoding="async"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
               />
             </div>
