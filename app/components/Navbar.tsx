@@ -72,35 +72,29 @@ export default function Navbar() {
         {/* Hidden Google Translate Element required for translation engine backend */}
         <div id="google_translate_element" style={{ display: 'none' }}></div>
 
-        {/* Desktop Nav Links */}
-        <div className="desktop-nav" style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+        {/* Desktop Nav Links (Hidden on mobile, flex on medium screens and up) */}
+        <div className="hidden md:flex" style={{ gap: '20px', alignItems: 'center' }}>
           
-          {/* About Section Link */}
           <Link href="#about" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
             About
           </Link>
           
-          {/* Products Direct Link */}
           <Link href="#products" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
             Our Products
           </Link>
 
-          {/* Services Direct Link */}
           <Link href="#services" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
             Our Services
           </Link>
 
-          {/* Bag Yield Calculator Link */}
           <Link href="#tools" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
             Bag Yield Calculator
           </Link>
 
-          {/* Gallery Link */}
           <Link href="#gallery" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
             Gallery
           </Link>
           
-          {/* Contact Us Link */}
           <Link href="#contact" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
             Contact Us
           </Link>
@@ -145,11 +139,12 @@ export default function Navbar() {
 
         </div>
 
-        {/* Mobile Hamburger Button */}
+        {/* Mobile Hamburger Button (Visible on mobile, hidden on medium screens and up) */}
         <button 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="mobile-menu-btn"
-          style={{ display: 'none', background: 'none', border: 'none', fontSize: '24px', color: '#1e3a8a', cursor: 'pointer' }}
+          className="md:hidden"
+          style={{ background: 'none', border: 'none', fontSize: '24px', color: '#1e3a8a', cursor: 'pointer' }}
+          aria-label="Toggle Navigation Menu"
         >
           {isMobileMenuOpen ? '✕' : '☰'}
         </button>
@@ -158,7 +153,7 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu Drawer */}
       {isMobileMenuOpen && (
-        <div style={{ backgroundColor: '#ffffff', borderTop: '1px solid #e5e7eb', padding: '20px', display: 'flex', flexDirection: 'column', gap: '15px', boxShadow: '0 10px 15px rgba(0,0,0,0.05)' }}>
+        <div className="md:hidden" style={{ backgroundColor: '#ffffff', borderTop: '1px solid #e5e7eb', padding: '20px', display: 'flex', flexDirection: 'column', gap: '15px', boxShadow: '0 10px 15px rgba(0,0,0,0.05)' }}>
           <Link href="#about" onClick={() => setIsMobileMenuOpen(false)} style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: '18px' }}>About</Link>
           <Link href="#products" onClick={() => setIsMobileMenuOpen(false)} style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: '18px' }}>Our Products</Link>
           <Link href="#services" onClick={() => setIsMobileMenuOpen(false)} style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: '18px' }}>Our Services</Link>
