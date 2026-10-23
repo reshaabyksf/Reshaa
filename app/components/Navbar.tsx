@@ -1,191 +1,131 @@
 'use client';
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function Navbar() {
-  const [isLangOpen, setIsLangOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [selectedLangName, setSelectedLangName] = useState('Language');
+  const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const sharedFontSize = '16px';
-
-  // Comprehensive language list with Google Translate codes
-  const languages = [
-    { code: 'en', name: 'English' },
-    { code: 'hi', name: 'हिंदी (Hindi)' },
-    { code: 'bn', name: 'বাংলা (Bengali)' },
-    { code: 'ta', name: 'தமிழ் (Tamil)' },
-    { code: 'te', name: 'తెలుగు (Telugu)' },
-    { code: 'mr', name: 'मराठी (Marathi)' },
-    { code: 'gu', name: 'ગુજરાતી (Gujarati)' },
-    { code: 'pa', name: 'ਪੰਜਾਬੀ (Punjabi)' },
-    { code: 'es', name: 'Español (Spanish)' },
-    { code: 'fr', name: 'Français (French)' },
-    { code: 'de', name: 'Deutsch (German)' },
-    { code: 'zh-CN', name: '中文 (Chinese)' },
-    { code: 'ar', name: 'العربية (Arabic)' },
-    { code: 'ja', name: '日本語 (Japanese)' }
-  ];
-
-  // Initialize Google Translate Script
+  // Automatically switch between laptop and mobile layout based on screen width
   useEffect(() => {
-    if (!document.getElementById('google-translate-script')) {
-      const script = document.createElement('script');
-      script.id = 'google-translate-script';
-      script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-      script.async = true;
-      document.body.appendChild(script);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+      if (window.innerWidth >= 768) {
+        setIsOpen(false); // Close mobile dropdown if resizing back to laptop
+      }
+    };
 
-      window.googleTranslateElementInit = () => {
-        new window.google.translate.TranslateElement(
-          { pageLanguage: 'en', autoDisplay: false },
-          'google_translate_element'
-        );
-      };
-    }
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Function to switch language globally via Google Translate DOM element
-  const handleLanguageSelect = (code: string, name: string) => {
-    setSelectedLangName(name);
-    setIsLangOpen(false);
-
-    const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
-    if (selectElement) {
-      selectElement.value = code;
-      selectElement.dispatchEvent(new Event('change'));
-    }
-  };
+  const navLinks = [
+    { name: 'About', href: '#about' },
+    { name: 'Products', href: '#products' },
+    { name: 'Services', href: '#services' },
+    { name: 'Calculator', href: '#tools' },
+    { name: 'Gallery', href: '#gallery' },
+    { name: 'Contact', href: '#contact' },
+  ];
 
   return (
-    <header style={{ width: '100%', backgroundColor: 'white', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', position: 'sticky', top: 0, zIndex: 1000 }}>
-      <nav style={{ maxWidth: '1200px', margin: '0 auto', padding: '15px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        
-        {/* Logo linked to Home Page */}
-        <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
-          <div style={{ position: 'relative', width: '90px', height: '45px' }}>
-            <Image src="/images/logo.png" alt="Reshaa Logo" fill style={{ objectFit: 'contain' }} />
-          </div>
+    <nav style={{
+      position: 'sticky',
+      top: 0,
+      zIndex: 1000,
+      backgroundColor: '#ffffff',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.06)',
+      borderBottom: '1px solid #e5e7eb'
+    }}>
+      <div style={{
+        maxWidth: '1280px',
+        margin: '0 auto',
+        padding: '16px 24px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+      }}>
+        {/* Brand Logo */}
+        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#1e3a8a', letterSpacing: '-0.5px' }}>
+            Reshaa
+          </span>
+          <span style={{ fontSize: '12px', backgroundColor: '#e0e7ff', color: '#3730a3', padding: '2px 8px', borderRadius: '4px', fontWeight: '600' }}>
+            Bags
+          </span>
         </Link>
 
-        {/* Hidden Google Translate Element required for translation engine backend */}
-        <div id="google_translate_element" style={{ display: 'none' }}></div>
+        {!isMobile ? (
+          /* ==================== LAPTOP / DESKTOP LINKS ==================== */
+          <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                style={{
+                  textDecoration: 'none',
+                  color: '#4b5563',
+                  fontSize: '15px',
+                  fontWeight: '500',
+                  transition: 'color 0.2s'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#1e3a8a'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#4b5563'}
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+        ) : (
+          /* ==================== MOBILE HAMBURGER BUTTON ==================== */
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle Menu"
+            style={{
+              background: 'none',
+              border: 'none',
+              fontSize: '24px',
+              color: '#1e3a8a',
+              cursor: 'pointer',
+              padding: '4px'
+            }}
+          >
+            {isOpen ? '✕' : '☰'}
+          </button>
+        )}
+      </div>
 
-        {/* Desktop Nav Links (Hidden on mobile, flex on medium screens and up) */}
-        <div className="hidden md:flex" style={{ gap: '20px', alignItems: 'center' }}>
-          
-          <Link href="#about" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
-            About
-          </Link>
-          
-          <Link href="#products" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
-            Our Products
-          </Link>
-
-          <Link href="#services" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
-            Our Services
-          </Link>
-
-          <Link href="#tools" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
-            Bag Yield Calculator
-          </Link>
-
-          <Link href="#gallery" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
-            Gallery
-          </Link>
-          
-          <Link href="#contact" style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: sharedFontSize }}>
-            Contact Us
-          </Link>
-
-          {/* Comprehensive Language Dropdown */}
-          <div style={{ position: 'relative' }}>
-            <button 
-              onClick={() => { setIsLangOpen(!isLangOpen); }}
-              style={{ color: '#1e3a8a', fontWeight: '600', border: 'none', background: 'none', cursor: 'pointer', fontSize: sharedFontSize, display: 'flex', alignItems: 'center', gap: '4px' }}
+      {/* ==================== MOBILE DROPDOWN MENU ==================== */}
+      {isMobile && isOpen && (
+        <div style={{
+          backgroundColor: '#ffffff',
+          borderTop: '1px solid #e5e7eb',
+          padding: '16px 24px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '16px',
+          boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)'
+        }}>
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              style={{
+                textDecoration: 'none',
+                color: '#1f2937',
+                fontSize: '16px',
+                fontWeight: '500',
+                padding: '8px 0',
+                borderBottom: '1px solid #f3f4f6'
+              }}
             >
-              🌐 {selectedLangName} {isLangOpen ? '▲' : '▼'}
-            </button>
-            {isLangOpen && (
-              <div style={{ 
-                position: 'absolute', 
-                top: '100%', 
-                right: 0, 
-                backgroundColor: '#ffffff', 
-                border: '1px solid #e5e7eb', 
-                borderRadius: '8px', 
-                padding: '6px 0', 
-                boxShadow: '0 10px 20px rgba(0,0,0,0.1)', 
-                width: '210px', 
-                maxHeight: '320px', 
-                overflowY: 'auto', 
-                zIndex: 100 
-              }}>
-                {languages.map(lang => (
-                  <div 
-                    key={lang.code} 
-                    onClick={() => handleLanguageSelect(lang.code, lang.name)}
-                    style={{ padding: '10px 15px', color: '#374151', cursor: 'pointer', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '8px', backgroundColor: '#ffffff', transition: 'background-color 0.2s' }}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f3f4f6'}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ffffff'}
-                  >
-                    <span style={{ fontSize: '12px', color: '#1e3a8a' }}>➔</span> {lang.name}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-        </div>
-
-        {/* Mobile Hamburger Button (Visible on mobile, hidden on medium screens and up) */}
-        <button 
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden"
-          style={{ background: 'none', border: 'none', fontSize: '24px', color: '#1e3a8a', cursor: 'pointer' }}
-          aria-label="Toggle Navigation Menu"
-        >
-          {isMobileMenuOpen ? '✕' : '☰'}
-        </button>
-
-      </nav>
-
-      {/* Mobile Dropdown Menu Drawer */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden" style={{ backgroundColor: '#ffffff', borderTop: '1px solid #e5e7eb', padding: '20px', display: 'flex', flexDirection: 'column', gap: '15px', boxShadow: '0 10px 15px rgba(0,0,0,0.05)' }}>
-          <Link href="#about" onClick={() => setIsMobileMenuOpen(false)} style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: '18px' }}>About</Link>
-          <Link href="#products" onClick={() => setIsMobileMenuOpen(false)} style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: '18px' }}>Our Products</Link>
-          <Link href="#services" onClick={() => setIsMobileMenuOpen(false)} style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: '18px' }}>Our Services</Link>
-          <Link href="#tools" onClick={() => setIsMobileMenuOpen(false)} style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: '18px' }}>Bag Yield Calculator</Link>
-          <Link href="#gallery" onClick={() => setIsMobileMenuOpen(false)} style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: '18px' }}>Gallery</Link>
-          <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)} style={{ color: '#1e3a8a', fontWeight: '600', textDecoration: 'none', fontSize: '18px' }}>Contact Us</Link>
-          
-          {/* Mobile Language Selector Sub-section */}
-          <div style={{ borderTop: '1px solid #e5e7eb', paddingTop: '10px', marginTop: '5px' }}>
-            <p style={{ fontSize: '14px', fontWeight: 'bold', color: '#6b7280', marginBottom: '8px' }}>Select Language:</p>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
-              {languages.map(lang => (
-                <button
-                  key={lang.code}
-                  onClick={() => { handleLanguageSelect(lang.code, lang.name); setIsMobileMenuOpen(false); }}
-                  style={{ textAlign: 'left', padding: '8px 10px', backgroundColor: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '6px', fontSize: '13px', color: '#374151', cursor: 'pointer' }}
-                >
-                  {lang.name}
-                </button>
-              ))}
-            </div>
-          </div>
+              {link.name}
+            </a>
+          ))}
         </div>
       )}
-    </header>
+    </nav>
   );
-}
-
-// Add TypeScript declarations for Google Translate global hooks
-declare global {
-  interface Window {
-    googleTranslateElementInit: () => void;
-    google: any;
-  }
 }
