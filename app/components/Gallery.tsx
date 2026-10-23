@@ -49,17 +49,26 @@ export default function Gallery() {
 
       <style>{`
         @keyframes scrollGallery {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          0% { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(-50%, 0, 0); }
         }
         .marquee-track {
           display: flex;
           gap: 24px;
           width: max-content;
-          animation: scrollGallery 60s linear infinite;
+          animation: scrollGallery 60s linear infinite; /* Restored to your original 60s for laptops */
+          will-change: transform;
         }
         .marquee-track:hover {
           animation-play-state: paused;
+        }
+        
+        /* Independent smooth speed adjustment for mobile screens only */
+        @media (max-width: 768px) {
+          .marquee-track {
+            animation-duration: 75s; 
+            gap: 16px;
+          }
         }
       `}</style>
 
@@ -69,9 +78,9 @@ export default function Gallery() {
             <div 
               key={index}
               style={{ 
-                minWidth: '300px',
-                maxWidth: '300px',
-                height: '350px',
+                minWidth: '260px',
+                maxWidth: '260px',
+                height: '320px',
                 overflow: 'hidden', 
                 borderRadius: '12px', 
                 boxShadow: '0 4px 12px rgba(0,0,0,0.08)', 
@@ -83,6 +92,8 @@ export default function Gallery() {
               <img 
                 src={src} 
                 alt="Reshaa Gallery" 
+                loading="lazy"
+                decoding="async"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
               />
             </div>
