@@ -6,16 +6,15 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Automatically switch between laptop and mobile layout based on screen width
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
       if (window.innerWidth >= 768) {
-        setIsOpen(false); // Close mobile dropdown if resizing back to laptop
+        setIsOpen(false);
       }
     };
 
-    handleResize(); // Initial check
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -46,18 +45,35 @@ export default function Navbar() {
         alignItems: 'center',
         justifyContent: 'space-between'
       }}>
-        {/* Brand Logo */}
+        {/* Logo / Brand */}
         <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#1e3a8a', letterSpacing: '-0.5px' }}>
-            Reshaa
-          </span>
-          <span style={{ fontSize: '12px', backgroundColor: '#e0e7ff', color: '#3730a3', padding: '2px 8px', borderRadius: '4px', fontWeight: '600' }}>
-            Bags
-          </span>
+          <div style={{
+            backgroundColor: '#1e3a8a',
+            color: '#ffffff',
+            fontWeight: 'bold',
+            fontSize: '18px',
+            width: '38px',
+            height: '38px',
+            borderRadius: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 2px 6px rgba(30,58,138,0.2)'
+          }}>
+            R
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span style={{ fontSize: '20px', fontWeight: 'bold', color: '#1e3a8a', lineHeight: '1.2' }}>
+              Reshaa
+            </span>
+            <span style={{ fontSize: '11px', color: '#6b7280', fontWeight: '500', letterSpacing: '0.5px' }}>
+              NON-WOVEN BAGS
+            </span>
+          </div>
         </Link>
 
+        {/* Desktop Links */}
         {!isMobile ? (
-          /* ==================== LAPTOP / DESKTOP LINKS ==================== */
           <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
             {navLinks.map((link) => (
               <a
@@ -65,20 +81,20 @@ export default function Navbar() {
                 href={link.href}
                 style={{
                   textDecoration: 'none',
-                  color: '#4b5563',
+                  color: '#374151',
                   fontSize: '15px',
                   fontWeight: '500',
                   transition: 'color 0.2s'
                 }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#1e3a8a'}
-                onMouseLeave={(e) => e.currentTarget.style.color = '#4b5563'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#374151'}
               >
                 {link.name}
               </a>
             ))}
           </div>
         ) : (
-          /* ==================== MOBILE HAMBURGER BUTTON ==================== */
+          /* Mobile Hamburger Button */
           <button
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
@@ -96,7 +112,7 @@ export default function Navbar() {
         )}
       </div>
 
-      {/* ==================== MOBILE DROPDOWN MENU ==================== */}
+      {/* Mobile Dropdown Menu */}
       {isMobile && isOpen && (
         <div style={{
           backgroundColor: '#ffffff',
