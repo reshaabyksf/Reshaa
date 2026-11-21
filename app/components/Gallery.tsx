@@ -48,6 +48,16 @@ export default function Gallery() {
     '/Gallery/bag29.jpg',
     '/Gallery/bag30.jpg',
     '/Gallery/bag31.jpg',
+    '/Gallery/bag32.jpg',
+    '/Gallery/bag33.jpg',
+    '/Gallery/bag34.jpg',
+    '/Gallery/bag35.jpg',
+    '/Gallery/bag36.jpg',
+    '/Gallery/bag37.jpg',
+    '/Gallery/bag38.jpg',
+    '/Gallery/bag39.jpg',
+    '/Gallery/bag40.jpg',
+    '/Gallery/bag41.jpg',
   ];
 
   const duplicatedGallery = [...galleryImages, ...galleryImages];
